@@ -6,12 +6,24 @@ Convert data to their natural (natural-readable) format.
 Example Usage
 =============
 
+Basic usage:
+
 ```python
 
     >>> import datetime
-    >>> from natural.date import ago
-    >>> print ago(datetime.datetime.now())
+    >>> from natural.date import timedelta
+    >>> print timedelta(datetime.datetime.now())
     'just now'
+```
+
+We speak your language (with [[translate]](your support)):
+
+```python
+
+    >>> import locale
+    >>> locale.setlocale(locale.LC_MESSAGES, 'nl_NL')
+    >>> print timedelta(datetime.datetime.now())
+    'zojuist'
 ```
 
 Bugs/Features
