@@ -26,7 +26,7 @@ can leave it blank for somebody else to translate.
 If you are done editing and verified you are satisfied with the results, you
 may now generate the message catalog:
 
-.. highlight:: bash
+.. code-block:: bash
 
    natural$ make ru_RU.mo
    Compiling natural/locale/ru_RU/LC_MESSAGES/natural.mo
@@ -39,7 +39,7 @@ may now generate the message catalog:
 
 Finally, push your changes to `GitHub_`:
 
-.. highlight:: bash
+.. code-block:: bash
 
    natural$ git push origin master
    Counting objects: 2, done.
@@ -53,7 +53,7 @@ Finally, push your changes to `GitHub_`:
 Now you are ready to open a `pull request`_ on GitHub. If you do not wish to
 get a `GitHub`_ account, you can also pull the changes and send the diff:
 
-.. highlight:: bash
+.. code-block:: bash
 
    ~$ git clone https://github.com/tehmaze/natural.git
    ~$ cd natural
@@ -73,7 +73,7 @@ Updating a language
 Get a copy of the repository as described in the previous topic. After that,
 generate a fresh copy of the translation pot:
 
-.. highlight:: bash
+.. code-block:: bash
 
    natural$ make translate-extract
    Extracting gettext to locale/natural.pot
