@@ -4,6 +4,16 @@ locales
 Natural uses locales for translating most textual output using gettext_. We
 need your help translating the project!
 
+Requirements
+------------
+
+You need gettext_, specifically the ``msginit``, ``msgmerge``, ``msgfmt`` and
+``xgettext`` binaries.
+
+:Debian: ``sudo apt-get install gettext``
+:RedHat: ``sudo yum install gettext``
+:Arch Linux: ``sudo pacman -S gettext``
+
 Adding a new language
 ---------------------
 
@@ -11,7 +21,7 @@ If your favourite language is not yet supported, you can help out by
 translation natural into your language! The most convenient way is to get a
 `GitHub`_ account and fork `the project`_, but patches are also welcome.
 
-If you want to help out using `GitHub`_, fork the project. Let's assume your
+If you want to help out using GitHub, `fork the project`_. Let's assume your
 `GitHub`_ username is ``acme`` and the language you want to add it ``ru_RU``::
 
     ~$ git clone git@github.com:acme/natural.git
@@ -30,17 +40,17 @@ may now generate the message catalog:
 
    natural$ make ru_RU.mo
    Compiling natural/locale/ru_RU/LC_MESSAGES/natural.mo
+
+Finally, push your changes to `GitHub`_:
+
+.. code-block:: bash
+
    natural$ git add .
    natural$ git commit -a -m 'Added Russian translations'
    [master (commit) beefbad] Added Russian translations
     0 files changed
     create mode 100644 locale/ru_RU.po
     create mode 100644 natural/locale/ru_RU/LC_MESSAGES/natural.mo
-
-Finally, push your changes to `GitHub_`:
-
-.. code-block:: bash
-
    natural$ git push origin master
    Counting objects: 2, done.
    Delta compression using up to 2 threads.
@@ -87,5 +97,6 @@ Follow the steps above to publish your changes.
 
 .. _GitHub: https://github.com/
 .. _gettext: http://www.gnu.org/software/gettext/
+.. _fork the project: https://help.github.com/articles/fork-a-repo
 .. _the project: https://github.com/tehmaze/natural
 .. _pull request: https://help.github.com/articles/using-pull-requests
