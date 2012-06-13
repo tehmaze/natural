@@ -16,7 +16,7 @@ Basic usage:
     'just now'
 ```
 
-We speak your language (with [[translate]](your support)):
+We speak your language (with [your support](translate)):
 
 ```python
 
