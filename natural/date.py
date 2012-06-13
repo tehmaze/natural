@@ -21,6 +21,11 @@ ISO8601_DATE_FORMAT     = '%Y-%m-%d'
 
 
 def _to_datetime(t):
+    '''
+    Internal function that tries whatever to convert ``t`` into a
+    ``datetime.datetime`` object.
+    '''
+
     if isinstance(t, float) or \
         isinstance(t, int) or \
         isinstance(t, long):
@@ -50,6 +55,11 @@ def _to_datetime(t):
 
 
 def _to_date(t):
+    '''
+    Internal function that tries whatever to convert ``t`` into a
+    ``datetime.date`` object.
+    '''
+
     if isinstance(t, float) or \
         isinstance(t, int) or \
         isinstance(t, long):
@@ -80,8 +90,9 @@ def _to_date(t):
 
 def delta(t1, t2):
     '''
-    Show how long a given time value was. You can override the current
-    time to compare to by supplying the ``now`` parameter.
+    Calculates the estimated delta between two time objects in human-readable
+    format. Used internally by the :func:``datedelta`` and :func:``timedelta``
+    functions.
     '''
 
     t1 = _to_datetime(t1)
@@ -144,23 +155,17 @@ def delta(t1, t2):
             years) % (years,)
 
 
-def timedelta(t, now=None):
-    t1 = _to_datetime(t)
-    t2 = _to_datetime(now or datetime.datetime.now())
-
-    if t1 < t2:
-        format = _(u'%s ago')
-    else:
-        format = _(u'%s from now')
-
-    result = delta(max(t1, t2), min(t1, t2))
-    if result == _(u'just now'):
-        return result
-    else:
-        return format % (result,)
-
-
 def datedelta(t, now=None, format='%B %d'):
+    '''
+    Date delta compared to ``t``. You can override ``now`` to specify what date
+    to compare to.
+
+    You can override the date format by supplying a ``format`` parameter.
+
+    :param t: timestamp, ``datetime.date`` or ``datetime.datetime`` object
+    :param now: default ``None``, optionally ``datetime.datetime`` object
+    :oaram format: default ``'%B %d'``
+    '''
     t1 = _to_date(t)
     t2 = _to_date(now or datetime.datetime.now())
     diff = max(t1, t2) - min(t1, t2)
@@ -181,12 +186,46 @@ def datedelta(t, now=None, format='%B %d'):
         return t1.strftime(format)
 
 
+def timedelta(t, now=None):
+    '''
+    Time delta compared to ``t``. You can override ``now`` to specify what time
+    to compare to.
+
+    :param t: timestamp, ``datetime.date`` or ``datetime.datetime`` object
+    :param now: default ``None``, optionally ``datetime.datetime`` object
+    '''
+
+    t1 = _to_datetime(t)
+    t2 = _to_datetime(now or datetime.datetime.now())
+
+    if t1 < t2:
+        format = _(u'%s ago')
+    else:
+        format = _(u'%s from now')
+
+    result = delta(max(t1, t2), min(t1, t2))
+    if result == _(u'just now'):
+        return result
+    else:
+        return format % (result,)
+
+
 def compress(t, sign=False, pad=u''):
     '''
     Convert the input to compressed format, works with a ``datetime.timedelta``
     object or a number that represents the number of seconds you want to
     compress.  If you supply a timestamp or a ``datetime.datetime`` object, it
     will give the delta relative to the current time.
+    
+    You can enable showing a sign in front of the compressed format with the
+    ``sign`` parameter, the default is not to show signs.
+
+    Optionally, you can chose to pad the output. If you wish your values to be
+    separated by spaces, set ``pad`` to ``' '``.
+
+    :param t: seconds or ``datetime.timedelta`` object\
+    :param sign: default ``False``
+    :param pad: default ``u''``
     '''
 
     if isinstance(t, datetime.timedelta):
