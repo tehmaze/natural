@@ -15,6 +15,8 @@ Features:
 
  * Natural is fully internationalised and speaks `your language`_
 
+ * Natural uses unicode strings where possible
+
  * Natural is PEP8_ compliant
 
  * Natural has an extensive `test suite`_
@@ -43,7 +45,7 @@ We speak `your language`_ too!
     >>> locale.setlocale(locale.LC_ALL, 'de_DE')
     >>> from natural import date
     >>> date.timedelta(1337000000)
-    'vor 4 Wochen'
+    u'vor 4 Wochen'
 
 
 Contents:
