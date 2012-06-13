@@ -6,8 +6,11 @@ locale.setlocale(locale.LC_ALL, '')
 LOCALE_PATH = os.path.join(os.path.dirname(__file__), 'locale')
 gettext.bindtextdomain('natural', LOCALE_PATH)
 gettext.textdomain('natural')
-TRANSLATION = gettext.translation('natural', LOCALE_PATH)
-_ = TRANSLATION.ugettext
+try:
+    TRANSLATION = gettext.translation('natural', LOCALE_PATH)
+    _ = TRANSLATION.ugettext
+except IOError:
+    _ = gettext.ugettext
 
 CONVENTION = locale.localeconv()
 ORDINAL_SUFFIX = (
