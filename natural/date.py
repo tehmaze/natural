@@ -164,7 +164,7 @@ def datedelta(t, now=None, format='%B %d'):
 
     :param t: timestamp, ``datetime.date`` or ``datetime.datetime`` object
     :param now: default ``None``, optionally ``datetime.datetime`` object
-    :oaram format: default ``'%B %d'``
+    :param format: default ``'%B %d'``
     '''
     t1 = _to_date(t)
     t2 = _to_date(now or datetime.datetime.now())
