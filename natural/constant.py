@@ -10,7 +10,7 @@ try:
     TRANSLATION = gettext.translation('natural', LOCALE_PATH)
     _ = TRANSLATION.ugettext
 except IOError:
-    _ = gettext.ugettext
+    _ = gettext.NullTranslations().ugettext
 
 CONVENTION = locale.localeconv()
 ORDINAL_SUFFIX = (
