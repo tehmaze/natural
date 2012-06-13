@@ -4,6 +4,19 @@ from natural import date
 
 
 class TestDate(object):
+    def test_compress(self):
+        for test, expect in (
+            (1,             u'1s'),
+            (12,            u'12s'),
+            (123,           u'2m3s'),
+            (1234,          u'20m34s'),
+            (12345,         u'3h25m45s'),
+            (123456,        u'1d10h17m36s'),
+            ):
+
+            result = date.compress(test)
+            assert result == expect, '%r <> %r' % (result, expect)
+
     def test_day(self):
         now = time.time()
         for test, expect in (
