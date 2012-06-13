@@ -158,7 +158,7 @@ def delta(t1, t2):
             years) % (years,)
 
 
-def duration(t, now=None, format='%B %d'):
+def day(t, now=None, format='%B %d'):
     '''
     Date delta compared to ``t``. You can override ``now`` to specify what date
     to compare to.
@@ -189,7 +189,7 @@ def duration(t, now=None, format='%B %d'):
         return t1.strftime(format)
 
 
-def day(t, now=None):
+def duration(t, now=None):
     '''
     Time delta compared to ``t``. You can override ``now`` to specify what time
     to compare to.
@@ -219,7 +219,7 @@ def compress(t, sign=False, pad=u''):
     object or a number that represents the number of seconds you want to
     compress.  If you supply a timestamp or a ``datetime.datetime`` object, it
     will give the delta relative to the current time.
-    
+
     You can enable showing a sign in front of the compressed format with the
     ``sign`` parameter, the default is not to show signs.
 
