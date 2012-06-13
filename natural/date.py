@@ -91,8 +91,11 @@ def _to_date(t):
 def delta(t1, t2):
     '''
     Calculates the estimated delta between two time objects in human-readable
-    format. Used internally by the :func:``datedelta`` and :func:``timedelta``
-    functions.
+    format. Used internally by the :py:func:``datedelta`` and
+    :py:func:``timedelta`` functions.
+
+    :param t1: timestamp, ``datetime.date`` or ``datetime.datetime`` object
+    :param t2: timestamp, ``datetime.date`` or ``datetime.datetime`` object
     '''
 
     t1 = _to_datetime(t1)
