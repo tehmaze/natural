@@ -1,6 +1,5 @@
 *~
 *.swp
-*.pot
 *.pyc
 *.pyo
 build/
