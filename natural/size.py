@@ -10,22 +10,13 @@ FILESIZE_BASE = dict(
 
 def filesize(value, format='decimal'):
     '''
-    Convert a file size into natural readable format.
+    Convert a file size into natural readable format. Multiple formats are
+    supported.
 
-
-    >>> filesize(0)
-    u'0 B'
-    >>> filesize(1)
-    u'1 B'
-    >>> filesize(1024)
-    u'1 kB'
-    >>> filesize(12345678)
-    u'11.7738 MB'
-    >>> filesize(12345678, 'binary')
-    u'12.3457 MiB'
-    >>> filesize(-12345678, 'gnu')
-    u'-11.7738M'
+    :param value: size
+    :param format: default ``decimal``, choices ``binary``, ``decimal`` or ``gnu``
     '''
+
     if not format in FILESIZE_SUFFIX:
         raise TypeError
 

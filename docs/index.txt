@@ -48,7 +48,8 @@ We speak `your language`_ too!
     u'vor 4 Wochen'
 
 
-Contents:
+Contents
+========
 
 .. toctree::
    :maxdepth: 2

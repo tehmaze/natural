@@ -7,14 +7,7 @@ def ordinal(value):
     '''
     Converts a number to its ordinal representation.
 
-    >>> ordinal(1)
-    u'1st'
-    >>> ordinal(11)
-    u'11th'
-    >>> ordinal(113)
-    u'113th'
-    >>> ordinal(101)
-    u'101st'
+    :param value: number
     '''
 
     try:
@@ -28,36 +21,21 @@ def ordinal(value):
         return u'%d%s' % (value, ORDINAL_SUFFIX[value % 10])
 
 
-def double(value, precision=2):
+def double(value):
     '''
     Converts a number to a formatted double based on the current locale.
 
-    >>> double(23.42)
-    u'23.42'
-    >>> double(1234.56)
-    u'1,234.56'
-
-    For nl_NL locale:
-
-    >>> double(23.42) # doctest:+SKIP
-    u'23,42'
+    :param value: number
     '''
 
     return unicode(locale.format('%g', float(value), True))
 
 
-def number(value, group=0):
+def number(value):
     '''
     Converts a number to a formatted number based on the current locale.
 
-    >>> number(1)
-    u'1'
-    >>> number(1234)
-    u'1,234'
-    >>> number('1234567')
-    u'1,234,567'
-    >>> number('1234567890')
-    u'1,234,567,890'
+    :param value: number
     '''
 
     return unicode(locale.format('%d', long(value), True))
@@ -68,18 +46,7 @@ def word(value):
     Converts a large number to a formatted number containing the textual suffix
     for that number.
 
-    >>> word(1)
-    u'1'
-    >>> word(1000)
-    u'1 thousand'
-    >>> word(1000000)
-    u'1 million'
-    >>> word(1200000000)
-    u'1.2 billion'
-    >>> word(-1200000000)
-    u'-1.2 billion'
-    >>> word(42230000000000000000000)
-    u'42.23 sextillion'
+    :param value: number
     '''
 
     prefix = value < 0 and u'-' or u''
@@ -103,13 +70,3 @@ def word(value):
             ])
 
     raise OverflowError
-
-if __name__ == "__main__":
-    import locale
-    lang, encoding = locale.getlocale(locale.LC_ALL)
-    if lang != 'en_US':
-        print 'Doctest only works for en_US'
-    else:
-        print 'Running doctests for locale', lang
-        import doctest
-        doctest.testmod()
