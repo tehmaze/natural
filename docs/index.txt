@@ -21,7 +21,7 @@ Features:
 
  * Natural has an extensive `test suite`_
 
-.. _your language: https://github.com/tehmaze/natural/wiki/translate
+.. _your language: locales
 .. _PEP8: http://www.python.org/dev/peps/pep-0008/
 .. _test suite: http://nose.readthedocs.org/en/latest/
 
@@ -54,6 +54,7 @@ Contents
 .. toctree::
    :maxdepth: 2
 
+   locales
    natural/constant
    natural/data
    natural/date
