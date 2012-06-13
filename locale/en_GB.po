@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: natural\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-06-13 14:57+0200\n"
+"POT-Creation-Date: 2012-06-13 15:49+0200\n"
 "PO-Revision-Date: 2012-06-13 14:57+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -199,92 +199,118 @@ msgstr "novemtrigintillion"
 msgid "quadragintillion"
 msgstr "quadragintillion"
 
-#: natural/date.py:36
-msgid "in the future"
-msgstr "in the future"
-
-#: natural/date.py:40
+#: natural/date.py:93 natural/date.py:152
 msgid "just now"
 msgstr "just now"
 
-#: natural/date.py:43
-#, python-format
-msgid "%d second ago"
+#: natural/date.py:96
+#, fuzzy, python-format
+msgid "%d second"
 msgstr "%d second ago"
 
-#: natural/date.py:44
-#, python-format
-msgid "%d seconds ago"
+#: natural/date.py:97
+#, fuzzy, python-format
+msgid "%d seconds"
 msgstr "%d seconds ago"
 
-#: natural/date.py:47
-msgid "a minute ago"
+#: natural/date.py:100
+#, fuzzy
+msgid "a minute"
 msgstr "a minute ago"
 
-#: natural/date.py:51
-#, python-format
-msgid "%d minute ago"
+#: natural/date.py:104
+#, fuzzy, python-format
+msgid "%d minute"
 msgstr "%d minute ago"
 
-#: natural/date.py:52
-#, python-format
-msgid "%d minutes ago"
+#: natural/date.py:105
+#, fuzzy, python-format
+msgid "%d minutes"
 msgstr "%d minutes ago"
 
-#: natural/date.py:55
-msgid "an hour ago"
+#: natural/date.py:108
+#, fuzzy
+msgid "an hour"
 msgstr "an hour ago"
 
-#: natural/date.py:59
-#, python-format
-msgid "%d hour ago"
+#: natural/date.py:112
+#, fuzzy, python-format
+msgid "%d hour"
 msgstr "%d hour ago"
 
-#: natural/date.py:60
-#, python-format
-msgid "%d hours ago"
+#: natural/date.py:113
+#, fuzzy, python-format
+msgid "%d hours"
 msgstr "%d hours ago"
 
-#: natural/date.py:64
+#: natural/date.py:117 natural/date.py:166
 msgid "yesterday"
 msgstr "yesterday"
 
-#: natural/date.py:68
-#, python-format
-msgid "%d day ago"
+#: natural/date.py:121
+#, fuzzy, python-format
+msgid "%d day"
 msgstr "%d day ago"
 
-#: natural/date.py:69
-#, python-format
-msgid "%d days ago"
+#: natural/date.py:122
+#, fuzzy, python-format
+msgid "%d days"
 msgstr "%d days ago"
 
-#: natural/date.py:75
-#, python-format
-msgid "%d week ago"
+#: natural/date.py:128
+#, fuzzy, python-format
+msgid "%d week"
 msgstr "%d week ago"
 
-#: natural/date.py:76
-#, python-format
-msgid "%d weeks ago"
+#: natural/date.py:129
+#, fuzzy, python-format
+msgid "%d weeks"
 msgstr "%d weeks ago"
 
-#: natural/date.py:82
-#, python-format
-msgid "%d month ago"
+#: natural/date.py:135
+#, fuzzy, python-format
+msgid "%d month"
 msgstr "%d month ago"
 
-#: natural/date.py:83
-#, python-format
-msgid "%d months ago"
+#: natural/date.py:136
+#, fuzzy, python-format
+msgid "%d months"
 msgstr "%d months ago"
 
-#: natural/date.py:89
-#, python-format
-msgid "%d year ago"
+#: natural/date.py:142
+#, fuzzy, python-format
+msgid "%d year"
 msgstr "%d year ago"
 
-#: natural/date.py:90
-#, python-format
-msgid "%d years ago"
+#: natural/date.py:143
+#, fuzzy, python-format
+msgid "%d years"
 msgstr "%d years ago"
+
+#: natural/date.py:150
+msgid "ago"
+msgstr ""
+
+#: natural/date.py:150
+msgid "from now"
+msgstr ""
+
+#: natural/date.py:164
+msgid "today"
+msgstr ""
+
+#: natural/date.py:166
+msgid "tomorrow"
+msgstr ""
+
+#: natural/date.py:168
+#, fuzzy
+msgid "a week ago"
+msgstr "%d week ago"
+
+#: natural/date.py:168
+msgid "next week"
+msgstr ""
+
+#~ msgid "in the future"
+#~ msgstr "in the future"

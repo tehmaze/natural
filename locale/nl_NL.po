@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: natural\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-06-13 14:57+0200\n"
+"POT-Creation-Date: 2012-06-13 15:56+0200\n"
 "PO-Revision-Date: 2012-06-13 14:57+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -22,47 +22,47 @@ msgstr ""
 #: natural/constant.py:20 natural/constant.py:21 natural/constant.py:22
 #: natural/constant.py:23
 msgid "th"
-msgstr ""
+msgstr "de"
 
 #: natural/constant.py:15
 msgid "st"
-msgstr ""
+msgstr "ste"
 
 #: natural/constant.py:16
 msgid "nd"
-msgstr ""
+msgstr "de"
 
 #: natural/constant.py:17
 msgid "rd"
-msgstr ""
+msgstr "de"
 
 #: natural/constant.py:26
 msgid "thousand"
-msgstr ""
+msgstr "duizend"
 
 #: natural/constant.py:27
 msgid "million"
-msgstr ""
+msgstr "miljoen"
 
 #: natural/constant.py:28
 msgid "billion"
-msgstr ""
+msgstr "miljard"
 
 #: natural/constant.py:29
 msgid "trillion"
-msgstr ""
+msgstr "biljoen"
 
 #: natural/constant.py:30
 msgid "quadrillion"
-msgstr ""
+msgstr "biljard"
 
 #: natural/constant.py:31
 msgid "quintillion"
-msgstr ""
+msgstr "triljoen"
 
 #: natural/constant.py:32
 msgid "sextillion"
-msgstr ""
+msgstr "triljard"
 
 #: natural/constant.py:33
 msgid "septillion"
@@ -200,92 +200,112 @@ msgstr ""
 msgid "quadragintillion"
 msgstr ""
 
-#: natural/date.py:36
-msgid "in the future"
-msgstr ""
-
-#: natural/date.py:40
+#: natural/date.py:93 natural/date.py:157
 msgid "just now"
 msgstr "zojuist"
 
-#: natural/date.py:43
+#: natural/date.py:96
 #, python-format
-msgid "%d second ago"
-msgstr "%d seconde geleden"
+msgid "%d second"
+msgstr "%d seconde"
 
-#: natural/date.py:44
+#: natural/date.py:97
 #, python-format
-msgid "%d seconds ago"
-msgstr "%d seconden geleden"
+msgid "%d seconds"
+msgstr "%d seconden"
 
-#: natural/date.py:47
-msgid "a minute ago"
-msgstr "een minuut geleden"
+#: natural/date.py:100
+msgid "a minute"
+msgstr "een minuut"
 
-#: natural/date.py:51
+#: natural/date.py:104
 #, python-format
-msgid "%d minute ago"
-msgstr "%d minuut geleden"
+msgid "%d minute"
+msgstr "%d minuut"
 
-#: natural/date.py:52
+#: natural/date.py:105
 #, python-format
-msgid "%d minutes ago"
-msgstr "%d minuten geleden"
+msgid "%d minutes"
+msgstr "%d minuten"
 
-#: natural/date.py:55
-msgid "an hour ago"
-msgstr "een uur geleden"
+#: natural/date.py:108
+msgid "an hour"
+msgstr "een uur"
 
-#: natural/date.py:59
+#: natural/date.py:112
 #, python-format
-msgid "%d hour ago"
-msgstr "%d uur geleden"
+msgid "%d hour"
+msgstr "%d uur"
 
-#: natural/date.py:60
+#: natural/date.py:113
 #, python-format
-msgid "%d hours ago"
-msgstr "%d uur geleden"
+msgid "%d hours"
+msgstr "%d uur"
 
-#: natural/date.py:64
+#: natural/date.py:117 natural/date.py:172
 msgid "yesterday"
 msgstr "gisteren"
 
-#: natural/date.py:68
+#: natural/date.py:121
 #, python-format
-msgid "%d day ago"
-msgstr "%d dag geleden"
+msgid "%d day"
+msgstr "%d dag"
 
-#: natural/date.py:69
+#: natural/date.py:122
 #, python-format
-msgid "%d days ago"
-msgstr "%d dagen geleden"
+msgid "%d days"
+msgstr "%d dagen"
 
-#: natural/date.py:75
+#: natural/date.py:128
 #, python-format
-msgid "%d week ago"
-msgstr "%d week geleden"
+msgid "%d week"
+msgstr "%d week"
 
-#: natural/date.py:76
+#: natural/date.py:129
 #, python-format
-msgid "%d weeks ago"
-msgstr "%d weken geleden"
+msgid "%d weeks"
+msgstr "%d weken"
 
-#: natural/date.py:82
+#: natural/date.py:135
 #, python-format
-msgid "%d month ago"
-msgstr "%d maand geleden"
+msgid "%d month"
+msgstr "%d maand"
 
-#: natural/date.py:83
+#: natural/date.py:136
 #, python-format
-msgid "%d months ago"
-msgstr "%d maanden geleden"
+msgid "%d months"
+msgstr "%d maanden"
 
-#: natural/date.py:89
+#: natural/date.py:142
 #, python-format
-msgid "%d year ago"
-msgstr "%d jaar geleden"
+msgid "%d year"
+msgstr "%d jaar"
 
-#: natural/date.py:90
+#: natural/date.py:143
 #, python-format
-msgid "%d years ago"
-msgstr "%d jaar geleden"
+msgid "%d years"
+msgstr "%d jaar"
+
+#: natural/date.py:152
+msgid "ago"
+msgstr "geleden"
+
+#: natural/date.py:154
+msgid "from now"
+msgstr "van nu"
+
+#: natural/date.py:169
+msgid "today"
+msgstr "vandaag"
+
+#: natural/date.py:174
+msgid "tomorrow"
+msgstr "morgen"
+
+#: natural/date.py:177
+msgid "last week"
+msgstr "vorige week"
+
+#: natural/date.py:179
+msgid "next week"
+msgstr "volgende week"

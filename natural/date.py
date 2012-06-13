@@ -147,7 +147,12 @@ def delta(t1, t2):
 def timedelta(t, now=None):
     t1 = _to_datetime(t)
     t2 = _to_datetime(now or datetime.datetime.now())
-    suffix = _('ago') if t1 < t2 else _('from now')
+
+    if t1 < t2:
+        suffix = _('ago')
+    else:
+        suffix = _('from now')
+    
     result = delta(max(t1, t2), min(t1, t2))
     if result == _('just now'):
         return result
@@ -163,8 +168,14 @@ def datedelta(t, now=None, format='%B %d'):
     if diff.days == 0:
         return _('today')
     elif diff.days == 1:
-        return _('yesterday') if t1 < t2 else _('tomorrow')
+        if t1 < t2:
+            return _('yesterday')
+        else:
+            return _('tomorrow')
     elif diff.days == 7:
-        return _('a week ago') if t1 < t2 else _('next week')
+        if t1 < t2:
+            return _('last week')
+        else:
+            return _('next week')
     else:
         return t1.strftime(format)
