@@ -2,90 +2,169 @@ from natural.constant import _, _multi
 import datetime
 
 
-def ago(value, now=None):
-    '''
-    Show how long ago a given time value was. You can override the current
-    time to compare to by supplying the ``now`` parameter.
+# Wed, 02 Oct 2002 08:00:00 EST
+# Wed, 02 Oct 2002 13:00:00 GMT
+# Wed, 02 Oct 2002 15:00:00 +0200
+RFC2822_DATETIME_FORMAT = '%a, %d %b %Y %T %z'
+# Wed, 02 Oct 02 08:00:00 EST
+# Wed, 02 Oct 02 13:00:00 GMT
+# Wed, 02 Oct 02 15:00:00 +0200
+RFC822_DATETIME_FORMAT  = '%a, %d %b %y %T %z'
+# 2012-06-13T15:24:17
+ISO8601_DATETIME_FORMAT = '%Y-%m-%dT%H:%M:%S'
+# Wed, 02 Oct 2002
+RFC2822_DATE_FORMAT     = '%a, %d %b %Y'
+# Wed, 02 Oct 02
+RFC2822_DATE_FORMAT     = '%a, %d %b %y'
+# 2012-06-13
+ISO8601_DATE_FORMAT     = '%Y-%m-%d'
 
-    >>> now = 123456789
-    >>> ago(now + 10, now)
-    'just now'
-    '''
 
-    now = now or datetime.datetime.now()
-    if isinstance(now, float) or \
-        isinstance(now, int) or \
-        isinstance(now, long):
-        now = datetime.datetime.fromtimestamp(float(now))
+def _to_datetime(t):
+    if isinstance(t, float) or \
+        isinstance(t, int) or \
+        isinstance(t, long):
+        return datetime.datetime.fromtimestamp(float(t))
 
-    if isinstance(value, float) or \
-        isinstance(value, int) or \
-        isinstance(value, long):
-        delta = now - datetime.datetime.fromtimestamp(long(value))
-    elif isinstance(value, basestring):
-        # TODO Maybe also accept RFC822 time stamps?
-        delta = now - datetime.datetime.fromtimestamp(long(value))
-    elif isinstance(value, datetime.datetime):
-        delta = now - value
-    elif isinstance(value, datetime.date):
-        delta = now - value
+    elif isinstance(t, basestring):
+        for format in (
+            RFC2822_DATETIME_FORMAT,
+            RFC822_DATETIME_FORMAT,
+            ISO8601_DATETIME_FORMAT,
+            ):
+            try:
+                return datetime.datetime.strptime(t, format)
+            except ValueError:
+                pass
+
+        raise ValueError('Format not supported')
+
+    elif isinstance(t, datetime.datetime):
+        return t
+
+    elif isinstance(t, datetime.date):
+        return datetime.datetime.combine(t, datetime.time(0, 0))
+
     else:
-        raise ValueError('Not a valid time format')
+        raise TypeError
 
-    if delta.days < 0:
-        return _('in the future')
 
-    elif delta.days == 0:
-        if delta.seconds < 10:
+def _to_date(t):
+    if isinstance(t, float) or \
+        isinstance(t, int) or \
+        isinstance(t, long):
+        return datetime.date.fromtimestamp(float(t))
+
+    elif isinstance(t, basestring):
+        for format in (
+            RFC2822_DATE_FORMAT,
+            RFC822_DATE_FORMAT,
+            ISO8601_DATE_FORMAT,
+            ):
+            try:
+                return datetime.datetime.strptime(t, format).date()
+            except ValueError:
+                pass
+
+        raise ValueError('Format not supported')
+
+    elif isinstance(t, datetime.datetime):
+        return t.date()
+
+    elif isinstance(t, datetime.date):
+        return t
+
+    else:
+        raise TypeError
+
+
+def delta(t1, t2):
+    '''
+    Show how long a given time value was. You can override the current
+    time to compare to by supplying the ``now`` parameter.
+    '''
+
+    t1 = _to_datetime(t1)
+    t2 = _to_datetime(t2)
+    diff = t1 - t2
+
+    if diff.days == 0:
+        if diff.seconds < 10:
             return _('just now')
-        elif delta.seconds < 60:
+        elif diff.seconds < 60:
             return _multi(
-                _('%d second ago'),
-                _('%d seconds ago'),
-                delta.seconds) % (delta.seconds,)
-        elif delta.seconds < 120:
-            return _('a minute ago')
-        elif delta.seconds < 3600:
-            minutes = int(delta.seconds / 60)
+                _('%d second'),
+                _('%d seconds'),
+                diff.seconds) % (diff.seconds,)
+        elif diff.seconds < 120:
+            return _('a minute')
+        elif diff.seconds < 3600:
+            minutes = int(diff.seconds / 60)
             return _multi(
-                _('%d minute ago'),
-                _('%d minutes ago'),
+                _('%d minute'),
+                _('%d minutes'),
                 minutes) % (minutes,)
-        elif delta.seconds < 7200:
-            return _('an hour ago')
-        elif delta.seconds < 86400:
-            hours = int(delta.seconds / 3600)
+        elif diff.seconds < 7200:
+            return _('an hour')
+        elif diff.seconds < 86400:
+            hours = int(diff.seconds / 3600)
             return _multi(
-                _('%d hour ago'),
-                _('%d hours ago'),
+                _('%d hour'),
+                _('%d hours'),
                 hours) % (hours,)
 
-    elif delta.days == 1:
+    elif diff.days == 1:
         return _('yesterday')
 
-    elif delta.days < 7:
+    elif diff.days < 7:
         return _multi(
-            _('%d day ago'),
-            _('%d days ago'),
-            delta.days) % (delta.days,)
+            _('%d day'),
+            _('%d days'),
+            diff.days) % (diff.days,)
 
-    elif delta.days < 31:
-        weeks = int(delta.days / 7)
+    elif diff.days < 31:
+        weeks = int(diff.days / 7)
         return _multi(
-            _('%d week ago'),
-            _('%d weeks ago'),
+            _('%d week'),
+            _('%d weeks'),
             weeks) % (weeks,)
 
-    elif delta.days < 365:
-        months = int(delta.days / 30)
+    elif diff.days < 365:
+        months = int(diff.days / 30)
         return _multi(
-            _('%d month ago'),
-            _('%d months ago'),
+            _('%d month'),
+            _('%d months'),
             months) % (months,)
 
     else:
-        years = int(delta.days / 365)
+        years = int(diff.days / 365)
         return _multi(
-            _('%d year ago'),
-            _('%d years ago'),
+            _('%d year'),
+            _('%d years'),
             years) % (years,)
+
+
+def timedelta(t, now=None):
+    t1 = _to_datetime(t)
+    t2 = _to_datetime(now or datetime.datetime.now())
+    suffix = _('ago') if t1 < t2 else _('from now')
+    result = delta(max(t1, t2), min(t1, t2))
+    if result == _('just now'):
+        return result
+    else:
+        return u' '.join([result, suffix])
+
+
+def datedelta(t, now=None, format='%B %d'):
+    t1 = _to_date(t)
+    t2 = _to_date(now or datetime.datetime.now())
+    diff = max(t1, t2) - min(t1, t2)
+
+    if diff.days == 0:
+        return _('today')
+    elif diff.days == 1:
+        return _('yesterday') if t1 < t2 else _('tomorrow')
+    elif diff.days == 7:
+        return _('a week ago') if t1 < t2 else _('next week')
+    else:
+        return t1.strftime(format)
