@@ -11,8 +11,8 @@ Basic usage:
 ```python
 
     >>> import datetime
-    >>> from natural.date import timedelta
-    >>> print timedelta(datetime.datetime.now())
+    >>> from natural.date import duration
+    >>> print duration(datetime.datetime.now())
     'just now'
 ```
 
@@ -22,7 +22,7 @@ We speak your language (with [your support](https://github.com/tehmaze/natural/w
 
     >>> import locale
     >>> locale.setlocale(locale.LC_MESSAGES, 'nl_NL')
-    >>> print timedelta(datetime.datetime.now())
+    >>> print duration(datetime.datetime.now())
     'zojuist'
 ```
 

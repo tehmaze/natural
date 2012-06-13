@@ -158,7 +158,7 @@ def delta(t1, t2):
             years) % (years,)
 
 
-def datedelta(t, now=None, format='%B %d'):
+def duration(t, now=None, format='%B %d'):
     '''
     Date delta compared to ``t``. You can override ``now`` to specify what date
     to compare to.
@@ -189,7 +189,7 @@ def datedelta(t, now=None, format='%B %d'):
         return t1.strftime(format)
 
 
-def timedelta(t, now=None):
+def day(t, now=None):
     '''
     Time delta compared to ``t``. You can override ``now`` to specify what time
     to compare to.

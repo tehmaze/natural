@@ -44,7 +44,7 @@ We speak `your language`_ too!
     >>> import locale
     >>> locale.setlocale(locale.LC_ALL, 'de_DE')
     >>> from natural import date
-    >>> date.timedelta(1337000000)
+    >>> date.duration(1337000000)
     u'vor 4 Wochen'
 
 
