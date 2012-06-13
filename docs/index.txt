@@ -1,0 +1,39 @@
+.. Natural documentation master file, created by
+   sphinx-quickstart on Wed Jun 13 17:18:42 2012.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+Welcome to Natural's documentation!
+===================================
+
+Natural is a Python library to easily transform data into human-readable
+formats such as dates, time differences, numbers and sizes.
+
+Features:
+
+ * Natural is not using any third-party libraries, so it runs from a bare Python installation
+
+ * Natural is fully internationalised and speaks `your language`_
+
+ * Natural is PEP8_ compliant
+
+ * Natural has an extensive `test suite`_
+
+.. _your language: https://github.com/tehmaze/natural/wiki/translate
+.. _PEP8: http://www.python.org/dev/peps/pep-0008/
+.. _test suite: http://nose.readthedocs.org/en/latest/
+
+Contents:
+
+.. toctree::
+   :maxdepth: 2
+
+
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
+

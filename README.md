@@ -1,7 +1,7 @@
 About
 =====
 
-Convert data to their natural (natural-readable) format.
+Convert data to their natural (human-readable) format.
 
 Example Usage
 =============
