@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: natural\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-06-13 15:49+0200\n"
+"POT-Creation-Date: 2012-06-13 16:04+0200\n"
 "PO-Revision-Date: 2012-06-13 14:57+0200\n"
-"Last-Translator: Automatically generated\n"
+"Last-Translator: Wijnand Modderman-Lenstra\n"
 "Language-Team: none\n"
 "Language: en_GB\n"
 "MIME-Version: 1.0\n"
@@ -21,296 +21,292 @@ msgstr ""
 #: natural/constant.py:20 natural/constant.py:21 natural/constant.py:22
 #: natural/constant.py:23
 msgid "th"
-msgstr "th"
+msgstr ""
 
 #: natural/constant.py:15
 msgid "st"
-msgstr "st"
+msgstr ""
 
 #: natural/constant.py:16
 msgid "nd"
-msgstr "nd"
+msgstr ""
 
 #: natural/constant.py:17
 msgid "rd"
-msgstr "rd"
+msgstr ""
 
 #: natural/constant.py:26
 msgid "thousand"
-msgstr "thousand"
+msgstr ""
 
 #: natural/constant.py:27
 msgid "million"
-msgstr "million"
+msgstr ""
 
 #: natural/constant.py:28
 msgid "billion"
-msgstr "billion"
+msgstr "milliard"
 
 #: natural/constant.py:29
 msgid "trillion"
-msgstr "trillion"
+msgstr "billion"
 
 #: natural/constant.py:30
 msgid "quadrillion"
-msgstr "quadrillion"
+msgstr "billiard"
 
 #: natural/constant.py:31
 msgid "quintillion"
-msgstr "quintillion"
+msgstr "trillion"
 
 #: natural/constant.py:32
 msgid "sextillion"
-msgstr "sextillion"
+msgstr "trilliard"
 
 #: natural/constant.py:33
 msgid "septillion"
-msgstr "septillion"
+msgstr "quadrillion"
 
 #: natural/constant.py:34
 msgid "octillion"
-msgstr "octillion"
+msgstr "quadrilliard"
 
 #: natural/constant.py:35
 msgid "nonillion"
-msgstr "nonillion"
+msgstr "quintillion"
 
 #: natural/constant.py:36
 msgid "decillion"
-msgstr "decillion"
+msgstr "quintilliard"
 
 #: natural/constant.py:37
 msgid "undecillion"
-msgstr "undecillion"
+msgstr "sextillion"
 
 #: natural/constant.py:38
 msgid "duodecillion"
-msgstr "duodecillion"
+msgstr "sextilliard"
 
 #: natural/constant.py:39
 msgid "tredecillion"
-msgstr "tredecillion"
+msgstr "septillion"
 
 #: natural/constant.py:40
 msgid "quattuordecillion"
-msgstr "quattuordecillion"
+msgstr "septilliard"
 
 #: natural/constant.py:41
 msgid "quindecillion"
-msgstr "quindecillion"
+msgstr "octillion"
 
 #: natural/constant.py:42
 msgid "sexdecillion"
-msgstr "sexdecillion"
+msgstr "octilliard"
 
 #: natural/constant.py:43
 msgid "septendecillion"
-msgstr "septendecillion"
+msgstr "nonillion"
 
 #: natural/constant.py:44
 msgid "octodec"
-msgstr "octodec"
+msgstr "nonilliard"
 
 #: natural/constant.py:45
 msgid "novemdecillion"
-msgstr "novemdecillion"
+msgstr "decillion"
 
 #: natural/constant.py:46
 msgid "vigintillion"
-msgstr "vigintillion"
+msgstr "decilliard"
 
 #: natural/constant.py:47
 msgid "unvigintillion"
-msgstr "unvigintillion"
+msgstr "unidecillion"
 
 #: natural/constant.py:48
 msgid "duovigintil"
-msgstr "duovigintil"
+msgstr "unidecilliard"
 
 #: natural/constant.py:49
 msgid "tresvigintillion"
-msgstr "tresvigintillion"
+msgstr ""
 
 #: natural/constant.py:50
 msgid "quattuorvigintillion"
-msgstr "quattuorvigintillion"
+msgstr ""
 
 #: natural/constant.py:51
 msgid "quinquavigintillion"
-msgstr "quinquavigintillion"
+msgstr ""
 
 #: natural/constant.py:52
 msgid "sesvigintillion"
-msgstr "sesvigintillion"
+msgstr ""
 
 #: natural/constant.py:53
 msgid "septemvigintillion"
-msgstr "septemvigintillion"
+msgstr ""
 
 #: natural/constant.py:54
 msgid "octovigintillion"
-msgstr "octovigintillion"
+msgstr ""
 
 #: natural/constant.py:55
 msgid "novemvigintillion"
-msgstr "novemvigintillion"
+msgstr ""
 
 #: natural/constant.py:56
 msgid "trigintillion"
-msgstr "trigintillion"
+msgstr ""
 
 #: natural/constant.py:57
 msgid "untrigintillion"
-msgstr "untrigintillion"
+msgstr ""
 
 #: natural/constant.py:58
 msgid "duotrigintillion"
-msgstr "duotrigintillion"
+msgstr ""
 
 #: natural/constant.py:59
 msgid "trestrigintillion"
-msgstr "trestrigintillion"
+msgstr ""
 
 #: natural/constant.py:60
 msgid "quattuortrigintillion"
-msgstr "quattuortrigintillion"
+msgstr ""
 
 #: natural/constant.py:61
 msgid "quinquatrigintillion"
-msgstr "quinquatrigintillion"
+msgstr ""
 
 #: natural/constant.py:62
 msgid "sestrigintillion"
-msgstr "sestrigintillion"
+msgstr ""
 
 #: natural/constant.py:63
 msgid "septentrigintillion"
-msgstr "septentrigintillion"
+msgstr ""
 
 #: natural/constant.py:64
 msgid "octotrigintillion"
-msgstr "octotrigintillion"
+msgstr ""
 
 #: natural/constant.py:65
 msgid "novemtrigintillion"
-msgstr "novemtrigintillion"
+msgstr ""
 
 #: natural/constant.py:66
 msgid "quadragintillion"
-msgstr "quadragintillion"
+msgstr ""
 
-#: natural/date.py:93 natural/date.py:152
+#: natural/date.py:93 natural/date.py:157
 msgid "just now"
-msgstr "just now"
+msgstr ""
 
 #: natural/date.py:96
 #, fuzzy, python-format
 msgid "%d second"
-msgstr "%d second ago"
+msgstr ""
 
 #: natural/date.py:97
 #, fuzzy, python-format
 msgid "%d seconds"
-msgstr "%d seconds ago"
+msgstr ""
 
 #: natural/date.py:100
 #, fuzzy
 msgid "a minute"
-msgstr "a minute ago"
+msgstr ""
 
 #: natural/date.py:104
 #, fuzzy, python-format
 msgid "%d minute"
-msgstr "%d minute ago"
+msgstr ""
 
 #: natural/date.py:105
 #, fuzzy, python-format
 msgid "%d minutes"
-msgstr "%d minutes ago"
+msgstr ""
 
 #: natural/date.py:108
 #, fuzzy
 msgid "an hour"
-msgstr "an hour ago"
+msgstr ""
 
 #: natural/date.py:112
 #, fuzzy, python-format
 msgid "%d hour"
-msgstr "%d hour ago"
+msgstr ""
 
 #: natural/date.py:113
 #, fuzzy, python-format
 msgid "%d hours"
-msgstr "%d hours ago"
+msgstr ""
 
-#: natural/date.py:117 natural/date.py:166
+#: natural/date.py:117 natural/date.py:172
 msgid "yesterday"
-msgstr "yesterday"
+msgstr ""
 
 #: natural/date.py:121
 #, fuzzy, python-format
 msgid "%d day"
-msgstr "%d day ago"
+msgstr ""
 
 #: natural/date.py:122
 #, fuzzy, python-format
 msgid "%d days"
-msgstr "%d days ago"
+msgstr ""
 
 #: natural/date.py:128
 #, fuzzy, python-format
 msgid "%d week"
-msgstr "%d week ago"
+msgstr ""
 
 #: natural/date.py:129
 #, fuzzy, python-format
 msgid "%d weeks"
-msgstr "%d weeks ago"
+msgstr ""
 
 #: natural/date.py:135
 #, fuzzy, python-format
 msgid "%d month"
-msgstr "%d month ago"
+msgstr ""
 
 #: natural/date.py:136
 #, fuzzy, python-format
 msgid "%d months"
-msgstr "%d months ago"
+msgstr ""
 
 #: natural/date.py:142
 #, fuzzy, python-format
 msgid "%d year"
-msgstr "%d year ago"
+msgstr ""
 
 #: natural/date.py:143
 #, fuzzy, python-format
 msgid "%d years"
-msgstr "%d years ago"
+msgstr ""
 
-#: natural/date.py:150
+#: natural/date.py:152
 msgid "ago"
 msgstr ""
 
-#: natural/date.py:150
+#: natural/date.py:154
 msgid "from now"
 msgstr ""
 
-#: natural/date.py:164
+#: natural/date.py:169
 msgid "today"
 msgstr ""
 
-#: natural/date.py:166
+#: natural/date.py:174
 msgid "tomorrow"
 msgstr ""
 
-#: natural/date.py:168
-#, fuzzy
-msgid "a week ago"
-msgstr "%d week ago"
-
-#: natural/date.py:168
-msgid "next week"
+#: natural/date.py:177
+msgid "last week"
 msgstr ""
 
-#~ msgid "in the future"
-#~ msgstr "in the future"
+#: natural/date.py:179
+msgid "next week"
+msgstr ""
