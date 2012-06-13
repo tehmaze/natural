@@ -14,7 +14,8 @@ def filesize(value, format='decimal'):
     supported.
 
     :param value: size
-    :param format: default ``decimal``, choices ``binary``, ``decimal`` or ``gnu``
+    :param format: default ``decimal``, choices ``binary``, ``decimal`` or
+                   ``gnu``
     '''
 
     if not format in FILESIZE_SUFFIX:
@@ -43,31 +44,20 @@ def filesize(value, format='decimal'):
 
 def decimalsize(value):
     '''
-    Wrapper for :py:func:``filesize``.
+    Wrapper for :py:func:`filesize`.
     '''
     return filesize(value, format='decimal')
 
 
 def binarysize(value):
     '''
-    Wrapper for :py:func:``filesize``.
+    Wrapper for :py:func:`filesize`.
     '''
     return filesize(value, format='binary')
 
 
 def gnusize(value):
     '''
-    Wrapper for :py:func:``filesize``.
+    Wrapper for :py:func:`filesize`.
     '''
     return filesize(value, format='gnu')
-
-
-if __name__ == "__main__":
-    import locale
-    lang, encoding = locale.getlocale(locale.LC_ALL)
-    if lang != 'en_US':
-        print 'Doctest only works for en_US'
-    else:
-        print 'Running doctests for locale', lang
-        import doctest
-        doctest.testmod()
