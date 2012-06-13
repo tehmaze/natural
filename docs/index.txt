@@ -38,7 +38,9 @@ Demo::
 
 We speak `your language`_ too!
 
-    $ LC_ALL=de_DE python
+
+    >>> import locale
+    >>> locale.setlocale(locale.LC_ALL, 'de_DE')
     >>> from natural import date
     >>> date.timedelta(1337000000)
     'vor 4 Wochen'
