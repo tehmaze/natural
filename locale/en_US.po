@@ -1,0 +1,290 @@
+# English translations for natural package.
+# Copyright (C) 2012 Wijnand Modderman-Lenstra
+# This file is distributed under the same license as the natural package.
+# Automatically generated, 2012.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: natural\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-06-13 14:57+0200\n"
+"PO-Revision-Date: 2012-06-13 14:57+0200\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: natural/constant.py:14 natural/constant.py:18 natural/constant.py:19
+#: natural/constant.py:20 natural/constant.py:21 natural/constant.py:22
+#: natural/constant.py:23
+msgid "th"
+msgstr "th"
+
+#: natural/constant.py:15
+msgid "st"
+msgstr "st"
+
+#: natural/constant.py:16
+msgid "nd"
+msgstr "nd"
+
+#: natural/constant.py:17
+msgid "rd"
+msgstr "rd"
+
+#: natural/constant.py:26
+msgid "thousand"
+msgstr "thousand"
+
+#: natural/constant.py:27
+msgid "million"
+msgstr "million"
+
+#: natural/constant.py:28
+msgid "billion"
+msgstr "billion"
+
+#: natural/constant.py:29
+msgid "trillion"
+msgstr "trillion"
+
+#: natural/constant.py:30
+msgid "quadrillion"
+msgstr "quadrillion"
+
+#: natural/constant.py:31
+msgid "quintillion"
+msgstr "quintillion"
+
+#: natural/constant.py:32
+msgid "sextillion"
+msgstr "sextillion"
+
+#: natural/constant.py:33
+msgid "septillion"
+msgstr "septillion"
+
+#: natural/constant.py:34
+msgid "octillion"
+msgstr "octillion"
+
+#: natural/constant.py:35
+msgid "nonillion"
+msgstr "nonillion"
+
+#: natural/constant.py:36
+msgid "decillion"
+msgstr "decillion"
+
+#: natural/constant.py:37
+msgid "undecillion"
+msgstr "undecillion"
+
+#: natural/constant.py:38
+msgid "duodecillion"
+msgstr "duodecillion"
+
+#: natural/constant.py:39
+msgid "tredecillion"
+msgstr "tredecillion"
+
+#: natural/constant.py:40
+msgid "quattuordecillion"
+msgstr "quattuordecillion"
+
+#: natural/constant.py:41
+msgid "quindecillion"
+msgstr "quindecillion"
+
+#: natural/constant.py:42
+msgid "sexdecillion"
+msgstr "sexdecillion"
+
+#: natural/constant.py:43
+msgid "septendecillion"
+msgstr "septendecillion"
+
+#: natural/constant.py:44
+msgid "octodec"
+msgstr "octodec"
+
+#: natural/constant.py:45
+msgid "novemdecillion"
+msgstr "novemdecillion"
+
+#: natural/constant.py:46
+msgid "vigintillion"
+msgstr "vigintillion"
+
+#: natural/constant.py:47
+msgid "unvigintillion"
+msgstr "unvigintillion"
+
+#: natural/constant.py:48
+msgid "duovigintil"
+msgstr "duovigintil"
+
+#: natural/constant.py:49
+msgid "tresvigintillion"
+msgstr "tresvigintillion"
+
+#: natural/constant.py:50
+msgid "quattuorvigintillion"
+msgstr "quattuorvigintillion"
+
+#: natural/constant.py:51
+msgid "quinquavigintillion"
+msgstr "quinquavigintillion"
+
+#: natural/constant.py:52
+msgid "sesvigintillion"
+msgstr "sesvigintillion"
+
+#: natural/constant.py:53
+msgid "septemvigintillion"
+msgstr "septemvigintillion"
+
+#: natural/constant.py:54
+msgid "octovigintillion"
+msgstr "octovigintillion"
+
+#: natural/constant.py:55
+msgid "novemvigintillion"
+msgstr "novemvigintillion"
+
+#: natural/constant.py:56
+msgid "trigintillion"
+msgstr "trigintillion"
+
+#: natural/constant.py:57
+msgid "untrigintillion"
+msgstr "untrigintillion"
+
+#: natural/constant.py:58
+msgid "duotrigintillion"
+msgstr "duotrigintillion"
+
+#: natural/constant.py:59
+msgid "trestrigintillion"
+msgstr "trestrigintillion"
+
+#: natural/constant.py:60
+msgid "quattuortrigintillion"
+msgstr "quattuortrigintillion"
+
+#: natural/constant.py:61
+msgid "quinquatrigintillion"
+msgstr "quinquatrigintillion"
+
+#: natural/constant.py:62
+msgid "sestrigintillion"
+msgstr "sestrigintillion"
+
+#: natural/constant.py:63
+msgid "septentrigintillion"
+msgstr "septentrigintillion"
+
+#: natural/constant.py:64
+msgid "octotrigintillion"
+msgstr "octotrigintillion"
+
+#: natural/constant.py:65
+msgid "novemtrigintillion"
+msgstr "novemtrigintillion"
+
+#: natural/constant.py:66
+msgid "quadragintillion"
+msgstr "quadragintillion"
+
+#: natural/date.py:36
+msgid "in the future"
+msgstr "in the future"
+
+#: natural/date.py:40
+msgid "just now"
+msgstr "just now"
+
+#: natural/date.py:43
+#, python-format
+msgid "%d second ago"
+msgstr "%d second ago"
+
+#: natural/date.py:44
+#, python-format
+msgid "%d seconds ago"
+msgstr "%d seconds ago"
+
+#: natural/date.py:47
+msgid "a minute ago"
+msgstr "a minute ago"
+
+#: natural/date.py:51
+#, python-format
+msgid "%d minute ago"
+msgstr "%d minute ago"
+
+#: natural/date.py:52
+#, python-format
+msgid "%d minutes ago"
+msgstr "%d minutes ago"
+
+#: natural/date.py:55
+msgid "an hour ago"
+msgstr "an hour ago"
+
+#: natural/date.py:59
+#, python-format
+msgid "%d hour ago"
+msgstr "%d hour ago"
+
+#: natural/date.py:60
+#, python-format
+msgid "%d hours ago"
+msgstr "%d hours ago"
+
+#: natural/date.py:64
+msgid "yesterday"
+msgstr "yesterday"
+
+#: natural/date.py:68
+#, python-format
+msgid "%d day ago"
+msgstr "%d day ago"
+
+#: natural/date.py:69
+#, python-format
+msgid "%d days ago"
+msgstr "%d days ago"
+
+#: natural/date.py:75
+#, python-format
+msgid "%d week ago"
+msgstr "%d week ago"
+
+#: natural/date.py:76
+#, python-format
+msgid "%d weeks ago"
+msgstr "%d weeks ago"
+
+#: natural/date.py:82
+#, python-format
+msgid "%d month ago"
+msgstr "%d month ago"
+
+#: natural/date.py:83
+#, python-format
+msgid "%d months ago"
+msgstr "%d months ago"
+
+#: natural/date.py:89
+#, python-format
+msgid "%d year ago"
+msgstr "%d year ago"
+
+#: natural/date.py:90
+#, python-format
+msgid "%d years ago"
+msgstr "%d years ago"
