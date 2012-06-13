@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: natural\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-06-13 16:32+0200\n"
+"POT-Creation-Date: 2012-06-13 17:00+0200\n"
 "PO-Revision-Date: 2012-06-13 14:57+0200\n"
 "Last-Translator: Wijnand Modderman-Lenstra\n"
 "Language-Team: none\n"
@@ -292,7 +292,7 @@ msgid "%s ago"
 msgstr "%s geleden"
 
 #: natural/date.py:154
-#, fuzzy, python-format
+#, python-format
 msgid "%s from now"
 msgstr "%s vanaf nu"
 
@@ -311,6 +311,31 @@ msgstr "vorige week"
 #: natural/date.py:179
 msgid "next week"
 msgstr "volgende week"
+
+#: natural/date.py:201 natural/date.py:212
+#, python-format
+msgid "%dd"
+msgstr "%dd"
+
+#: natural/date.py:210
+#, python-format
+msgid "%dw"
+msgstr "%dw"
+
+#: natural/date.py:214
+#, python-format
+msgid "%dh"
+msgstr "%du"
+
+#: natural/date.py:216
+#, python-format
+msgid "%dm"
+msgstr "%dm"
+
+#: natural/date.py:218
+#, python-format
+msgid "%ds"
+msgstr "%ds"
 
 #~ msgid "ago"
 #~ msgstr "geleden"

@@ -179,3 +179,42 @@ def datedelta(t, now=None, format='%B %d'):
             return _('next week')
     else:
         return t1.strftime(format)
+
+
+def compress(t, sign=False, pad=u''):
+    '''
+    Convert the input to compressed format, works with a ``datetime.timedelta``
+    object or a number that represents the number of seconds you want to
+    compress.  If you supply a timestamp or a ``datetime.datetime`` object, it
+    will give the delta relative to the current time.
+    '''
+
+    if isinstance(t, datetime.timedelta):
+        seconds = t.seconds + (t.days * 86400)
+    elif isinstance(t, float) or isinstance(t, int) or isinstance(t, long):
+        seconds = long(t)
+    else:
+        return compress(datetime.datetime.now() - _to_datetime(t), sign, pad)
+
+    parts = []
+    if sign:
+        parts.append(u'-' if d.days < 0 else u'+')
+
+    weeks, seconds   = divmod(seconds, 604800)
+    days, seconds    = divmod(seconds, 86400)
+    hours, seconds   = divmod(seconds, 3600)
+    minutes, seconds = divmod(seconds, 60)
+
+    if weeks:
+        parts.append(_('%dw') % (weeks,))
+    if days:
+        parts.append(_('%dd') % (days,))
+    if hours:
+        parts.append(_('%dh') % (hours,))
+    if minutes:
+        parts.append(_('%dm') % (minutes,))
+    if seconds:
+        parts.append(_('%ds') % (seconds,))
+
+    return pad.join(parts)
+
