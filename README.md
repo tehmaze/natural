@@ -16,7 +16,7 @@ Basic usage:
     'just now'
 ```
 
-We speak your language (with [your support](wiki/translate)):
+We speak your language (with [your support](https://github.com/natural/wiki/translate)):
 
 ```python
 
