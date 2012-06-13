@@ -117,6 +117,7 @@ FILESIZE_SUFFIX = dict(
     binary=('iB', 'KiB', 'MiB', 'GiB', 'TiB', 'PiB', 'EiB', 'ZiB', 'YiB'),
     gnu='BKMGTPEZY',
 )
+PRINTABLE = map(lambda c: chr(c), xrange(0x20, 0x7f))
 
 
 def _multi(singular, plural, count):
