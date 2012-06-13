@@ -54,6 +54,7 @@ Contents:
    :maxdepth: 2
 
    natural/constant
+   natural/data
    natural/date
    natural/number
    natural/size
