@@ -4,8 +4,8 @@ locales
 Natural uses locales for translating most textual output using gettext_. We
 need your help translating the project!
 
-Addings a new language
-----------------------
+Adding a new language
+---------------------
 
 If your favourite language is not yet supported, you can help out by
 translation natural into your language! The most convenient way is to get a
