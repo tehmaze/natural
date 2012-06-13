@@ -23,6 +23,27 @@ Features:
 .. _PEP8: http://www.python.org/dev/peps/pep-0008/
 .. _test suite: http://nose.readthedocs.org/en/latest/
 
+
+Demo::
+
+    >>> from natural import date, number, size
+    >>> import datetime
+    >>> date.compress(datetime.datetime(2012, 01, 01, 23, 42))
+    u'23w2d17h52m59s'
+    >>> number.word(2300000)
+    u'2.3 million'
+    >>> size.filesize(102410241024)
+    u'95.377 GB'
+
+
+We speak `your language`_ too!
+
+    $ LC_ALL=de_DE python
+    >>> from natural import date
+    >>> date.timedelta(1337000000)
+    'vor 4 Wochen'
+
+
 Contents:
 
 .. toctree::
