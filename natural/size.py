@@ -1,3 +1,4 @@
+import locale
 from natural.constant import FILESIZE_SUFFIX
 
 FILESIZE_BASE = dict(
