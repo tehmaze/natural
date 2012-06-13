@@ -149,15 +149,15 @@ def timedelta(t, now=None):
     t2 = _to_datetime(now or datetime.datetime.now())
 
     if t1 < t2:
-        suffix = _('ago')
+        format = _('%s ago')
     else:
-        suffix = _('from now')
+        format = _('%s from now')
     
     result = delta(max(t1, t2), min(t1, t2))
     if result == _('just now'):
         return result
     else:
-        return u' '.join([result, suffix])
+        return format % (result,)
 
 
 def datedelta(t, now=None, format='%B %d'):

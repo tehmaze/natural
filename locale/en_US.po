@@ -1,5 +1,4 @@
-# Dutch translations for natural package
-# Nederlandse vertalingen voor het pakket natural.
+# English translations for natural package.
 # Copyright (C) 2012 Wijnand Modderman-Lenstra
 # This file is distributed under the same license as the natural package.
 # Automatically generated, 2012.
@@ -9,10 +8,10 @@ msgstr ""
 "Project-Id-Version: natural\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-06-13 16:32+0200\n"
-"PO-Revision-Date: 2012-06-13 14:57+0200\n"
-"Last-Translator: Wijnand Modderman-Lenstra\n"
+"PO-Revision-Date: 2012-06-13 16:04+0200\n"
+"Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
-"Language: nl\n"
+"Language: en_US\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -22,239 +21,239 @@ msgstr ""
 #: natural/constant.py:20 natural/constant.py:21 natural/constant.py:22
 #: natural/constant.py:23
 msgid "th"
-msgstr "de"
+msgstr "th"
 
 #: natural/constant.py:15
 msgid "st"
-msgstr "ste"
+msgstr "st"
 
 #: natural/constant.py:16
 msgid "nd"
-msgstr "de"
+msgstr "nd"
 
 #: natural/constant.py:17
 msgid "rd"
-msgstr "de"
+msgstr "rd"
 
 #: natural/constant.py:26
 msgid "thousand"
-msgstr "duizend"
+msgstr "thousand"
 
 #: natural/constant.py:27
 msgid "million"
-msgstr "miljoen"
+msgstr "million"
 
 #: natural/constant.py:28
 msgid "billion"
-msgstr "miljard"
+msgstr "billion"
 
 #: natural/constant.py:29
 msgid "trillion"
-msgstr "biljoen"
+msgstr "trillion"
 
 #: natural/constant.py:30
 msgid "quadrillion"
-msgstr "biljard"
+msgstr "quadrillion"
 
 #: natural/constant.py:31
 msgid "quintillion"
-msgstr "triljoen"
+msgstr "quintillion"
 
 #: natural/constant.py:32
 msgid "sextillion"
-msgstr "triljard"
+msgstr "sextillion"
 
 #: natural/constant.py:33
 msgid "septillion"
-msgstr ""
+msgstr "septillion"
 
 #: natural/constant.py:34
 msgid "octillion"
-msgstr ""
+msgstr "octillion"
 
 #: natural/constant.py:35
 msgid "nonillion"
-msgstr ""
+msgstr "nonillion"
 
 #: natural/constant.py:36
 msgid "decillion"
-msgstr ""
+msgstr "decillion"
 
 #: natural/constant.py:37
 msgid "undecillion"
-msgstr ""
+msgstr "undecillion"
 
 #: natural/constant.py:38
 msgid "duodecillion"
-msgstr ""
+msgstr "duodecillion"
 
 #: natural/constant.py:39
 msgid "tredecillion"
-msgstr ""
+msgstr "tredecillion"
 
 #: natural/constant.py:40
 msgid "quattuordecillion"
-msgstr ""
+msgstr "quattuordecillion"
 
 #: natural/constant.py:41
 msgid "quindecillion"
-msgstr ""
+msgstr "quindecillion"
 
 #: natural/constant.py:42
 msgid "sexdecillion"
-msgstr ""
+msgstr "sexdecillion"
 
 #: natural/constant.py:43
 msgid "septendecillion"
-msgstr ""
+msgstr "septendecillion"
 
 #: natural/constant.py:44
 msgid "octodec"
-msgstr ""
+msgstr "octodec"
 
 #: natural/constant.py:45
 msgid "novemdecillion"
-msgstr ""
+msgstr "novemdecillion"
 
 #: natural/constant.py:46
 msgid "vigintillion"
-msgstr ""
+msgstr "vigintillion"
 
 #: natural/constant.py:47
 msgid "unvigintillion"
-msgstr ""
+msgstr "unvigintillion"
 
 #: natural/constant.py:48
 msgid "duovigintil"
-msgstr ""
+msgstr "duovigintil"
 
 #: natural/constant.py:49
 msgid "tresvigintillion"
-msgstr ""
+msgstr "tresvigintillion"
 
 #: natural/constant.py:50
 msgid "quattuorvigintillion"
-msgstr ""
+msgstr "quattuorvigintillion"
 
 #: natural/constant.py:51
 msgid "quinquavigintillion"
-msgstr ""
+msgstr "quinquavigintillion"
 
 #: natural/constant.py:52
 msgid "sesvigintillion"
-msgstr ""
+msgstr "sesvigintillion"
 
 #: natural/constant.py:53
 msgid "septemvigintillion"
-msgstr ""
+msgstr "septemvigintillion"
 
 #: natural/constant.py:54
 msgid "octovigintillion"
-msgstr ""
+msgstr "octovigintillion"
 
 #: natural/constant.py:55
 msgid "novemvigintillion"
-msgstr ""
+msgstr "novemvigintillion"
 
 #: natural/constant.py:56
 msgid "trigintillion"
-msgstr ""
+msgstr "trigintillion"
 
 #: natural/constant.py:57
 msgid "untrigintillion"
-msgstr ""
+msgstr "untrigintillion"
 
 #: natural/constant.py:58
 msgid "duotrigintillion"
-msgstr ""
+msgstr "duotrigintillion"
 
 #: natural/constant.py:59
 msgid "trestrigintillion"
-msgstr ""
+msgstr "trestrigintillion"
 
 #: natural/constant.py:60
 msgid "quattuortrigintillion"
-msgstr ""
+msgstr "quattuortrigintillion"
 
 #: natural/constant.py:61
 msgid "quinquatrigintillion"
-msgstr ""
+msgstr "quinquatrigintillion"
 
 #: natural/constant.py:62
 msgid "sestrigintillion"
-msgstr ""
+msgstr "sestrigintillion"
 
 #: natural/constant.py:63
 msgid "septentrigintillion"
-msgstr ""
+msgstr "septentrigintillion"
 
 #: natural/constant.py:64
 msgid "octotrigintillion"
-msgstr ""
+msgstr "octotrigintillion"
 
 #: natural/constant.py:65
 msgid "novemtrigintillion"
-msgstr ""
+msgstr "novemtrigintillion"
 
 #: natural/constant.py:66
 msgid "quadragintillion"
-msgstr ""
+msgstr "quadragintillion"
 
 #: natural/date.py:93 natural/date.py:157
 msgid "just now"
-msgstr "zojuist"
+msgstr "just now"
 
 #: natural/date.py:96
 #, python-format
 msgid "%d second"
-msgstr "%d seconde"
+msgstr "%d second"
 
 #: natural/date.py:97
 #, python-format
 msgid "%d seconds"
-msgstr "%d seconden"
+msgstr "%d seconds"
 
 #: natural/date.py:100
 msgid "a minute"
-msgstr "een minuut"
+msgstr "a minute"
 
 #: natural/date.py:104
 #, python-format
 msgid "%d minute"
-msgstr "%d minuut"
+msgstr "%d minute"
 
 #: natural/date.py:105
 #, python-format
 msgid "%d minutes"
-msgstr "%d minuten"
+msgstr "%d minutes"
 
 #: natural/date.py:108
 msgid "an hour"
-msgstr "een uur"
+msgstr "an hour"
 
 #: natural/date.py:112
 #, python-format
 msgid "%d hour"
-msgstr "%d uur"
+msgstr "%d hour"
 
 #: natural/date.py:113
 #, python-format
 msgid "%d hours"
-msgstr "%d uur"
+msgstr "%d hours"
 
 #: natural/date.py:117 natural/date.py:172
 msgid "yesterday"
-msgstr "gisteren"
+msgstr "yesterday"
 
 #: natural/date.py:121
 #, python-format
 msgid "%d day"
-msgstr "%d dag"
+msgstr "%d day"
 
 #: natural/date.py:122
 #, python-format
 msgid "%d days"
-msgstr "%d dagen"
+msgstr "%d days"
 
 #: natural/date.py:128
 #, python-format
@@ -264,53 +263,53 @@ msgstr "%d week"
 #: natural/date.py:129
 #, python-format
 msgid "%d weeks"
-msgstr "%d weken"
+msgstr "%d weeks"
 
 #: natural/date.py:135
 #, python-format
 msgid "%d month"
-msgstr "%d maand"
+msgstr "%d month"
 
 #: natural/date.py:136
 #, python-format
 msgid "%d months"
-msgstr "%d maanden"
+msgstr "%d months"
 
 #: natural/date.py:142
 #, python-format
 msgid "%d year"
-msgstr "%d jaar"
+msgstr "%d year"
 
 #: natural/date.py:143
 #, python-format
 msgid "%d years"
-msgstr "%d jaar"
+msgstr "%d years"
 
 #: natural/date.py:152
 #, python-format
 msgid "%s ago"
-msgstr "%s geleden"
+msgstr ""
 
 #: natural/date.py:154
 #, fuzzy, python-format
 msgid "%s from now"
-msgstr "%s vanaf nu"
+msgstr "from now"
 
 #: natural/date.py:169
 msgid "today"
-msgstr "vandaag"
+msgstr "today"
 
 #: natural/date.py:174
 msgid "tomorrow"
-msgstr "morgen"
+msgstr "tomorrow"
 
 #: natural/date.py:177
 msgid "last week"
-msgstr "vorige week"
+msgstr "last week"
 
 #: natural/date.py:179
 msgid "next week"
-msgstr "volgende week"
+msgstr "next week"
 
 #~ msgid "ago"
-#~ msgstr "geleden"
+#~ msgstr "ago"
