@@ -4,8 +4,20 @@ from natural import date
 
 
 class TestDate(object):
-    def test_timedelta(self):
+    def test_day(self):
+        now = time.time()
+        for test, expect in (
+            (now,           u'today'),
+            (now - 86400,   u'yesterday'),
+            (now - 604800,  u'last week'),
+            (now + 86400,   u'tomorrow'),
+            (now + 604800,  u'next week'),
+            ):
 
+            result = date.day(test)
+            assert result == expect, '%r <> %r' % (result, expect)
+
+    def test_duration(self):
         now = time.time()
         for test, expect in (
             (now + 1,       u'just now'),
@@ -16,5 +28,5 @@ class TestDate(object):
             (now - 7201,    u'2 hours ago'),
             ):
 
-            result = date.timedelta(test)
+            result = date.duration(test)
             assert result == expect, '%r <> %r' % (result, expect)
