@@ -90,57 +90,57 @@ def delta(t1, t2):
 
     if diff.days == 0:
         if diff.seconds < 10:
-            return _('just now')
+            return _(u'just now')
         elif diff.seconds < 60:
             return _multi(
-                _('%d second'),
-                _('%d seconds'),
+                _(u'%d second'),
+                _(u'%d seconds'),
                 diff.seconds) % (diff.seconds,)
         elif diff.seconds < 120:
-            return _('a minute')
+            return _(u'a minute')
         elif diff.seconds < 3600:
             minutes = int(diff.seconds / 60)
             return _multi(
-                _('%d minute'),
-                _('%d minutes'),
+                _(u'%d minute'),
+                _(u'%d minutes'),
                 minutes) % (minutes,)
         elif diff.seconds < 7200:
-            return _('an hour')
+            return _(u'an hour')
         elif diff.seconds < 86400:
             hours = int(diff.seconds / 3600)
             return _multi(
-                _('%d hour'),
-                _('%d hours'),
+                _(u'%d hour'),
+                _(u'%d hours'),
                 hours) % (hours,)
 
     elif diff.days == 1:
-        return _('yesterday')
+        return _(u'yesterday')
 
     elif diff.days < 7:
         return _multi(
-            _('%d day'),
-            _('%d days'),
+            _(u'%d day'),
+            _(u'%d days'),
             diff.days) % (diff.days,)
 
     elif diff.days < 31:
         weeks = int(diff.days / 7)
         return _multi(
-            _('%d week'),
-            _('%d weeks'),
+            _(u'%d week'),
+            _(u'%d weeks'),
             weeks) % (weeks,)
 
     elif diff.days < 365:
         months = int(diff.days / 30)
         return _multi(
-            _('%d month'),
-            _('%d months'),
+            _(u'%d month'),
+            _(u'%d months'),
             months) % (months,)
 
     else:
         years = int(diff.days / 365)
         return _multi(
-            _('%d year'),
-            _('%d years'),
+            _(u'%d year'),
+            _(u'%d years'),
             years) % (years,)
 
 
@@ -149,12 +149,12 @@ def timedelta(t, now=None):
     t2 = _to_datetime(now or datetime.datetime.now())
 
     if t1 < t2:
-        format = _('%s ago')
+        format = _(u'%s ago')
     else:
-        format = _('%s from now')
+        format = _(u'%s from now')
     
     result = delta(max(t1, t2), min(t1, t2))
-    if result == _('just now'):
+    if result == _(u'just now'):
         return result
     else:
         return format % (result,)
@@ -166,17 +166,17 @@ def datedelta(t, now=None, format='%B %d'):
     diff = max(t1, t2) - min(t1, t2)
 
     if diff.days == 0:
-        return _('today')
+        return _(u'today')
     elif diff.days == 1:
         if t1 < t2:
-            return _('yesterday')
+            return _(u'yesterday')
         else:
-            return _('tomorrow')
+            return _(u'tomorrow')
     elif diff.days == 7:
         if t1 < t2:
-            return _('last week')
+            return _(u'last week')
         else:
-            return _('next week')
+            return _(u'next week')
     else:
         return t1.strftime(format)
 
@@ -206,15 +206,15 @@ def compress(t, sign=False, pad=u''):
     minutes, seconds = divmod(seconds, 60)
 
     if weeks:
-        parts.append(_('%dw') % (weeks,))
+        parts.append(_(u'%dw') % (weeks,))
     if days:
-        parts.append(_('%dd') % (days,))
+        parts.append(_(u'%dd') % (days,))
     if hours:
-        parts.append(_('%dh') % (hours,))
+        parts.append(_(u'%dh') % (hours,))
     if minutes:
-        parts.append(_('%dm') % (minutes,))
+        parts.append(_(u'%dm') % (minutes,))
     if seconds:
-        parts.append(_('%ds') % (seconds,))
+        parts.append(_(u'%ds') % (seconds,))
 
     return pad.join(parts)
 
