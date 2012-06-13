@@ -152,7 +152,7 @@ def timedelta(t, now=None):
         format = _(u'%s ago')
     else:
         format = _(u'%s from now')
-    
+
     result = delta(max(t1, t2), min(t1, t2))
     if result == _(u'just now'):
         return result
@@ -217,4 +217,3 @@ def compress(t, sign=False, pad=u''):
         parts.append(_(u'%ds') % (seconds,))
 
     return pad.join(parts)
-
