@@ -53,6 +53,9 @@ Contents:
 .. toctree::
    :maxdepth: 2
 
+   natural/date
+   natural/number
+   natural/size
 
 
 Indices and tables
