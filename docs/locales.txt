@@ -9,10 +9,10 @@ Adding a new language
 
 If your favourite language is not yet supported, you can help out by
 translation natural into your language! The most convenient way is to get a
-GitHub_ account and fork `the project`_, but patches are also welcome.
+`GitHub`_ account and fork `the project`_, but patches are also welcome.
 
-If you want to help out using GitHub_, fork the project. Let's assume your
-GitHub_ username is ``acme`` and the language you want to add it ``ru_RU``::
+If you want to help out using `GitHub`_, fork the project. Let's assume your
+`GitHub`_ username is ``acme`` and the language you want to add it ``ru_RU``::
 
     ~$ git clone git@github.com:acme/natural.git
     ~$ cd natural
@@ -24,40 +24,46 @@ in ``locale/ru_RU.po``. If you are not sure how to translate certain bits, you
 can leave it blank for somebody else to translate.
 
 If you are done editing and verified you are satisfied with the results, you
-may now generate the message catalog::
+may now generate the message catalog:
 
-    natural$ make ru_RU.mo
-    Compiling natural/locale/ru_RU/LC_MESSAGES/natural.mo
-    natural$ git add .
-    natural$ git commit -a -m 'Added Russian translations'
-    [master (commit) beefbad] Added Russian translations
-     0 files changed
-     create mode 100644 locale/ru_RU.po
-     create mode 100644 natural/locale/ru_RU/LC_MESSAGES/natural.mo
+.. highlight:: bash
 
-Finally, push your changes to GitHub_::
+   natural$ make ru_RU.mo
+   Compiling natural/locale/ru_RU/LC_MESSAGES/natural.mo
+   natural$ git add .
+   natural$ git commit -a -m 'Added Russian translations'
+   [master (commit) beefbad] Added Russian translations
+    0 files changed
+    create mode 100644 locale/ru_RU.po
+    create mode 100644 natural/locale/ru_RU/LC_MESSAGES/natural.mo
 
-    natural$ git push origin master
-    Counting objects: 2, done.
-    Delta compression using up to 2 threads.
-    Compressing objects: 100% (2/2), done.
-    Writing objects: 100% (2/2), 2400 bytes, done.
-    Total 2 (delta 1), reused 0 (delta 0)
-    To git@github.com:tehmaze/natural.git
-       2342bah..beefbad  master -> master
+Finally, push your changes to `GitHub_`:
 
-Now you are ready to open a ``pull request`` on GitHub. If you do not wish to
-get a GitHub_ account, you can also pull the changes and send the diff::
+.. highlight:: bash
 
-    ~$ git clone https://github.com/tehmaze/natural.git
-    ~$ cd natural
-    natural$ make ru_RU.po
-    Created locale/ru_RU.po.
-    natural$ $EDITOR locale/ru_RU.po
-    natural$ make ru_RU.mo
-    Compiling natural/locale/ru_RU/LC_MESSAGES/natural.mo
-    natural$ git add .
-    natural$ git diff --no-prefix --binary HEAD~1 HEAD > ru_RU.patch
+   natural$ git push origin master
+   Counting objects: 2, done.
+   Delta compression using up to 2 threads.
+   Compressing objects: 100% (2/2), done.
+   Writing objects: 100% (2/2), 2400 bytes, done.
+   Total 2 (delta 1), reused 0 (delta 0)
+   To git@github.com:tehmaze/natural.git
+      2342bah..beefbad  master -> master
+
+Now you are ready to open a `pull request`_ on GitHub. If you do not wish to
+get a `GitHub`_ account, you can also pull the changes and send the diff:
+
+.. highlight:: bash
+
+   ~$ git clone https://github.com/tehmaze/natural.git
+   ~$ cd natural
+   natural$ make ru_RU.po
+   Created locale/ru_RU.po.
+   natural$ $EDITOR locale/ru_RU.po
+   natural$ make ru_RU.mo
+   Compiling natural/locale/ru_RU/LC_MESSAGES/natural.mo
+   natural$ git add .
+   natural$ git diff --no-prefix --binary HEAD~1 HEAD > ru_RU.patch
 
 Now you can send the natural author ``ru_RU.patch``.
 
@@ -65,18 +71,21 @@ Updating a language
 -------------------
 
 Get a copy of the repository as described in the previous topic. After that,
-generate a fresh copy of the translation pot::
+generate a fresh copy of the translation pot:
 
-    natural$ make translate-extract
-    Extracting gettext to locale/natural.pot
-    natural$ make nl_NL.po         
-    Merging locale/nl_NL.po: ........... done.
-    natural$ $EDITOR locale/nl_NL.po
-    natural$ make nl_NL.mo
-    Compiling natural/locale/nl_NL/LC_MESSAGES/natural.mo
+.. highlight:: bash
+
+   natural$ make translate-extract
+   Extracting gettext to locale/natural.pot
+   natural$ make nl_NL.po         
+   Merging locale/nl_NL.po: ........... done.
+   natural$ $EDITOR locale/nl_NL.po
+   natural$ make nl_NL.mo
+   Compiling natural/locale/nl_NL/LC_MESSAGES/natural.mo
 
 Follow the steps above to publish your changes.
 
+.. _GitHub: https://github.com/
 .. _gettext: http://www.gnu.org/software/gettext/
 .. _the project: https://github.com/tehmaze/natural
 .. _pull request: https://help.github.com/articles/using-pull-requests
