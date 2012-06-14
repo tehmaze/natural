@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: natural\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-06-14 00:51+0200\n"
+"POT-Creation-Date: 2012-06-14 22:08+0200\n"
 "PO-Revision-Date: 2012-06-14 00:51+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -17,321 +17,594 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: natural/constant.py:61 natural/constant.py:65 natural/constant.py:66
-#: natural/constant.py:67 natural/constant.py:68 natural/constant.py:69
-#: natural/constant.py:70
+#: natural/constant.py:64 natural/constant.py:68 natural/constant.py:69
+#: natural/constant.py:70 natural/constant.py:71 natural/constant.py:72
+#: natural/constant.py:73
 msgid "th"
 msgstr "e"
 
-#: natural/constant.py:62
+#: natural/constant.py:65
 msgid "st"
 msgstr "er"
 
-#: natural/constant.py:63
+#: natural/constant.py:66
 msgid "nd"
 msgstr "e"
 
-#: natural/constant.py:64
+#: natural/constant.py:67
 msgid "rd"
 msgstr "e"
 
-#: natural/constant.py:73
+#: natural/constant.py:76
 msgid "thousand"
 msgstr "mille"
 
-#: natural/constant.py:74
+#: natural/constant.py:77
 msgid "million"
 msgstr "million"
 
-#: natural/constant.py:75
+#: natural/constant.py:78
 msgid "billion"
 msgstr "millard"
 
-#: natural/constant.py:76
+#: natural/constant.py:79
 msgid "trillion"
 msgstr "billion"
 
-#: natural/constant.py:77
+#: natural/constant.py:80
 msgid "quadrillion"
 msgstr "trillion"
 
-#: natural/constant.py:78
+#: natural/constant.py:81
 msgid "quintillion"
 msgstr ""
 
-#: natural/constant.py:79
+#: natural/constant.py:82
 msgid "sextillion"
 msgstr ""
 
-#: natural/constant.py:80
+#: natural/constant.py:83
 msgid "septillion"
 msgstr ""
 
-#: natural/constant.py:81
+#: natural/constant.py:84
 msgid "octillion"
 msgstr ""
 
-#: natural/constant.py:82
+#: natural/constant.py:85
 msgid "nonillion"
 msgstr ""
 
-#: natural/constant.py:83
+#: natural/constant.py:86
 msgid "decillion"
 msgstr ""
 
-#: natural/constant.py:84
+#: natural/constant.py:87
 msgid "undecillion"
 msgstr ""
 
-#: natural/constant.py:85
+#: natural/constant.py:88
 msgid "duodecillion"
 msgstr ""
 
-#: natural/constant.py:86
+#: natural/constant.py:89
 msgid "tredecillion"
 msgstr ""
 
-#: natural/constant.py:87
+#: natural/constant.py:90
 msgid "quattuordecillion"
 msgstr ""
 
-#: natural/constant.py:88
+#: natural/constant.py:91
 msgid "quindecillion"
 msgstr ""
 
-#: natural/constant.py:89
+#: natural/constant.py:92
 msgid "sexdecillion"
 msgstr ""
 
-#: natural/constant.py:90
+#: natural/constant.py:93
 msgid "septendecillion"
 msgstr ""
 
-#: natural/constant.py:91
+#: natural/constant.py:94
 msgid "octodec"
 msgstr ""
 
-#: natural/constant.py:92
+#: natural/constant.py:95
 msgid "novemdecillion"
 msgstr ""
 
-#: natural/constant.py:93
+#: natural/constant.py:96
 msgid "vigintillion"
 msgstr ""
 
-#: natural/constant.py:94
+#: natural/constant.py:97
 msgid "unvigintillion"
 msgstr ""
 
-#: natural/constant.py:95
+#: natural/constant.py:98
 msgid "duovigintil"
 msgstr ""
 
-#: natural/constant.py:96
+#: natural/constant.py:99
 msgid "tresvigintillion"
 msgstr ""
 
-#: natural/constant.py:97
+#: natural/constant.py:100
 msgid "quattuorvigintillion"
 msgstr ""
 
-#: natural/constant.py:98
+#: natural/constant.py:101
 msgid "quinquavigintillion"
 msgstr ""
 
-#: natural/constant.py:99
+#: natural/constant.py:102
 msgid "sesvigintillion"
 msgstr ""
 
-#: natural/constant.py:100
+#: natural/constant.py:103
 msgid "septemvigintillion"
 msgstr ""
 
-#: natural/constant.py:101
+#: natural/constant.py:104
 msgid "octovigintillion"
 msgstr ""
 
-#: natural/constant.py:102
+#: natural/constant.py:105
 msgid "novemvigintillion"
 msgstr ""
 
-#: natural/constant.py:103
+#: natural/constant.py:106
 msgid "trigintillion"
 msgstr ""
 
-#: natural/constant.py:104
+#: natural/constant.py:107
 msgid "untrigintillion"
 msgstr ""
 
-#: natural/constant.py:105
+#: natural/constant.py:108
 msgid "duotrigintillion"
 msgstr ""
 
-#: natural/constant.py:106
+#: natural/constant.py:109
 msgid "trestrigintillion"
 msgstr ""
 
-#: natural/constant.py:107
+#: natural/constant.py:110
 msgid "quattuortrigintillion"
 msgstr ""
 
-#: natural/constant.py:108
+#: natural/constant.py:111
 msgid "quinquatrigintillion"
 msgstr ""
 
-#: natural/constant.py:109
+#: natural/constant.py:112
 msgid "sestrigintillion"
 msgstr ""
 
-#: natural/constant.py:110
+#: natural/constant.py:113
 msgid "septentrigintillion"
 msgstr ""
 
-#: natural/constant.py:111
+#: natural/constant.py:114
 msgid "octotrigintillion"
 msgstr ""
 
-#: natural/constant.py:112
+#: natural/constant.py:115
 msgid "novemtrigintillion"
 msgstr ""
 
-#: natural/constant.py:113
+#: natural/constant.py:116
 msgid "quadragintillion"
 msgstr ""
 
-#: natural/date.py:107 natural/date.py:210
+#: natural/constant.py:128
+msgid "Amsterdam"
+msgstr "Arthur"
+
+#: natural/constant.py:129
+msgid "ä"
+msgstr ""
+
+#: natural/constant.py:130
+msgid "Baltimore"
+msgstr "Bruxelles"
+
+#: natural/constant.py:131
+msgid "Casablanca"
+msgstr "Caroline"
+
+#: natural/constant.py:132
+msgid "Danmark"
+msgstr "Désiré"
+
+#: natural/constant.py:133
+msgid "Edison"
+msgstr "Emile"
+
+#: natural/constant.py:134
+msgid "Florida"
+msgstr "Frédéric"
+
+#: natural/constant.py:135
+msgid "Gallipoli"
+msgstr "Gustav"
+
+#: natural/constant.py:136
+msgid "Havanna"
+msgstr "Henri"
+
+#: natural/constant.py:137
+msgid "Italia"
+msgstr "Isidore"
+
+#: natural/constant.py:138
+msgid "Jerusalem"
+msgstr "Joseph"
+
+#: natural/constant.py:139
+msgid "Kilogramme"
+msgstr "Kilogramme"
+
+#: natural/constant.py:140
+msgid "Liverpool"
+msgstr "Léopold"
+
+#: natural/constant.py:141
+msgid "Madagaskar"
+msgstr "Marie"
+
+#: natural/constant.py:142
+msgid "New York"
+msgstr "Napoléon"
+
+#: natural/constant.py:143
+msgid "ñ"
+msgstr ""
+
+#: natural/constant.py:144
+msgid "Oslo"
+msgstr "Oscar"
+
+#: natural/constant.py:145
+msgid "ö"
+msgstr ""
+
+#: natural/constant.py:146
+msgid "Paris"
+msgstr "Piano"
+
+#: natural/constant.py:147
+msgid "Québec"
+msgstr "Quiévrain"
+
+#: natural/constant.py:148
+msgid "Roma"
+msgstr "Robert"
+
+#: natural/constant.py:149
+msgid "Santiago"
+msgstr "Suzanne"
+
+#: natural/constant.py:150
+msgid "Tripoli"
+msgstr "Téléphone"
+
+#: natural/constant.py:151
+msgid "Uppsala"
+msgstr "Ursule"
+
+#: natural/constant.py:152
+msgid "ü"
+msgstr ""
+
+#: natural/constant.py:153
+msgid "Valencia"
+msgstr "Victor"
+
+#: natural/constant.py:154
+msgid "Washington"
+msgstr "Waterloo"
+
+#: natural/constant.py:155
+msgid "Xantippe"
+msgstr "Xavier"
+
+#: natural/constant.py:156
+msgid "Yokohama"
+msgstr "Yvonne"
+
+#: natural/constant.py:157
+msgid "Zürich"
+msgstr "Zéro"
+
+#: natural/constant.py:246
+msgid "ælfɑ"
+msgstr ""
+
+#: natural/constant.py:247
+msgid "ˈbrɑːˈvo"
+msgstr ""
+
+#: natural/constant.py:248
+msgid "ˈtʃɑːli"
+msgstr ""
+
+#: natural/constant.py:249
+msgid "ˈdeltɑ "
+msgstr ""
+
+#: natural/constant.py:250
+msgid "ˈeko"
+msgstr ""
+
+#: natural/constant.py:251
+msgid "ˈfɔkstrɔt"
+msgstr ""
+
+#: natural/constant.py:252
+msgid "ɡʌlf"
+msgstr ""
+
+#: natural/constant.py:253
+msgid "hoːˈtel"
+msgstr ""
+
+#: natural/constant.py:254
+msgid "ˈindiˑɑ"
+msgstr ""
+
+#: natural/constant.py:255
+msgid "ˈdʒuːliˑˈet"
+msgstr ""
+
+#: natural/constant.py:256
+msgid "ˈkiːlo"
+msgstr ""
+
+#: natural/constant.py:257
+msgid "ˈliːmɑ"
+msgstr ""
+
+#: natural/constant.py:258
+msgid "mɑik"
+msgstr ""
+
+#: natural/constant.py:259
+msgid "noˈvembə"
+msgstr ""
+
+#: natural/constant.py:260
+msgid "ˈɔskɑ"
+msgstr ""
+
+#: natural/constant.py:261
+msgid "pəˈpɑ"
+msgstr ""
+
+#: natural/constant.py:262
+msgid "keˈbek"
+msgstr ""
+
+#: natural/constant.py:263
+msgid "ˈroːmiˑo"
+msgstr ""
+
+#: natural/constant.py:264
+msgid "siˈerɑ"
+msgstr ""
+
+#: natural/constant.py:265
+msgid "ˈtænɡo"
+msgstr ""
+
+#: natural/constant.py:266
+msgid "ˈjuːnifɔːm"
+msgstr ""
+
+#: natural/constant.py:267
+msgid "ˈviktɑ"
+msgstr ""
+
+#: natural/constant.py:268
+msgid "ˈwiski"
+msgstr ""
+
+#: natural/constant.py:269
+msgid "ˈeksˈrei"
+msgstr ""
+
+#: natural/constant.py:270
+msgid "ˈjænki"
+msgstr ""
+
+#: natural/constant.py:271
+msgid "ˈzuːluː"
+msgstr ""
+
+#: natural/constant.py:272
+msgid "ˈzɛroʊ"
+msgstr ""
+
+#: natural/constant.py:273
+msgid "ˈwʌn"
+msgstr ""
+
+#: natural/constant.py:274
+msgid "ˈtuː"
+msgstr ""
+
+#: natural/constant.py:275
+msgid "ˈtriː"
+msgstr ""
+
+#: natural/constant.py:276
+msgid "ˈfoʊ.ər"
+msgstr ""
+
+#: natural/constant.py:277
+msgid "ˈfaɪf"
+msgstr ""
+
+#: natural/constant.py:278
+msgid "ˈsɪks"
+msgstr ""
+
+#: natural/constant.py:279
+msgid "ˈsɛvɛn"
+msgstr ""
+
+#: natural/constant.py:280
+msgid "ˈeɪt"
+msgstr ""
+
+#: natural/constant.py:281
+msgid "ˈnaɪnər"
+msgstr ""
+
+#: natural/constant.py:282
+msgid "ˈstɒp"
+msgstr ""
+
+#: natural/data.py:73
+#, python-format
+msgid "%s/s"
+msgstr ""
+
+#: natural/date.py:108 natural/date.py:215
 msgid "just now"
 msgstr "ce moment"
 
-#: natural/date.py:110
+#: natural/date.py:111
 #, python-format
 msgid "%d second"
 msgstr "%d seconde"
 
-#: natural/date.py:111
+#: natural/date.py:112
 #, python-format
 msgid "%d seconds"
 msgstr "%d secondes"
 
-#: natural/date.py:114
+#: natural/date.py:115
 msgid "a minute"
 msgstr "une minute"
 
-#: natural/date.py:118
+#: natural/date.py:119
 #, python-format
 msgid "%d minute"
 msgstr "%d minute"
 
-#: natural/date.py:119
+#: natural/date.py:120
 #, python-format
 msgid "%d minutes"
 msgstr "%d minutes"
 
-#: natural/date.py:122
+#: natural/date.py:123
 msgid "an hour"
 msgstr "une heur"
 
-#: natural/date.py:126
+#: natural/date.py:127
 #, python-format
 msgid "%d hour"
 msgstr "%d heure"
 
-#: natural/date.py:127
+#: natural/date.py:128
 #, python-format
 msgid "%d hours"
 msgstr "%d heures"
 
-#: natural/date.py:131 natural/date.py:180
+#: natural/date.py:132 natural/date.py:183
 msgid "yesterday"
 msgstr "hier"
 
-#: natural/date.py:135
+#: natural/date.py:136
 #, python-format
 msgid "%d day"
 msgstr "%d jour"
 
-#: natural/date.py:136
+#: natural/date.py:137
 #, python-format
 msgid "%d days"
 msgstr "%d jours"
 
-#: natural/date.py:142
+#: natural/date.py:143
 #, python-format
 msgid "%d week"
 msgstr "%d semaine"
 
-#: natural/date.py:143
+#: natural/date.py:144
 #, python-format
 msgid "%d weeks"
 msgstr "%d semaines"
 
-#: natural/date.py:149
+#: natural/date.py:150
 #, python-format
 msgid "%d month"
-msgstr "%s mois"
+msgstr "%d mois"
 
-#: natural/date.py:150
+#: natural/date.py:151
 #, python-format
 msgid "%d months"
 msgstr "%d mois"
 
-#: natural/date.py:156
+#: natural/date.py:157
 #, python-format
 msgid "%d year"
 msgstr "%d an"
 
-#: natural/date.py:157
+#: natural/date.py:158
 #, python-format
 msgid "%d years"
 msgstr "%d ans"
 
-#: natural/date.py:177
+#: natural/date.py:180
 msgid "today"
 msgstr "aujourd'hui"
 
-#: natural/date.py:182
+#: natural/date.py:185
 msgid "tomorrow"
 msgstr "demain"
 
-#: natural/date.py:185
+#: natural/date.py:188
 msgid "last week"
 msgstr "la semaine dernière"
 
-#: natural/date.py:187
+#: natural/date.py:190
 msgid "next week"
 msgstr "la semaine prochaine"
 
-#: natural/date.py:205
+#: natural/date.py:210
 #, python-format
 msgid "%s ago"
 msgstr "Il ya %s"
 
-#: natural/date.py:207
+#: natural/date.py:212
 #, python-format
 msgid "%s from now"
 msgstr "%s d'ici"
 
-#: natural/date.py:251
+#: natural/date.py:257
 #, python-format
 msgid "%dw"
 msgstr "%ds"
 
-#: natural/date.py:253
+#: natural/date.py:259
 #, python-format
 msgid "%dd"
 msgstr "%dj"
 
-#: natural/date.py:255
+#: natural/date.py:261
 #, python-format
 msgid "%dh"
 msgstr "%dh"
 
-#: natural/date.py:257
+#: natural/date.py:263
 #, python-format
 msgid "%dm"
 msgstr "%dm"
 
-#: natural/date.py:259
+#: natural/date.py:265
 #, python-format
 msgid "%ds"
 msgstr "%dS"
