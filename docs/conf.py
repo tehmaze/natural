@@ -245,7 +245,7 @@ texinfo_documents = [
 #texinfo_show_urls = 'footnote'
 
 intersphinx_mapping = {
-    'python': ('http://python.readthedocs.org/en/latest/', None),
+    'python': ('http://docs.python.org/', None),
     'django': ('http://django.readthedocs.org/en/latest/', None),
     'sphinx': ('http://sphinx.readthedocs.org/en/latest/', None),
 }
