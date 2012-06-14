@@ -243,4 +243,8 @@ texinfo_documents = [
 # How to display URL addresses: 'footnote', 'no', or 'inline'.
 #texinfo_show_urls = 'footnote'
 
-intersphinx_mapping = {'python': ('http://docs.python.org/', None)}
+intersphinx_mapping = {
+    'python': ('http://python.readthedocs.org/en/latest/', None),
+    'django': ('http://django.readthedocs.org/en/latest/', None),
+    'sphinx': ('http://sphinx.readthedocs.org/en/latest/', None),
+}

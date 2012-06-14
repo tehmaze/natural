@@ -60,8 +60,8 @@ def throughput(sample, window=1, format='decimal'):
 
     :param sample: number of samples sent
     :param window: default 1, sample window in seconds or
-                   :ref:`python:datetime.timedelta` object
-    :param format: default 'decimal', see :py:func:`natural.size.filesize`
+                   :ref:`timedelta <datetime.timedelta>` object
+    :param format: default 'decimal', see :func:`natural.size.filesize`
     '''
 
     if isinstance(window, datetime.timedelta):
