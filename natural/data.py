@@ -1,17 +1,10 @@
+import datetime
 try:
     from io import BytesIO
 except ImportError:
     from cStringIO import StringIO as BytesIO
-from natural.constant import PRINTABLE
-
-
-def printable(sequence):
-    '''
-    Return a printable string from the input ``sequence``
-
-    :param sequence: byte or string sequence
-    '''
-    return ''.join(map(lambda c: c if c in PRINTABLE else '.', sequence))
+from natural.constant import _, PRINTABLE
+from natural.file import filesize
 
 
 def hexdump(stream):
@@ -50,3 +43,31 @@ def hexdump(stream):
             canonical,
         )
         row += 1
+
+
+def printable(sequence):
+    '''
+    Return a printable string from the input ``sequence``
+
+    :param sequence: byte or string sequence
+    '''
+    return ''.join(map(lambda c: c if c in PRINTABLE else '.', sequence))
+
+
+def throughput(sample, window=1, format='decimal'):
+    '''
+    Return the throughput in (intelli)bytes per second.
+
+    :param sample: number of samples sent
+    :param window: default 1, sample window in seconds or
+                   :ref:`python:datetime.timedelta` object
+    :param format: default 'decimal', see :py:func:`natural.size.filesize`
+    '''
+
+    if isinstance(window, datetime.timedelta):
+        window = float(window.days * 86400 + window.seconds)
+    elif isinstance(window, basestring):
+        window = float(window)
+
+    per_second = sample / float(window)
+    return _('%s/s') % (filesize(per_second, format=format),)
