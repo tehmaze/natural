@@ -220,10 +220,11 @@ def duration(t, now=None):
 
 def compress(t, sign=False, pad=u''):
     '''
-    Convert the input to compressed format, works with a ``datetime.timedelta``
-    object or a number that represents the number of seconds you want to
-    compress.  If you supply a timestamp or a ``datetime.datetime`` object, it
-    will give the delta relative to the current time.
+    Convert the input to compressed format, works with a
+    :class:`datetime.timedelta` object or a number that represents the number
+    of seconds you want to compress.  If you supply a timestamp or a
+    :class:`datetime.datetime` object, it will give the delta relative to the
+    current time.
 
     You can enable showing a sign in front of the compressed format with the
     ``sign`` parameter, the default is not to show signs.
