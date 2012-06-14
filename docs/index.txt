@@ -25,7 +25,9 @@ Features:
 .. _test suite: http://nose.readthedocs.org/en/latest/
 
 
-Demo::
+Demo:
+
+.. doctest::
 
     >>> from natural import date, number, size
     >>> import datetime
@@ -39,11 +41,12 @@ Demo::
 
 We speak `your language`_ too!
 
+.. doctest::
 
     >>> import locale
     >>> locale.setlocale(locale.LC_ALL, 'de_DE')
     >>> from natural import date
-    >>> date.duration(1337000000)
+    >>> date.duration(1337000000)   # doctest: +SKIP
     u'vor 4 Wochen'
 
 
