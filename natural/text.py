@@ -58,7 +58,7 @@ CODE_PADDING = dict(
     itu=CODE_ALPHABET_ICAO[0],
     morse=CODE_ALPHABET_MORSE[0],
     word=CODE_ALPHABET_WORD[0],
-)   
+)
 
 
 def code(sentence, pad=u'  ', format='army'):
