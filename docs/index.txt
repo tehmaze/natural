@@ -13,7 +13,7 @@ Features:
 
  * Natural is not using any third-party libraries, so it runs from a bare Python installation
 
- * Natural is fully internationalised and speaks `your language`_
+ * Natural is fully internationalised and speaks :doc:`your language <locales/#supported-languages>`_
 
  * Natural uses unicode strings where possible
 
@@ -21,7 +21,6 @@ Features:
 
  * Natural has an extensive `test suite`_
 
-.. _your language: locales
 .. _PEP8: http://www.python.org/dev/peps/pep-0008/
 .. _test suite: http://nose.readthedocs.org/en/latest/
 
