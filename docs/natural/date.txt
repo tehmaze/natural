@@ -24,7 +24,7 @@ Using the :py:func:`natural.date.day` function::
 
 Using the :py:func:`natural.date.delta` function::
 
-    >>> from natural.date import day
+    >>> from natural.date import delta
     >>> import os, stat
     >>> print day(os.stat(__file__)[stat.ST_MTIME])
     today
