@@ -1,0 +1,336 @@
+# Afrikaans translations for natural package.
+# Copyright (C) 2012 Wijnand Modderman-Lenstra
+# This file is distributed under the same license as the natural package.
+# Automatically generated, 2012.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: natural\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-06-14 00:51+0200\n"
+"PO-Revision-Date: 2012-06-14 00:51+0200\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: af\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: natural/constant.py:61 natural/constant.py:65 natural/constant.py:66
+#: natural/constant.py:67 natural/constant.py:68 natural/constant.py:69
+#: natural/constant.py:70
+msgid "th"
+msgstr "de"
+
+#: natural/constant.py:62
+msgid "st"
+msgstr "ste"
+
+#: natural/constant.py:63
+msgid "nd"
+msgstr "de"
+
+#: natural/constant.py:64
+msgid "rd"
+msgstr "de"
+
+#: natural/constant.py:73
+msgid "thousand"
+msgstr "duizend"
+
+#: natural/constant.py:74
+msgid "million"
+msgstr "miljoen"
+
+#: natural/constant.py:75
+msgid "billion"
+msgstr "miljard"
+
+#: natural/constant.py:76
+msgid "trillion"
+msgstr "biljoen"
+
+#: natural/constant.py:77
+msgid "quadrillion"
+msgstr "biljard"
+
+#: natural/constant.py:78
+msgid "quintillion"
+msgstr "triljoen"
+
+#: natural/constant.py:79
+msgid "sextillion"
+msgstr "triljard"
+
+#: natural/constant.py:80
+msgid "septillion"
+msgstr "quadriljoen"
+
+#: natural/constant.py:81
+msgid "octillion"
+msgstr "quadriljard"
+
+#: natural/constant.py:82
+msgid "nonillion"
+msgstr "quintiljoen"
+
+#: natural/constant.py:83
+msgid "decillion"
+msgstr "quintiljard"
+
+#: natural/constant.py:84
+msgid "undecillion"
+msgstr "sextiljoen"
+
+#: natural/constant.py:85
+msgid "duodecillion"
+msgstr "sextiljard"
+
+#: natural/constant.py:86
+msgid "tredecillion"
+msgstr "septiljoen"
+
+#: natural/constant.py:87
+msgid "quattuordecillion"
+msgstr "septiljard"
+
+#: natural/constant.py:88
+msgid "quindecillion"
+msgstr "octiljoen"
+
+#: natural/constant.py:89
+msgid "sexdecillion"
+msgstr "octiljard"
+
+#: natural/constant.py:90
+msgid "septendecillion"
+msgstr "noniljoen"
+
+#: natural/constant.py:91
+msgid "octodec"
+msgstr "noniljard"
+
+#: natural/constant.py:92
+msgid "novemdecillion"
+msgstr "deciljoen"
+
+#: natural/constant.py:93
+msgid "vigintillion"
+msgstr "deciljard"
+
+#: natural/constant.py:94
+msgid "unvigintillion"
+msgstr "undeciljoen"
+
+#: natural/constant.py:95
+msgid "duovigintil"
+msgstr "undeciljard"
+
+#: natural/constant.py:96
+msgid "tresvigintillion"
+msgstr "duodeciljoen"
+
+#: natural/constant.py:97
+msgid "quattuorvigintillion"
+msgstr "duodeciljard"
+
+#: natural/constant.py:98
+msgid "quinquavigintillion"
+msgstr "tredeciljoen"
+
+#: natural/constant.py:99
+msgid "sesvigintillion"
+msgstr "tredeciljard"
+
+#: natural/constant.py:100
+msgid "septemvigintillion"
+msgstr "quattuordeciljoen"
+
+#: natural/constant.py:101
+msgid "octovigintillion"
+msgstr "quattuordeciljard"
+
+#: natural/constant.py:102
+msgid "novemvigintillion"
+msgstr "quindeciljoen"
+
+#: natural/constant.py:103
+msgid "trigintillion"
+msgstr "quindeciljard"
+
+#: natural/constant.py:104
+msgid "untrigintillion"
+msgstr "sexdeciljoen"
+
+#: natural/constant.py:105
+msgid "duotrigintillion"
+msgstr "sexdeciljard"
+
+#: natural/constant.py:106
+msgid "trestrigintillion"
+msgstr "septendeciljoen"
+
+#: natural/constant.py:107
+msgid "quattuortrigintillion"
+msgstr "septendeciljard"
+
+#: natural/constant.py:108
+msgid "quinquatrigintillion"
+msgstr "octodeciljoen"
+
+#: natural/constant.py:109
+msgid "sestrigintillion"
+msgstr "octodeciljard"
+
+#: natural/constant.py:110
+msgid "septentrigintillion"
+msgstr "novemdeciljoen"
+
+#: natural/constant.py:111
+msgid "octotrigintillion"
+msgstr "novemdeciljard"
+
+#: natural/constant.py:112
+msgid "novemtrigintillion"
+msgstr "vigintiljoen"
+
+#: natural/constant.py:113
+msgid "quadragintillion"
+msgstr "vigintiljard"
+
+#: natural/date.py:107 natural/date.py:210
+msgid "just now"
+msgstr "nou net"
+
+#: natural/date.py:110
+#, python-format
+msgid "%d second"
+msgstr "%d sekonde"
+
+#: natural/date.py:111
+#, python-format
+msgid "%d seconds"
+msgstr "%d sekondes"
+
+#: natural/date.py:114
+msgid "a minute"
+msgstr "'n minuut"
+
+#: natural/date.py:118
+#, python-format
+msgid "%d minute"
+msgstr "%d minuut"
+
+#: natural/date.py:119
+#, python-format
+msgid "%d minutes"
+msgstr "%d minute"
+
+#: natural/date.py:122
+msgid "an hour"
+msgstr "'n uur"
+
+#: natural/date.py:126
+#, python-format
+msgid "%d hour"
+msgstr "%d uur"
+
+#: natural/date.py:127
+#, python-format
+msgid "%d hours"
+msgstr "%d uur"
+
+#: natural/date.py:131 natural/date.py:180
+msgid "yesterday"
+msgstr "gister"
+
+#: natural/date.py:135
+#, python-format
+msgid "%d day"
+msgstr "%d dag"
+
+#: natural/date.py:136
+#, python-format
+msgid "%d days"
+msgstr "%d dae"
+
+#: natural/date.py:142
+#, python-format
+msgid "%d week"
+msgstr "%d week"
+
+#: natural/date.py:143
+#, python-format
+msgid "%d weeks"
+msgstr "%d weke"
+
+#: natural/date.py:149
+#, python-format
+msgid "%d month"
+msgstr "%d maand"
+
+#: natural/date.py:150
+#, python-format
+msgid "%d months"
+msgstr "%d maande"
+
+#: natural/date.py:156
+#, python-format
+msgid "%d year"
+msgstr "%d jaar"
+
+#: natural/date.py:157
+#, python-format
+msgid "%d years"
+msgstr "%d jaar"
+
+#: natural/date.py:177
+msgid "today"
+msgstr "vandag"
+
+#: natural/date.py:182
+msgid "tomorrow"
+msgstr "môre"
+
+#: natural/date.py:185
+msgid "last week"
+msgstr "verlede week"
+
+#: natural/date.py:187
+msgid "next week"
+msgstr "volgende week"
+
+#: natural/date.py:205
+#, python-format
+msgid "%s ago"
+msgstr "%s gelede"
+
+#: natural/date.py:207
+#, python-format
+msgid "%s from now"
+msgstr "%s vanaf nou"
+
+#: natural/date.py:251
+#, python-format
+msgid "%dw"
+msgstr "%dw"
+
+#: natural/date.py:253
+#, python-format
+msgid "%dd"
+msgstr "%dd"
+
+#: natural/date.py:255
+#, python-format
+msgid "%dh"
+msgstr "%du"
+
+#: natural/date.py:257
+#, python-format
+msgid "%dm"
+msgstr "%dm"
+
+#: natural/date.py:259
+#, python-format
+msgid "%ds"
+msgstr "%ds"

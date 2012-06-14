@@ -103,6 +103,7 @@ We support the following languages:
 ========= ===================
 locale    language
 ========= ===================
+``af_ZA`` Afrikaans
 ``de_DE`` German
 ``en_GB`` English
 ``en_US`` English (American)
