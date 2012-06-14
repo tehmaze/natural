@@ -13,14 +13,14 @@ Basic usage::
 
     >>> from natural.file import accessed
     >>> print accessed(__file__)
-    'just now'
+    just now
 
 We speak your language (with `your support`_)::
 
     >>> import locale
     >>> locale.setlocale(locale.LC_MESSAGES, 'nl_NL')
     >>> print accessed(__file__)
-    'zojuist'
+    zojuist
 
 Bugs/Features
 =============

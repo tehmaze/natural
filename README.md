@@ -12,7 +12,7 @@ Basic usage:
 
     >>> from natural.file import accessed
     >>> print accessed(__file__)
-    'just now'
+    just now
 ```
 
 We speak your language (with [your support](https://github.com/tehmaze/natural/wiki/translate)):
@@ -22,7 +22,7 @@ We speak your language (with [your support](https://github.com/tehmaze/natural/w
     >>> import locale
     >>> locale.setlocale(locale.LC_MESSAGES, 'nl_NL')
     >>> print accessed(__file__)
-    'zojuist'
+    zojuist
 ```
 
 Bugs/Features
