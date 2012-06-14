@@ -135,9 +135,3 @@ def pronounce(sentence, pad=u' '):
     :param pad: default ``u'  '``
     '''
     return ALPHABET['pronounce'](sentence, pad)
-
-if __name__ == '__main__':
-    print morse('hello world!')
-    print spell('wijnand')
-    print nato('pd0mz')
-    print pronounce('testing')
