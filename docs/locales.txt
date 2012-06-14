@@ -95,6 +95,21 @@ generate a fresh copy of the translation pot:
 
 Follow the steps above to publish your changes.
 
+Supported languages
+-------------------
+
+We support the following languages:
+
+========= ===================
+locale    language
+========= ===================
+``de_DE`` German
+``en_GB`` English
+``en_US`` English (American)
+``fr_FR`` French
+``nl_NL`` Dutch
+========= ===================
+
 .. _GitHub: https://github.com/
 .. _gettext: http://www.gnu.org/software/gettext/
 .. _fork the project: https://help.github.com/articles/fork-a-repo
