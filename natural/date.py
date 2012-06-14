@@ -23,7 +23,7 @@ ISO8601_DATE_FORMAT     = '%Y-%m-%d'
 def _to_datetime(t):
     '''
     Internal function that tries whatever to convert ``t`` into a
-    :class:`datetime.datetime <python:datetime.datetime>` object.
+    :class:`datetime.datetime` object.
     '''
 
     if isinstance(t, float) or \
@@ -57,7 +57,7 @@ def _to_datetime(t):
 def _to_date(t):
     '''
     Internal function that tries whatever to convert ``t`` into a
-    :class:`datetime.date <python:datetime.date>` object.
+    :class:`datetime.date` object.
     '''
 
     if isinstance(t, float) or \
@@ -93,10 +93,10 @@ def delta(t1, t2):
     Calculates the estimated delta between two time objects in human-readable
     format. Used internally by the :func:`day` and :func:`duration` functions.
 
-    :param t1: timestamp, :class:`datetime.date <python:datetime.date>` or 
-               :class:`datetime.datetime <python:datetime.datetime>` object
-    :param t2: timestamp, :class:`datetime.date <python:datetime.date>` or 
-               :class:`datetime.datetime <python:datetime.datetime>` object
+    :param t1: timestamp, :class:`datetime.date` or :class:`datetime.datetime`
+               object
+    :param t2: timestamp, :class:`datetime.date` or :class:`datetime.datetime`
+               object
     '''
 
     t1 = _to_datetime(t1)
@@ -166,10 +166,10 @@ def day(t, now=None, format='%B %d'):
 
     You can override the date format by supplying a ``format`` parameter.
 
-    :param t: timestamp, :class:`datetime.date <python:datetime.date>` or 
-              :class:`datetime.datetime <python:datetime.datetime>` object
-    :param now: default ``None``, optionally a 
-                :class:`datetime.datetime <python:datetime.datetime>` object
+    :param t: timestamp, :class:`datetime.date` or :class:`datetime.datetime`
+              object
+    :param now: default ``None``, optionally a :class:`datetime.datetime`
+                object
     :param format: default ``'%B %d'``
     '''
     t1 = _to_date(t)
@@ -197,10 +197,10 @@ def duration(t, now=None):
     Time delta compared to ``t``. You can override ``now`` to specify what time
     to compare to.
 
-    :param t: timestamp, :class:`datetime.date <python:datetime.date>` or 
-              :class:`datetime.datetime <python:datetime.datetime>` object
-    :param now: default ``None``, optionally a 
-                :class:`datetime.datetime <python:datetime.datetime>` object
+    :param t: timestamp, :class:`datetime.date` or :class:`datetime.datetime`
+              object
+    :param now: default ``None``, optionally a :class:`datetime.datetime`
+                object
     '''
 
     t1 = _to_datetime(t)
@@ -232,8 +232,7 @@ def compress(t, sign=False, pad=u''):
     Optionally, you can chose to pad the output. If you wish your values to be
     separated by spaces, set ``pad`` to ``' '``.
 
-    :param t: seconds or 
-              :class:`datetime.timedelta <python:datetime.tiemdelta>` object
+    :param t: seconds or :class:`datetime.timedelta` object
     :param sign: default ``False``
     :param pad: default ``u''``
     '''
