@@ -75,6 +75,7 @@ Contents
    natural/file
    natural/number
    natural/size
+   natural/text
 
 
 Indices and tables
