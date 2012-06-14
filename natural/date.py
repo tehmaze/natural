@@ -23,7 +23,7 @@ ISO8601_DATE_FORMAT     = '%Y-%m-%d'
 def _to_datetime(t):
     '''
     Internal function that tries whatever to convert ``t`` into a
-    :ref:``datetime.datetime <python:datetime.datetime>` object.
+    :func:``datetime.datetime <python:datetime.datetime>` object.
     '''
 
     if isinstance(t, float) or \
@@ -57,7 +57,7 @@ def _to_datetime(t):
 def _to_date(t):
     '''
     Internal function that tries whatever to convert ``t`` into a
-    :ref:``datetime.date <python:datetime.date>` object.
+    :func:``datetime.date <python:datetime.date>` object.
     '''
 
     if isinstance(t, float) or \
@@ -93,10 +93,10 @@ def delta(t1, t2):
     Calculates the estimated delta between two time objects in human-readable
     format. Used internally by the :func:`day` and :func:`duration` functions.
 
-    :param t1: timestamp, :ref:`datetime.date <python:datetime.date>` or 
-               :ref:``datetime.datetime <python:datetime.datetime>` object
-    :param t2: timestamp, :ref:`datetime.date <python:datetime.date>` or 
-               :ref:``datetime.datetime <python:datetime.datetime>` object
+    :param t1: timestamp, :class:`datetime.date <python:datetime.date>` or 
+               :class:``datetime.datetime <python:datetime.datetime>` object
+    :param t2: timestamp, :class:`datetime.date <python:datetime.date>` or 
+               :class:``datetime.datetime <python:datetime.datetime>` object
     '''
 
     t1 = _to_datetime(t1)
