@@ -4,7 +4,17 @@
 Examples
 --------
 
-Using the :py:func:`natural.data.hexdump` function::
+Using the :func:`natural.data.throughput` function::
+
+    >>> from natural.data import throughput
+    >>> print throughput(456789012, 123)
+    3,54169 MB/s
+    >>> print throughput(456789012)
+    435,628 MB/s
+    >>> print throughput(456789012, format='binary')
+    456,789 MiB/s
+
+Using the :func:`natural.data.hexdump` function::
 
     >>> from natural.data import hexdump
     >>> hexdump(file('test.dat'))
@@ -14,7 +24,7 @@ Using the :py:func:`natural.data.hexdump` function::
     00000030  4f b5 52 30 d0 33 37 d1  01 92 16 86 10 92 0b 00  |O.R0.37.........|
     00000040  21 df 77 14 3e 00 00 00                           |!.w.>...|
 
-Using the :py:func:`natural.data.printable` function::
+Using the :func:`natural.data.printable` function::
 
     >>> from natural.data import printable
     >>> print printable(file('test.dat').read())
