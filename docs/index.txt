@@ -39,7 +39,7 @@ Demo:
     u'95.377 GB'
 
 
-We speak `your language`_ too!
+We speak :doc:`your language <locales>` too!
 
 .. doctest::
 

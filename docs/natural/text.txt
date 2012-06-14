@@ -10,7 +10,7 @@ Using the :py:func:`natural.text.code` function::
     >>> print code('hello world!')
     HO tell  EKK oh  LEE mah  LEE mah  OSS car  WISS key  OSS car  ROW me oh  LEE mah  DEL tah
 
-Using the :py:func:`natural.file.morse` function::
+Using the :py:func:`natural.text.morse` function::
 
     >>> from natural.text import morse
     >>> print morse('hello world!')

@@ -23,6 +23,7 @@ locale    language
 ``de_DE`` German
 ``en_GB`` English
 ``en_US`` English (American)
+``es_ES`` Spanish
 ``fr_FR`` French
 ``nl_NL`` Dutch
 ========= ===================
