@@ -48,6 +48,18 @@ We speak `your language`_ too!
     u'vor 4 Wochen'
 
 
+Download
+========
+
+There are no official releases yet, however you can get the latest snapshots:
+
+ * `tarball <https://github.com/tehmaze/natural/tarball/master>`_
+ 
+ * `zipball <https://github.com/tehmaze/natural/zipball/master>`_
+
+ * `git repository at GitHub <https://github.com/tehmaze/natural>`_
+
+
 Contents
 ========
 
