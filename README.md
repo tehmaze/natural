@@ -10,9 +10,8 @@ Basic usage:
 
 ```python
 
-    >>> import datetime
-    >>> from natural.date import duration
-    >>> print duration(datetime.datetime.now())
+    >>> from natural.file import accessed
+    >>> print accessed(__file__)
     'just now'
 ```
 
@@ -22,7 +21,7 @@ We speak your language (with [your support](https://github.com/tehmaze/natural/w
 
     >>> import locale
     >>> locale.setlocale(locale.LC_MESSAGES, 'nl_NL')
-    >>> print duration(datetime.datetime.now())
+    >>> print accessed(__file__)
     'zojuist'
 ```
 
