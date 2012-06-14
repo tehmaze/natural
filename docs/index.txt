@@ -13,7 +13,7 @@ Features:
 
  * Natural is not using any third-party libraries, so it runs from a bare Python installation
 
- * Natural is fully internationalised and speaks :doc:`your language <locales/#supported-languages>`_
+ * Natural is fully internationalised and speaks :doc:`your language <locales>`_
 
  * Natural uses unicode strings where possible
 
