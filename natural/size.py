@@ -9,7 +9,7 @@ FILESIZE_BASE = dict(
 )
 
 
-def filesize(value, format='decimal', precision=2):
+def filesize(value, format='decimal', digits=2):
     '''
     Convert a file size into natural readable format. Multiple formats are
     supported.
@@ -17,7 +17,7 @@ def filesize(value, format='decimal', precision=2):
     :param value: size
     :param format: default ``decimal``, choices ``binary``, ``decimal`` or
                    ``gnu``
-    :param precision: default ``2``
+    :param digits: default ``2``
     '''
 
     if not format in FILESIZE_SUFFIX:
@@ -33,7 +33,7 @@ def filesize(value, format='decimal', precision=2):
         if size < unit:
             result = u''.join([
                 sign,
-                _format(base * size / float(unit), precision),
+                _format(base * size / float(unit), digits),
                 u' ',
                 suffix,
             ])
@@ -58,8 +58,8 @@ def binarysize(value):
     return filesize(value, format='binary')
 
 
-def gnusize(value, precision=1):
+def gnusize(value, digits=1):
     '''
     Wrapper for :py:func:`filesize`.
     '''
-    return filesize(value, format='gnu', precision=precision)
+    return filesize(value, format='gnu', digits=digits)

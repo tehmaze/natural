@@ -3,25 +3,25 @@ import re
 from natural.constant import CONVENTION, ORDINAL_SUFFIX, LARGE_NUMBER_SUFFIX
 
 
-def _format(value, precision=None):
+def _format(value, digits=None):
     if isinstance(value, basestring):
         value = locale.atof(value)
 
     number = long(value)
     convention = locale.localeconv()
 
-    if precision is None:
-        precision = convention['frac_digits']
+    if digits is None:
+        digits = convention['frac_digits']
 
     partials = []
-    if precision == 0:
+    if digits == 0:
         number = long(round(value, 0))
     else:
-        fraction = str(round((value - number) * 10 ** precision)).split('.')[0]
-        fraction = fraction[:precision]
+        fraction = str(round((value - number) * 10 ** digits)).split('.')[0]
+        fraction = fraction[:digits]
 
-        if len(fraction) < precision:
-            fraction = fraction.ljust(precision, '0')
+        if len(fraction) < digits:
+            fraction = fraction.ljust(digits, '0')
 
         if fraction:
             partials.append(fraction)
@@ -59,15 +59,15 @@ def ordinal(value):
         return u'%d%s' % (value, ORDINAL_SUFFIX[value % 10])
 
 
-def double(value, precision=2):
+def double(value, digits=2):
     '''
     Converts a number to a formatted double based on the current locale.
 
     :param value: number
-    :param precision: default ``2``
+    :param digits: default ``2``
     '''
 
-    return unicode(_format(value, precision))
+    return unicode(_format(value, digits))
 
 
 def number(value):
@@ -80,7 +80,7 @@ def number(value):
     return unicode(_format(value, 0))
 
 
-def word(value, precision=2):
+def word(value, digits=2):
     '''
     Converts a large number to a formatted number containing the textual suffix
     for that number.
@@ -88,17 +88,14 @@ def word(value, precision=2):
     :param value: number
     '''
 
-    if precision is None:
-        format = '%g'
-    else:
-        format = '%%.%dg' % (precision + 2,)
-
+    convention = locale.localeconv()
+    decimal_point = convention['decimal_point']
     prefix = value < 0 and u'-' or u''
     value = abs(long(value))
     if value < 1000L:
         return u''.join([
             prefix,
-            locale.format(format, value, True),
+            _format(value, digits).rstrip('%s0' % (decimal_point,)),
         ])
 
     for base, suffix in enumerate(LARGE_NUMBER_SUFFIX):
@@ -108,7 +105,7 @@ def word(value, precision=2):
             value = value / float(10 ** (exp - 3))
             return u''.join([
                 prefix,
-                locale.format(format, value, True),
+                _format(value, digits).rstrip('%s0' % (decimal_point,)),
                 u' ',
                 suffix,
             ])
