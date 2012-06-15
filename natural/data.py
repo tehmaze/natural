@@ -3,7 +3,7 @@ try:
     from io import BytesIO
 except ImportError:
     from cStringIO import StringIO as BytesIO
-from natural.constant import _, PRINTABLE
+from natural.constant import _, PRINTABLE, SPARKCHAR
 from natural.file import filesize
 
 
@@ -52,6 +52,22 @@ def printable(sequence):
     :param sequence: byte or string sequence
     '''
     return ''.join(map(lambda c: c if c in PRINTABLE else '.', sequence))
+
+
+def sparkline(data):
+    '''
+    Return a spark line for the given data set.
+
+    :value data: sequence of numeric values
+    '''
+
+    min_value = float(min(data))
+    max_value = float(max(data))
+    steps = (max_value - min_value) / float(len(SPARKCHAR) - 1)
+    return u''.join([
+        SPARKCHAR[int((float(value) - min_value) / steps)]
+        for value in data
+    ])
 
 
 def throughput(sample, window=1, format='decimal'):

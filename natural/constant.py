@@ -123,6 +123,7 @@ FILESIZE_SUFFIX = dict(
 )
 # natural.data
 PRINTABLE = map(lambda c: chr(c), xrange(0x20, 0x7f))
+SPARKCHAR = u'\u2581\u2582\u2583\u2584\u2585\u2586\u2587\u2588'
 # natural.spelling
 SPELL_ALPHABET = {
     u'a': _(u'Amsterdam'),
