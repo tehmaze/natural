@@ -1,5 +1,6 @@
 import locale
 from natural.constant import FILESIZE_SUFFIX
+from natural.number import _format
 
 FILESIZE_BASE = dict(
     decimal=1024,
@@ -8,7 +9,7 @@ FILESIZE_BASE = dict(
 )
 
 
-def filesize(value, format='decimal'):
+def filesize(value, format='decimal', precision=2):
     '''
     Convert a file size into natural readable format. Multiple formats are
     supported.
@@ -16,6 +17,7 @@ def filesize(value, format='decimal'):
     :param value: size
     :param format: default ``decimal``, choices ``binary``, ``decimal`` or
                    ``gnu``
+    :param precision: default ``2``
     '''
 
     if not format in FILESIZE_SUFFIX:
@@ -31,7 +33,7 @@ def filesize(value, format='decimal'):
         if size < unit:
             result = u''.join([
                 sign,
-                locale.format('%g', base * size / float(unit), True),
+                _format(base * size / float(unit), precision),
                 u' ',
                 suffix,
             ])
@@ -56,8 +58,8 @@ def binarysize(value):
     return filesize(value, format='binary')
 
 
-def gnusize(value):
+def gnusize(value, precision=1):
     '''
     Wrapper for :py:func:`filesize`.
     '''
-    return filesize(value, format='gnu')
+    return filesize(value, format='gnu', precision=precision)
