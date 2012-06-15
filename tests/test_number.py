@@ -38,6 +38,17 @@ class TestNumber(object):
     def test_number_none(self):
         number.number(None)
 
+    def test_percentage(self):
+        for test, expect in (
+                (0.01,          u'1.00 %'),
+                (0.11,          u'11.00 %'),
+                (0.101,         u'10.10 %'),
+                (1,             u'100.00 %'),
+                (23.42,         u'2,342.00 %'),
+            ):
+            result = number.percentage(test)
+            assert result == expect, '%r <> %r' % (result, expect)
+
     def test_word(self):
         for test, expect in (
                 (1,                         u'1'),

@@ -80,6 +80,18 @@ def number(value):
     return unicode(_format(value, 0))
 
 
+def percentage(value, digits=2):
+    '''
+    Converts a fraction to a formatted percentage.
+
+    :param value: number
+    :param digits: default ``2``
+    '''
+
+    value = float(value) * 100.0
+    return u'{} %'.format(_format(value, digits))
+
+
 def word(value, digits=2):
     '''
     Converts a large number to a formatted number containing the textual suffix

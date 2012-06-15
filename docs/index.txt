@@ -68,7 +68,6 @@ Contents
 .. toctree::
    :maxdepth: 2
 
-   locales
    natural/constant
    natural/data
    natural/date
@@ -76,6 +75,8 @@ Contents
    natural/number
    natural/size
    natural/text
+   locales
+   django
 
 
 Indices and tables

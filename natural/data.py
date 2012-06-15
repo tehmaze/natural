@@ -1,10 +1,32 @@
 import datetime
+import fcntl
+import os
+import struct
+import sys
+import termios
 try:
     from io import BytesIO
 except ImportError:
     from cStringIO import StringIO as BytesIO
 from natural.constant import _, PRINTABLE, SPARKCHAR
 from natural.file import filesize
+
+
+def _termsize():
+    '''
+    Get the current terminal size, returns a ``(height, width)`` tuple.
+    '''
+
+    try:
+        print 'plan a'
+        return struct.unpack('hh',
+            fcntl.ioctl(sys.stdout.fileno(), termios.TIOCGWINSZ, '1234'))
+    except:
+        print 'plan b'
+        return (
+            int(os.environ.get('LINES', 25)),
+            int(os.environ.get('COLUMNS', 80)),
+        )
 
 
 def hexdump(stream):
