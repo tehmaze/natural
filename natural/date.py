@@ -88,7 +88,7 @@ def _to_date(t):
         raise TypeError
 
 
-def delta(t1, t2):
+def delta(t1, t2, words=True):
     '''
     Calculates the estimated delta between two time objects in human-readable
     format. Used internally by the :func:`day` and :func:`duration` functions.
@@ -104,59 +104,98 @@ def delta(t1, t2):
     diff = t1 - t2
 
     if diff.days == 0:
-        if diff.seconds < 10:
-            return _(u'just now')
-        elif diff.seconds < 60:
-            return _multi(
-                _(u'%d second'),
-                _(u'%d seconds'),
-                diff.seconds) % (diff.seconds,)
-        elif diff.seconds < 120:
-            return _(u'a minute')
-        elif diff.seconds < 3600:
-            minutes = int(diff.seconds / 60)
-            return _multi(
-                _(u'%d minute'),
-                _(u'%d minutes'),
-                minutes) % (minutes,)
-        elif diff.seconds < 7200:
-            return _(u'an hour')
-        elif diff.seconds < 86400:
-            hours = int(diff.seconds / 3600)
-            return _multi(
-                _(u'%d hour'),
-                _(u'%d hours'),
-                hours) % (hours,)
+        if diff.seconds < 10 and words:
+            return (
+                _(u'just now'),
+                0,
+            )
 
-    elif diff.days == 1:
-        return _(u'yesterday')
+        elif diff.seconds < 60:
+            return (
+                _multi(
+                    _(u'%d second'),
+                    _(u'%d seconds'),
+                diff.seconds) % (diff.seconds,),
+                0,
+            )
+        elif diff.seconds < 120 and words:
+            return (
+                _(u'a minute'),
+                0,
+            )
+
+        elif diff.seconds < 3600:
+            minutes, seconds = divmod(diff.seconds, 60)
+            return (
+                _multi(
+                    _(u'%d minute'),
+                    _(u'%d minutes'),
+                minutes) % (minutes,),
+                seconds,
+            )
+        elif diff.seconds < 7200 and words:
+            return (
+                _(u'an hour'),
+                0,
+            )
+
+        elif diff.seconds < 86400:
+            hours, seconds = divmod(diff.seconds, 3600)
+            return (
+                _multi(
+                    _(u'%d hour'),
+                    _(u'%d hours'),
+                hours) % (hours,),
+                seconds,
+            )
+
+    elif diff.days == 1 and words:
+        return (
+            _(u'yesterday'),
+            0,
+        )
 
     elif diff.days < 7:
-        return _multi(
-            _(u'%d day'),
-            _(u'%d days'),
-            diff.days) % (diff.days,)
+        return (
+            _multi(
+                _(u'%d day'),
+                _(u'%d days'),
+            diff.days) % (diff.days,),
+            diff.seconds,
+        )
 
     elif diff.days < 31:
-        weeks = int(diff.days / 7)
-        return _multi(
-            _(u'%d week'),
-            _(u'%d weeks'),
-            weeks) % (weeks,)
+        weeks, days = divmod(diff.days, 7)
+        seconds = days * 86400 + diff.seconds
+        return (
+            _multi(
+                _(u'%d week'),
+                _(u'%d weeks'),
+            weeks) % (weeks,),
+            seconds,
+        )
 
     elif diff.days < 365:
-        months = int(diff.days / 30)
-        return _multi(
-            _(u'%d month'),
-            _(u'%d months'),
-            months) % (months,)
+        months, days = divmod(diff.days, 30)
+        seconds = days * 86400 + diff.seconds
+        return (
+            _multi(
+                _(u'%d month'),
+                _(u'%d months'),
+            months) % (months,),
+            seconds,
+        )
 
     else:
-        years = int(diff.days / 365)
-        return _multi(
-            _(u'%d year'),
-            _(u'%d years'),
-            years) % (years,)
+        years, days = divmod(diff.days, 365)
+        seconds = days * 86400 + diff.seconds
+        return (
+            _multi(
+                _(u'%d year'),
+                _(u'%d years'),
+            years) % (years,),
+            seconds,
+        )
 
 
 def day(t, now=None, format='%B %d'):
@@ -192,7 +231,7 @@ def day(t, now=None, format='%B %d'):
         return t1.strftime(format)
 
 
-def duration(t, now=None):
+def duration(t, now=None, precision=1, pad=u', ', words=None):
     '''
     Time delta compared to ``t``. You can override ``now`` to specify what time
     to compare to.
@@ -201,7 +240,14 @@ def duration(t, now=None):
               object
     :param now: default ``None``, optionally a :class:`datetime.datetime`
                 object
+    :param precision: default ``1``, number of fragments to return
+    :param words: default ``None``, allow words like "yesterday", if set to
+                  ``None`` this will be enabled if ``precision`` is set to
+                  ``1``
     '''
+
+    if words is None:
+        words = precision == 1
 
     t1 = _to_datetime(t)
     t2 = _to_datetime(now or datetime.datetime.now())
@@ -211,9 +257,15 @@ def duration(t, now=None):
     else:
         format = _(u'%s from now')
 
-    result = delta(max(t1, t2), min(t1, t2))
-    if result == _(u'just now'):
+    result, remains = delta(max(t1, t2), min(t1, t2), words=words)
+    if result in (_(u'just now'), _(u'yesterday')):
         return result
+    elif precision > 1 and remains:
+        t3 = t2 - datetime.timedelta(seconds=remains)
+        return pad.join([
+            result,
+            duration(t3, t2, precision - 1, pad, words=False),
+        ])
     else:
         return format % (result,)
 

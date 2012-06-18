@@ -39,7 +39,22 @@ class TestDate(object):
             (now - 11,      u'11 seconds ago'),
             (now - 3601,    u'an hour ago'),
             (now - 7201,    u'2 hours ago'),
+            (now - 123456,  u'yesterday'),
+            (now - 1234567, u'2 weeks ago'),
             ):
 
             result = date.duration(test)
+            assert result == expect, '%r <> %r' % (result, expect)
+
+        for test, expect in (
+            (now + 11,      u'10 seconds from now'),
+            (now - 1,       u'1 second ago'),
+            (now - 11,      u'11 seconds ago'),
+            (now - 3601,    u'1 hour, 1 second ago'),
+            (now - 7201,    u'2 hours, 1 second ago'),
+            (now - 123456,  u'1 day, 10 hours, 17 minutes ago'),
+            (now - 1234567, u'2 weeks, 6 hours, 56 minutes ago'),
+            ):
+
+            result = date.duration(test, precision=3)
             assert result == expect, '%r <> %r' % (result, expect)

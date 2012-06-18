@@ -34,11 +34,13 @@ Using the :py:func:`natural.date.delta` function::
 Using the :py:func:`natural.date.duration` function::
 
     >>> from natural.date import duration
-    >>> import os, stat
-    >>> print duration(os.stat('/etc/fstab')[stat.ST_MTIME])
+    >>> from os.path import getmtime
+    >>> print duration(getmtime('/etc/fstab'))
     1 month ago
-    >>> print duration(os.stat('/etc/issue')[stat.ST_MTIME])
+    >>> print duration(getmtime('/etc/issue'))
     2 months ago
+    >>> print duration(getmtime('/etc/issue'), precision=3)
+    2 months, 1 week, 42 seconds ago
 
 
 API
