@@ -27,6 +27,11 @@ Bugs/Features
 
 You can issue a ticket in GitHub: https://github.com/tehmaze/natural/issues
 
+Documentation
+=============
+
+The project documentation can be found at http://natural.rtfd.org/
+
 .. _your support: http://natural.readthedocs.org/en/latest/locales.html
 ''',
     author='Wijnand Modderman-Lenstra',
