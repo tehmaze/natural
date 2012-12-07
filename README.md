@@ -25,6 +25,12 @@ We speak your language (with [your support](https://github.com/tehmaze/natural/w
     zojuist
 ```
 
+Documentation
+=============
+
+Auto-generated documentation for the development version of natural is
+automagically available at http://natural.readthedocs.org/
+
 Bugs/Features
 =============
 
