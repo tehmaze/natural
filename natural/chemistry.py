@@ -136,8 +136,9 @@ ELEMENTS = OrderedDict(
     ))
 
 
-_RE_ELEMENTS = r'\b(%s)\b' % ('|'.join(a for a in ELEMENTS if ELEMENTS[a][0]),)
-RE_FORMULA   = re.compile(r'(%s(\d*))' % _RE_ELEMENTS)
+# Used in the sequence decoder, returns groups of potential element
+# abbreviations (but require manual checking)
+RE_SEQUENCE = re.compile(r'(([A-Z][a-z]*)(\d*)|<EOS>)')
 
 
 def full_name(abbreviation):
@@ -151,8 +152,6 @@ def full_name(abbreviation):
 
     '''
     return ELEMENTS[abbreviation.title()][0]
-
-_RE_SEQUENCE = re.compile(r'(([A-Z][a-z]*)(\d*)|<EOS>)')
 
 def decode_sequence(sequence):
     input = sequence + '<EOS>'
