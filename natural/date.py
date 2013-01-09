@@ -15,9 +15,15 @@ ISO8601_DATETIME_FORMAT = '%Y-%m-%dT%H:%M:%S'
 # Wed, 02 Oct 2002
 RFC2822_DATE_FORMAT     = '%a, %d %b %Y'
 # Wed, 02 Oct 02
-RFC2822_DATE_FORMAT     = '%a, %d %b %y'
+RFC822_DATE_FORMAT      = '%a, %d %b %y'
 # 2012-06-13
 ISO8601_DATE_FORMAT     = '%Y-%m-%d'
+
+# Precalculated timestamps
+TIME_MINUTE             = 60
+TIME_HOUR               = 3600
+TIME_DAY                = 86400
+TIME_WEEK               = 604800
 
 
 def _to_datetime(t):
@@ -88,7 +94,7 @@ def _to_date(t):
         raise TypeError
 
 
-def delta(t1, t2, words=True):
+def delta(t1, t2, words=True, justnow=datetime.timedelta(seconds=10)):
     '''
     Calculates the estimated delta between two time objects in human-readable
     format. Used internally by the :func:`day` and :func:`duration` functions.
@@ -103,29 +109,35 @@ def delta(t1, t2, words=True):
     t2 = _to_datetime(t2)
     diff = t1 - t2
 
-    if diff.days == 0:
-        if diff.seconds < 10 and words:
+    # The datetime module includes milliseconds with float precision. Floats
+    # will give unexpected results here, so we round the value here
+    total = int(diff.total_seconds() + 0.5)
+
+    if abs(total) < TIME_DAY:
+        if diff < justnow and words:
             return (
                 _(u'just now'),
                 0,
             )
 
-        elif diff.seconds < 60:
+        elif abs(total) < TIME_MINUTE:
+            seconds = abs(total)
             return (
                 _multi(
                     _(u'%d second'),
                     _(u'%d seconds'),
-                diff.seconds) % (diff.seconds,),
+                seconds) % (seconds,),
                 0,
             )
-        elif diff.seconds < 120 and words:
+        elif abs(total) < TIME_MINUTE * 2 and words:
             return (
                 _(u'a minute'),
                 0,
             )
 
-        elif diff.seconds < 3600:
-            minutes, seconds = divmod(diff.seconds, 60)
+        elif abs(total) < TIME_HOUR:
+            minutes, seconds = divmod(abs(total), TIME_MINUTE)
+            if total < 0: seconds *= -1
             return (
                 _multi(
                     _(u'%d minute'),
@@ -133,14 +145,17 @@ def delta(t1, t2, words=True):
                 minutes) % (minutes,),
                 seconds,
             )
-        elif diff.seconds < 7200 and words:
+
+        elif abs(total) < TIME_HOUR * 2 and words:
             return (
                 _(u'an hour'),
                 0,
             )
 
-        elif diff.seconds < 86400:
-            hours, seconds = divmod(diff.seconds, 3600)
+        else:
+            hours, seconds = divmod(abs(total), TIME_HOUR)
+            if total < 0: seconds *= -1
+
             return (
                 _multi(
                     _(u'%d hour'),
@@ -149,57 +164,43 @@ def delta(t1, t2, words=True):
                 seconds,
             )
 
-    elif abs(diff.days) == 1 and words:
-        if diff.days > 0:
+    elif abs(total) < TIME_DAY * 2 and words:
+        if total > 0:
             return (_(u'tomorrow'), 0)
         else:
             return (_(u'yesterday'), 0)
 
-    elif abs(diff.days) == 7 and words:
-        if diff.days > 0:
-            return (_(u'next week'), diff.seconds)
-        else:
-            return (_(u'last week'), diff.seconds)
-
-    elif diff.days < 7:
+    elif abs(total) < TIME_WEEK:
+        days, seconds = divmod(abs(total), TIME_DAY)
+        if total < 0: seconds *= -1
         return (
             _multi(
                 _(u'%d day'),
                 _(u'%d days'),
-            diff.days) % (diff.days,),
-            diff.seconds,
+            days) % (days,),
+            seconds,
         )
 
-    elif diff.days < 31:
-        weeks, days = divmod(diff.days, 7)
-        seconds = days * 86400 + diff.seconds
+    elif abs(diff.days) == TIME_WEEK and words:
+        if total > 0:
+            return (_(u'next week'), diff.seconds)
+        else:
+            return (_(u'last week'), diff.seconds)
+
+# FIXME
+#
+# The biggest reliable unit we can supply to the user is a week (for now?),
+# because we can not safely determine the amount of days in the covered
+# month/year span.
+
+    else:
+        weeks, seconds = divmod(abs(total), TIME_WEEK)
+        if total < 0: seconds *= -1
         return (
             _multi(
                 _(u'%d week'),
                 _(u'%d weeks'),
             weeks) % (weeks,),
-            seconds,
-        )
-
-    elif diff.days < 365:
-        months, days = divmod(diff.days, 30)
-        seconds = days * 86400 + diff.seconds
-        return (
-            _multi(
-                _(u'%d month'),
-                _(u'%d months'),
-            months) % (months,),
-            seconds,
-        )
-
-    else:
-        years, days = divmod(diff.days, 365)
-        seconds = days * 86400 + diff.seconds
-        return (
-            _multi(
-                _(u'%d year'),
-                _(u'%d years'),
-            years) % (years,),
             seconds,
         )
 
@@ -271,12 +272,14 @@ def duration(t, now=None, precision=1, pad=u', ', words=None):
         _(u'last week'), _(u'next week'),
         ):
         return result
+
     elif precision > 1 and remains:
         t3 = t2 - datetime.timedelta(seconds=remains)
         return pad.join([
             result,
-            duration(t3, t2, precision - 1, pad, words=False),
+            duration(t2, t3, precision - 1, pad, words=False),
         ])
+
     else:
         return format % (result,)
 
@@ -309,12 +312,12 @@ def compress(t, sign=False, pad=u''):
 
     parts = []
     if sign:
-        parts.append(u'-' if d.days < 0 else u'+')
+        parts.append(u'-' if t.days < 0 else u'+')
 
-    weeks, seconds   = divmod(seconds, 604800)
-    days, seconds    = divmod(seconds, 86400)
-    hours, seconds   = divmod(seconds, 3600)
-    minutes, seconds = divmod(seconds, 60)
+    weeks, seconds   = divmod(seconds, TIME_WEEK)
+    days, seconds    = divmod(seconds, TIME_DAY)
+    hours, seconds   = divmod(seconds, TIME_HOUR)
+    minutes, seconds = divmod(seconds, TIME_MINUTE)
 
     if weeks:
         parts.append(_(u'%dw') % (weeks,))
