@@ -3,7 +3,7 @@
 from distutils.core import setup
 
 setup(name='natural',
-    version='0.1',
+    version='0.1.1',
     description='Convert data to their natural (human-readable) format',
     long_description='''
 Example Usage
