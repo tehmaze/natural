@@ -149,11 +149,17 @@ def delta(t1, t2, words=True):
                 seconds,
             )
 
-    elif diff.days == 1 and words:
-        return (
-            _(u'yesterday'),
-            0,
-        )
+    elif abs(diff.days) == 1 and words:
+        if diff.days > 0:
+            return (_(u'tomorrow'), 0)
+        else:
+            return (_(u'yesterday'), 0)
+
+    elif abs(diff.days) == 7 and words:
+        if diff.days > 0:
+            return (_(u'next week'), diff.seconds)
+        else:
+            return (_(u'last week'), diff.seconds)
 
     elif diff.days < 7:
         return (
@@ -213,17 +219,18 @@ def day(t, now=None, format='%B %d'):
     '''
     t1 = _to_date(t)
     t2 = _to_date(now or datetime.datetime.now())
-    diff = max(t1, t2) - min(t1, t2)
+    diff = t1 - t2
+    secs = diff.total_seconds()
 
     if diff.days == 0:
         return _(u'today')
     elif diff.days == 1:
-        if t1 < t2:
+        if secs < 0:
             return _(u'yesterday')
         else:
             return _(u'tomorrow')
     elif diff.days == 7:
-        if t1 < t2:
+        if secs < 0:
             return _(u'last week')
         else:
             return _(u'next week')
@@ -257,8 +264,12 @@ def duration(t, now=None, precision=1, pad=u', ', words=None):
     else:
         format = _(u'%s from now')
 
-    result, remains = delta(max(t1, t2), min(t1, t2), words=words)
-    if result in (_(u'just now'), _(u'yesterday')):
+    result, remains = delta(t1, t2, words=words)
+    if result in (
+        _(u'just now'),
+        _(u'yesterday'), _(u'tomorrow'),
+        _(u'last week'), _(u'next week'),
+        ):
         return result
     elif precision > 1 and remains:
         t3 = t2 - datetime.timedelta(seconds=remains)
