@@ -103,6 +103,11 @@ def delta(t1, t2, words=True, justnow=datetime.timedelta(seconds=10)):
                object
     :param t2: timestamp, :class:`datetime.date` or :class:`datetime.datetime`
                object
+    :param words: default ``True``, allow words like "yesterday", "tomorrow"
+               and "just now"
+    :param justnow: default ``datetime.timedelta(seconds=10)``,
+               :class:`datetime.timedelta` object representing tolerance for
+               considering a delta as meaning 'just now'
     '''
 
     t1 = _to_datetime(t1)
@@ -239,7 +244,8 @@ def day(t, now=None, format='%B %d'):
         return t1.strftime(format)
 
 
-def duration(t, now=None, precision=1, pad=u', ', words=None):
+def duration(t, now=None, precision=1, pad=u', ', words=None,
+             justnow=datetime.timedelta(seconds=10)):
     '''
     Time delta compared to ``t``. You can override ``now`` to specify what time
     to compare to.
@@ -252,6 +258,10 @@ def duration(t, now=None, precision=1, pad=u', ', words=None):
     :param words: default ``None``, allow words like "yesterday", if set to
                   ``None`` this will be enabled if ``precision`` is set to
                   ``1``
+    :param justnow: default ``datetime.timedelta(seconds=10)``,
+                    :class:`datetime.timedelta` object passed to :func:`delta`
+                    representing tolerance for considering argument ``t`` as
+                    meaning 'just now'
     '''
 
     if words is None:
@@ -265,7 +275,7 @@ def duration(t, now=None, precision=1, pad=u', ', words=None):
     else:
         format = _(u'%s from now')
 
-    result, remains = delta(t1, t2, words=words)
+    result, remains = delta(t1, t2, words=words, justnow=justnow)
     if result in (
         _(u'just now'),
         _(u'yesterday'), _(u'tomorrow'),
