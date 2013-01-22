@@ -227,15 +227,16 @@ def day(t, now=None, format='%B %d'):
     t2 = _to_date(now or datetime.datetime.now())
     diff = t1 - t2
     secs = diff.total_seconds()
+    days = abs(diff.days)
 
-    if diff.days == 0:
+    if days == 0:
         return _(u'today')
-    elif diff.days == 1:
+    elif days == 1:
         if secs < 0:
             return _(u'yesterday')
         else:
             return _(u'tomorrow')
-    elif diff.days == 7:
+    elif days == 7:
         if secs < 0:
             return _(u'last week')
         else:
