@@ -1,5 +1,6 @@
 from natural.constant import _, _multi
 import datetime
+import math
 
 
 # Wed, 02 Oct 2002 08:00:00 EST
@@ -116,17 +117,18 @@ def delta(t1, t2, words=True, justnow=datetime.timedelta(seconds=10)):
 
     # The datetime module includes milliseconds with float precision. Floats
     # will give unexpected results here, so we round the value here
-    total = int(diff.total_seconds() + 0.5)
+    total = math.ceil(diff.total_seconds())
+    total_abs = abs(total)
 
-    if abs(total) < TIME_DAY:
-        if diff < justnow and words:
+    if total_abs < TIME_DAY:
+        if abs(diff) < justnow and words:
             return (
                 _(u'just now'),
                 0,
             )
 
-        elif abs(total) < TIME_MINUTE:
-            seconds = abs(total)
+        elif total_abs < TIME_MINUTE:
+            seconds = total_abs
             return (
                 _multi(
                     _(u'%d second'),
@@ -134,14 +136,14 @@ def delta(t1, t2, words=True, justnow=datetime.timedelta(seconds=10)):
                 seconds) % (seconds,),
                 0,
             )
-        elif abs(total) < TIME_MINUTE * 2 and words:
+        elif total_abs < TIME_MINUTE * 2 and words:
             return (
                 _(u'a minute'),
                 0,
             )
 
-        elif abs(total) < TIME_HOUR:
-            minutes, seconds = divmod(abs(total), TIME_MINUTE)
+        elif total_abs < TIME_HOUR:
+            minutes, seconds = divmod(total_abs, TIME_MINUTE)
             if total < 0: seconds *= -1
             return (
                 _multi(
@@ -151,14 +153,14 @@ def delta(t1, t2, words=True, justnow=datetime.timedelta(seconds=10)):
                 seconds,
             )
 
-        elif abs(total) < TIME_HOUR * 2 and words:
+        elif total_abs < TIME_HOUR * 2 and words:
             return (
                 _(u'an hour'),
                 0,
             )
 
         else:
-            hours, seconds = divmod(abs(total), TIME_HOUR)
+            hours, seconds = divmod(total_abs, TIME_HOUR)
             if total < 0: seconds *= -1
 
             return (
@@ -169,14 +171,14 @@ def delta(t1, t2, words=True, justnow=datetime.timedelta(seconds=10)):
                 seconds,
             )
 
-    elif abs(total) < TIME_DAY * 2 and words:
+    elif total_abs < TIME_DAY * 2 and words:
         if total > 0:
             return (_(u'tomorrow'), 0)
         else:
             return (_(u'yesterday'), 0)
 
-    elif abs(total) < TIME_WEEK:
-        days, seconds = divmod(abs(total), TIME_DAY)
+    elif total_abs < TIME_WEEK:
+        days, seconds = divmod(total_abs, TIME_DAY)
         if total < 0: seconds *= -1
         return (
             _multi(
@@ -199,7 +201,7 @@ def delta(t1, t2, words=True, justnow=datetime.timedelta(seconds=10)):
 # month/year span.
 
     else:
-        weeks, seconds = divmod(abs(total), TIME_WEEK)
+        weeks, seconds = divmod(total_abs, TIME_WEEK)
         if total < 0: seconds *= -1
         return (
             _multi(

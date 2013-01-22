@@ -34,7 +34,7 @@ class TestDate(object):
         now = time.time()
         for test, expect in (
             (now + 1,       u'just now'),
-            (now + 11,      u'10 seconds from now'),
+            (now + 11,      u'11 seconds from now'),
             (now - 1,       u'just now'),
             (now - 11,      u'11 seconds ago'),
             (now - 3601,    u'an hour ago'),
@@ -47,7 +47,23 @@ class TestDate(object):
             assert result == expect, '%r <> %r' % (result, expect)
 
         for test, expect in (
-            (now + 11,      u'10 seconds from now'),
+            (now + 1,       u'just now'),
+            (now - 1,       u'just now'),
+            (now + 9,       u'just now'),
+            (now - 9,       u'just now'),
+            (now + 60,      u'a minute from now'),
+            (now - 60,      u'a minute ago'),
+            (now + 3600,    u'an hour from now'),
+            (now - 3600,    u'an hour ago'),
+            (now + 7200,    u'2 hours from now'),
+            (now - 7200,    u'2 hours ago'),
+        ):
+
+            result = date.duration(test, precision=1)
+            assert result == expect, '%r <> %r' % (result, expect)
+
+        for test, expect in (
+            (now + 11,      u'11 seconds from now'),
             (now - 1,       u'1 second ago'),
             (now - 11,      u'11 seconds ago'),
             (now - 3601,    u'1 hour, 1 second ago'),
@@ -58,3 +74,22 @@ class TestDate(object):
 
             result = date.duration(test, precision=3)
             assert result == expect, '%r <> %r' % (result, expect)
+
+        for test, justnow, expect in (
+            (now + 1,   datetime.timedelta(seconds=5),  u'just now'),
+            (now - 1,   datetime.timedelta(seconds=5),  u'just now'),
+            (now + 6,   datetime.timedelta(seconds=5),  u'6 seconds from now'),
+            (now - 6,   datetime.timedelta(seconds=5),  u'6 seconds ago'),
+            (now + 59,  datetime.timedelta(seconds=60), u'just now'),
+            (now - 59,  datetime.timedelta(seconds=60), u'just now'),
+            (now + 61,  datetime.timedelta(seconds=60), u'a minute from now'),
+            (now - 61,  datetime.timedelta(seconds=60), u'a minute ago'),
+            (now + 299, datetime.timedelta(minutes=5),  u'just now'),
+            (now - 299, datetime.timedelta(minutes=5),  u'just now'),
+            (now + 301, datetime.timedelta(minutes=5),  u'5 minutes from now'),
+            (now - 301, datetime.timedelta(minutes=5),  u'5 minutes ago'),
+            ):
+
+            result = date.duration(test, justnow=justnow)
+            assert result == expect, '%r <> %r' % (result, expect)
+
