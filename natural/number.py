@@ -89,7 +89,7 @@ def percentage(value, digits=2):
     '''
 
     value = float(value) * 100.0
-    return u'{} %'.format(_format(value, digits))
+    return u'%s %%' % (_format(value, digits),)
 
 
 def word(value, digits=2):
