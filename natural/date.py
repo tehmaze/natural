@@ -39,9 +39,7 @@ def _to_datetime(t):
     :class:`datetime.datetime` object.
     '''
 
-    if isinstance(t, float) or \
-        isinstance(t, int) or \
-        isinstance(t, long):
+    if isinstance(t, (float, int, long)):
         return datetime.datetime.fromtimestamp(float(t))
 
     elif isinstance(t, basestring):
@@ -69,9 +67,7 @@ def _to_date(t):
     :class:`datetime.date` object.
     '''
 
-    if isinstance(t, float) or \
-        isinstance(t, int) or \
-        isinstance(t, long):
+    if isinstance(t, (float, int, long)):
         return datetime.date.fromtimestamp(float(t))
 
     elif isinstance(t, basestring):
@@ -131,7 +127,8 @@ def delta(t1, t2, words=True, justnow=datetime.timedelta(seconds=10)):
                 _multi(
                     _(u'%d second'),
                     _(u'%d seconds'),
-                seconds) % (seconds,),
+                    seconds
+                ) % (seconds,),
                 0,
             )
         elif total_abs < TIME_MINUTE * 2 and words:
@@ -142,12 +139,14 @@ def delta(t1, t2, words=True, justnow=datetime.timedelta(seconds=10)):
 
         elif total_abs < TIME_HOUR:
             minutes, seconds = divmod(total_abs, TIME_MINUTE)
-            if total < 0: seconds *= -1
+            if total < 0:
+                seconds *= -1
             return (
                 _multi(
                     _(u'%d minute'),
                     _(u'%d minutes'),
-                minutes) % (minutes,),
+                    minutes
+                ) % (minutes,),
                 seconds,
             )
 
@@ -159,13 +158,15 @@ def delta(t1, t2, words=True, justnow=datetime.timedelta(seconds=10)):
 
         else:
             hours, seconds = divmod(total_abs, TIME_HOUR)
-            if total < 0: seconds *= -1
+            if total < 0:
+                seconds *= -1
 
             return (
                 _multi(
                     _(u'%d hour'),
                     _(u'%d hours'),
-                hours) % (hours,),
+                    hours
+                ) % (hours,),
                 seconds,
             )
 
@@ -177,12 +178,14 @@ def delta(t1, t2, words=True, justnow=datetime.timedelta(seconds=10)):
 
     elif total_abs < TIME_WEEK:
         days, seconds = divmod(total_abs, TIME_DAY)
-        if total < 0: seconds *= -1
+        if total < 0:
+            seconds *= -1
         return (
             _multi(
                 _(u'%d day'),
                 _(u'%d days'),
-            days) % (days,),
+                days
+            ) % (days,),
             seconds,
         )
 
@@ -200,12 +203,14 @@ def delta(t1, t2, words=True, justnow=datetime.timedelta(seconds=10)):
 
     else:
         weeks, seconds = divmod(total_abs, TIME_WEEK)
-        if total < 0: seconds *= -1
+        if total < 0:
+            seconds *= -1
         return (
             _multi(
                 _(u'%d week'),
                 _(u'%d weeks'),
-            weeks) % (weeks,),
+                weeks
+            ) % (weeks,),
             seconds,
         )
 
@@ -278,10 +283,12 @@ def duration(t, now=None, precision=1, pad=u', ', words=None,
 
     result, remains = delta(t1, t2, words=words, justnow=justnow)
     if result in (
-        _(u'just now'),
-        _(u'yesterday'), _(u'tomorrow'),
-        _(u'last week'), _(u'next week'),
-        ):
+            _(u'just now'),
+            _(u'yesterday'),
+            _(u'tomorrow'),
+            _(u'last week'),
+            _(u'next week'),
+    ):
         return result
 
     elif precision > 1 and remains:
