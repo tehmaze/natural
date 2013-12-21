@@ -10,7 +10,7 @@ test-nosetests:
 	PYTHONPATH=$(shell pwd) nosetests -w tests/ -v
 
 test-pep8:
-	@pep8 --ignore=E221,E241 natural/
+	@pep8 --ignore=E128,E221,E241 natural/
 
 translate: en_US.mo en_GB.mo nl_NL.mo
 
