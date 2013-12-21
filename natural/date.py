@@ -27,10 +27,19 @@ ALL_DATE_FORMATS        = (
 )
 
 # Precalculated timestamps
-TIME_MINUTE             = 60
-TIME_HOUR               = 3600
-TIME_DAY                = 86400
-TIME_WEEK               = 604800
+TIME_MINUTE = 60
+TIME_HOUR   = 3600
+TIME_DAY    = 86400
+TIME_WEEK   = 604800
+
+# Be compatible with Python2.7
+try:
+    total_seconds = datetime.timedelta.total_seconds
+except AttributeError:
+    def total_seconds(self):
+        return (
+            (self.days * 86400 + self.seconds) * 10 ** 6 + self.microseconds
+        ) / 10 ** 6
 
 
 def _to_datetime(t):
@@ -45,7 +54,7 @@ def _to_datetime(t):
     elif isinstance(t, basestring):
         for date_format in ALL_DATE_FORMATS:
             try:
-                return datetime.datetime.strptime(t, format)
+                return datetime.datetime.strptime(t, date_format)
             except ValueError:
                 pass
 
@@ -111,7 +120,7 @@ def delta(t1, t2, words=True, justnow=datetime.timedelta(seconds=10)):
 
     # The datetime module includes milliseconds with float precision. Floats
     # will give unexpected results here, so we round the value here
-    total = math.ceil(diff.total_seconds())
+    total = math.ceil(total_seconds(diff))
     total_abs = abs(total)
 
     if total_abs < TIME_DAY:
@@ -231,7 +240,7 @@ def day(t, now=None, format='%B %d'):
     t1 = _to_date(t)
     t2 = _to_date(now or datetime.datetime.now())
     diff = t1 - t2
-    secs = diff.total_seconds()
+    secs = total_seconds(diff)
     days = abs(diff.days)
 
     if days == 0:
