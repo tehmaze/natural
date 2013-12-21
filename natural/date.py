@@ -19,6 +19,12 @@ RFC2822_DATE_FORMAT     = '%a, %d %b %Y'
 RFC822_DATE_FORMAT      = '%a, %d %b %y'
 # 2012-06-13
 ISO8601_DATE_FORMAT     = '%Y-%m-%d'
+# All date formats
+ALL_DATE_FORMATS        = (
+    RFC2822_DATE_FORMAT,
+    RFC822_DATE_FORMAT,
+    ISO8601_DATE_FORMAT,
+)
 
 # Precalculated timestamps
 TIME_MINUTE             = 60
@@ -39,11 +45,7 @@ def _to_datetime(t):
         return datetime.datetime.fromtimestamp(float(t))
 
     elif isinstance(t, basestring):
-        for format in (
-            RFC2822_DATETIME_FORMAT,
-            RFC822_DATETIME_FORMAT,
-            ISO8601_DATETIME_FORMAT,
-            ):
+        for date_format in ALL_DATE_FORMATS:
             try:
                 return datetime.datetime.strptime(t, format)
             except ValueError:
@@ -73,11 +75,7 @@ def _to_date(t):
         return datetime.date.fromtimestamp(float(t))
 
     elif isinstance(t, basestring):
-        for format in (
-            RFC2822_DATE_FORMAT,
-            RFC822_DATE_FORMAT,
-            ISO8601_DATE_FORMAT,
-            ):
+        for date_format in ALL_DATE_FORMATS:
             try:
                 return datetime.datetime.strptime(t, format).date()
             except ValueError:
