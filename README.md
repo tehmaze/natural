@@ -40,5 +40,3 @@ Project Status
 ==============
 
 [![Tavis-CI Build Status](https://travis-ci.org/tehmaze/natural.png?branch=master)](https://travis-ci.org/tehmaze/natural)
-
-[![Coverage Status](https://coveralls.io/repos/tehmaze/natural/badge.png?branch=master)](https://coveralls.io/r/tehmaze/natural?branch=master)
