@@ -32,14 +32,15 @@ TIME_HOUR   = 3600
 TIME_DAY    = 86400
 TIME_WEEK   = 604800
 
-# Be compatible with Python2.7
-try:
-    total_seconds = datetime.timedelta.total_seconds
-except AttributeError:
-    def total_seconds(self):
-        return (
-            (self.days * 86400 + self.seconds) * 10 ** 6 + self.microseconds
-        ) / 10 ** 6
+
+def _total_seconds(t):
+    '''
+    Takes a `datetime.timedelta` object and returns the delta in seconds.
+    '''
+    return sum([
+        int(t.days * 86400 + t.seconds),
+        int(round(t.microseconds / 1000000.0))
+    ])
 
 
 def _to_datetime(t):
@@ -49,22 +50,24 @@ def _to_datetime(t):
     '''
 
     if isinstance(t, (float, int, long)):
-        return datetime.datetime.fromtimestamp(float(t))
+        return datetime.datetime.fromtimestamp(t).replace(microsecond=0)
 
     elif isinstance(t, basestring):
         for date_format in ALL_DATE_FORMATS:
             try:
-                return datetime.datetime.strptime(t, date_format)
+                d = datetime.datetime.strptime(t, date_format)
+                return d.replace(microsecond=0)
             except ValueError:
                 pass
 
         raise ValueError('Format not supported')
 
     elif isinstance(t, datetime.datetime):
-        return t
+        return t.replace(microsecond=0)
 
     elif isinstance(t, datetime.date):
-        return datetime.datetime.combine(t, datetime.time(0, 0))
+        d = datetime.datetime.combine(t, datetime.time(0, 0))
+        return d.replace(microsecond=0)
 
     else:
         raise TypeError
@@ -77,7 +80,7 @@ def _to_date(t):
     '''
 
     if isinstance(t, (float, int, long)):
-        return datetime.date.fromtimestamp(float(t))
+        return datetime.date.fromtimestamp(t)
 
     elif isinstance(t, basestring):
         for date_format in ALL_DATE_FORMATS:
@@ -120,7 +123,7 @@ def delta(t1, t2, words=True, justnow=datetime.timedelta(seconds=10)):
 
     # The datetime module includes milliseconds with float precision. Floats
     # will give unexpected results here, so we round the value here
-    total = math.ceil(total_seconds(diff))
+    total = math.ceil(_total_seconds(diff))
     total_abs = abs(total)
 
     if total_abs < TIME_DAY:
@@ -240,7 +243,7 @@ def day(t, now=None, format='%B %d'):
     t1 = _to_date(t)
     t2 = _to_date(now or datetime.datetime.now())
     diff = t1 - t2
-    secs = total_seconds(diff)
+    secs = _total_seconds(diff)
     days = abs(diff.days)
 
     if days == 0:
@@ -332,8 +335,8 @@ def compress(t, sign=False, pad=u''):
 
     if isinstance(t, datetime.timedelta):
         seconds = t.seconds + (t.days * 86400)
-    elif isinstance(t, float) or isinstance(t, int) or isinstance(t, long):
-        seconds = long(t)
+    elif isinstance(t, (float, int, long)):
+        seconds = long(round(t))
     else:
         return compress(datetime.datetime.now() - _to_datetime(t), sign, pad)
 
