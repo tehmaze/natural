@@ -4,8 +4,7 @@ python:
  - "2.7"
 # command to install build dependencies
 before_install:
- - sudo apt-get update -qq
- - sudo apt-get install -qq pep8
+ - pip install -r requirements_development.txt
 # command to install dependencies
 install:
  - pip install -r requirements.txt
