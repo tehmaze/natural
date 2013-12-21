@@ -1,6 +1,12 @@
 import locale
-import re
-from natural.constant import CONVENTION, ORDINAL_SUFFIX, LARGE_NUMBER_SUFFIX
+import string
+from natural.constant import _, ORDINAL_SUFFIX, LARGE_NUMBER_SUFFIX
+from natural.constant import IBAN_CHARS, IBAN_COUNTRY_SIZE
+
+
+# ISO/IEC 7063:2003 - Information Technology - Security Techniques
+#                   - Check character systems
+IBAN_CHARS = string.ascii_uppercase + '0123456789'
 
 
 def _format(value, digits=None):
@@ -78,6 +84,81 @@ def number(value):
     '''
 
     return unicode(_format(value, 0))
+
+
+def _iban_check_chars(number):
+    for char in number:
+        if char not in IBAN_CHARS:
+            return False
+    return True
+
+
+def _iban_check_size(number):
+    country = number[:2]
+    if country not in IBAN_COUNTRY_SIZE:
+        raise ValueError(_('Invalid IBAN, country "%s" unknown' % country))
+    elif len(number) != IBAN_COUNTRY_SIZE[country]:
+        raise ValueError(_('Invalid IBAN, country "%s" has size %d, got %d' % \
+            (country, len(number), IBAN_COUNTRY_SIZE[country])))
+
+
+def _iban_check_mod97(number):
+    # Move the four initial characters to the end of the string.
+    rearranged = number[4:] + number[:4]
+
+    # Replace each letter in the string with two digits, thereby expanding the
+    # string, where A = 10, B = 11, ..., Z = 35.
+    sequence = []
+    for char in rearranged:
+        if char.isdigit():
+            sequence.append(char)
+        else:
+            sequence.append(str(ord(char) - 55))
+
+    # Interpret the string as a decimal integer and compute the remainder of
+    # that number on division by 97. If the remainder is 1, the check digit
+    # test is passed and the IBAN might be valid.
+    if long(''.join(sequence)) % 97 != 1:
+        raise ValueError(_('Invalid IBAN, digit check failed'))
+
+
+def iban(value, strict=False):
+    '''
+    Converts an International Bank Account Number (IBAN) to a printable number.
+    If strict mode is enabled, we'll check if the characters in the IBAN are
+    conform ISO/IEC 7064:2003.
+
+    :param value: string
+    :param strict: boolean
+    '''
+    if isinstance(value, basestring):
+        number = str(value).replace(' ', '')
+    else:
+        raise TypeError(_('IBAN must be a string'))
+
+    if strict:
+        _iban_check_chars(number)
+        _iban_check_size(number)
+        _iban_check_mod97(number)
+
+    number = number.upper()
+    return ' '.join([number[x:x + 4] for x in xrange(0, len(number), 4)])
+
+
+def iban_mask(value, strict=False):
+    '''
+    Converts an International Bank Account Number (IBAN) to a masked printable
+    number, suitable for printing in less secured environments. If strict mode
+    is enabled, we'll check if the characters in the IBAN are conform ISO/IEC
+    7064:2003.
+
+    :param value: string
+    :param strict: boolean
+    '''
+    number = str(value).replace(' ', '')
+    prefix = number[:2]
+    suffix = number[-4:]
+    return iban(''.join([prefix, 'X' * (len(number) - 6), suffix]))
 
 
 def percentage(value, digits=2):
