@@ -6,24 +6,28 @@ import math
 # Wed, 02 Oct 2002 08:00:00 EST
 # Wed, 02 Oct 2002 13:00:00 GMT
 # Wed, 02 Oct 2002 15:00:00 +0200
-RFC2822_DATETIME_FORMAT = '%a, %d %b %Y %T %z'
+RFC2822_DATETIME_FORMAT = r'%a, %d %b %Y %T %z'
 # Wed, 02 Oct 02 08:00:00 EST
 # Wed, 02 Oct 02 13:00:00 GMT
 # Wed, 02 Oct 02 15:00:00 +0200
-RFC822_DATETIME_FORMAT  = '%a, %d %b %y %T %z'
+RFC822_DATETIME_FORMAT  = r'%a, %d %b %y %T %z'
 # 2012-06-13T15:24:17
-ISO8601_DATETIME_FORMAT = '%Y-%m-%dT%H:%M:%S'
+ISO8601_DATETIME_FORMAT = r'%Y-%m-%dT%H:%M:%S'
 # Wed, 02 Oct 2002
-RFC2822_DATE_FORMAT     = '%a, %d %b %Y'
+RFC2822_DATE_FORMAT     = r'%a, %d %b %Y'
 # Wed, 02 Oct 02
-RFC822_DATE_FORMAT      = '%a, %d %b %y'
+RFC822_DATE_FORMAT      = r'%a, %d %b %y'
 # 2012-06-13
-ISO8601_DATE_FORMAT     = '%Y-%m-%d'
+ISO8601_DATE_FORMAT     = r'%Y-%m-%d'
 # All date formats
 ALL_DATE_FORMATS        = (
     RFC2822_DATE_FORMAT,
     RFC822_DATE_FORMAT,
     ISO8601_DATE_FORMAT,
+)
+ALL_DATETIME_FORMATS    = ALL_DATE_FORMATS + (
+    RFC822_DATETIME_FORMAT,
+    ISO8601_DATETIME_FORMAT,
 )
 
 # Precalculated timestamps
@@ -69,14 +73,14 @@ def _to_datetime(t):
         return datetime.datetime.fromtimestamp(t).replace(microsecond=0)
 
     elif isinstance(t, basestring):
-        for date_format in ALL_DATE_FORMATS:
+        for date_format in ALL_DATETIME_FORMATS:
             try:
                 d = datetime.datetime.strptime(t, date_format)
                 return d.replace(microsecond=0)
             except ValueError:
                 pass
 
-        raise ValueError('Format not supported')
+        raise ValueError(_('Format "%s" not supported') % t)
 
     elif isinstance(t, datetime.datetime):
         return t.replace(microsecond=0)
@@ -108,7 +112,7 @@ def _to_date(t):
     elif isinstance(t, basestring):
         for date_format in ALL_DATE_FORMATS:
             try:
-                return datetime.datetime.strptime(t, format).date()
+                return datetime.datetime.strptime(t, date_format).date()
             except ValueError:
                 pass
 
@@ -380,7 +384,7 @@ def compress(t, sign=False, pad=u''):
     if isinstance(t, datetime.timedelta):
         seconds = t.seconds + (t.days * 86400)
     elif isinstance(t, (float, int, long)):
-        seconds = long(round(t))
+        return compress(datetime.datetime.fromtimestamp(t), sign, pad)
     else:
         return compress(datetime.datetime.now() - _to_datetime(t), sign, pad)
 
