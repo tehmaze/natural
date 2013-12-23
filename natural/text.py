@@ -24,11 +24,19 @@ class Spelling(object):
 
 
 class Alphabet(Spelling):
+    '''
+    Helper class for (spelling) alphabets.
+    '''
+
     def __init__(self, mapping):
         self.mapping = mapping
 
     @staticmethod
     def from_pair(self, keys, values):
+        '''
+        Returns a new :func:`Alphabet` object for the translation items
+        specified in ``keys`` and ``values``.
+        '''
         return Alphabet(dict(zip(keys, values)))
 
     def transform(self, letter):
