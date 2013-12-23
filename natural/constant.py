@@ -268,6 +268,20 @@ PRINTABLE = map(lambda c: chr(c), xrange(0x20, 0x7f))
 SPARKCHAR = u'\u2581\u2582\u2583\u2584\u2585\u2586\u2587\u2588'
 
 # natural.phone
+PHONE_E161_ALPHABET = {
+    u'0':     u'0',
+    u'1':     u'1',
+    u'2abc':  u'2',
+    u'3def':  u'3',
+    u'4ghi':  u'4',
+    u'5jkl':  u'5',
+    u'6mno':  u'6',
+    u'7prqs': u'7',
+    u'8tuv':  u'8',
+    u'9xyz':  u'9',
+    u'*':     u'*',
+    u'#':     u'#',
+}
 PHONE_PREFIX = filter(None, re.split(r'[\n\s]*', '''
 1   20  21  211 212 213 216 218 220 221 222 223 224 225 226 227 228 229 230 231
 232 233 234 235 236 237 238 239 240 241 242 243 244 245 246 247 248 249 250 251

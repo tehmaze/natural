@@ -1,27 +1,32 @@
 import hashlib
 import re
-from natural.constant import PHONE_PREFIX
+from natural.constant import PHONE_PREFIX, PHONE_E161_ALPHABET
 from natural.language import _
 from natural.util import luhn_append, luhn_calc, strip, to_decimal
 
 
-def e164(number, areasize=3, groupsize=4):
+def e123(number, areasize=3, groupsize=4, national=False):
     '''
-    Printable E.164 (The international public telecommunication numbering plan
+    Printable E.123 (Notation for national and international telephone numbers
     from ITU) numbers.
 
     :param number: string
+    :param areasize: int
+    :param groupsize: int
+    :param national: bool
 
-    >>> e164(155542315678)
+    >>> e123(155542315678)
     u'+1 555 4231 5678'
-    >>> e164(31654231567, areasize=1)
+    >>> e123('+31654231567', areasize=1)
     u'+31 6 5423 1567'
-    >>> e164(3114020, areasize=2)
+    >>> e123('+3114020', areasize=2)
     u'+31 14 020'
+    >>> e123('+312054231567', areasize=2, national=True)
+    u'(020) 5423 1567'
     '''
 
     if isinstance(number, (int, long)):
-        return e164('+%s' % number, areasize, groupsize)
+        return e123('+%s' % number, areasize, groupsize)
 
     elif isinstance(number, basestring):
         number = strip(number, '-. ()')
@@ -32,19 +37,106 @@ def e164(number, areasize=3, groupsize=4):
             raise ValueError(_('Invalid telephone number'))
 
         groups = []
+        prefix = ''
         remain = number
 
-        for x in xrange(3, 0, -1):
-            if number[:x] in PHONE_PREFIX:
-                groups.append(number[:x])
-                groups.append(number[x:x + areasize])
-                remain = number[x + areasize:]
-                break
+        if national:
+            for x in xrange(3, 0, -1):
+                if number[:x] in PHONE_PREFIX:
+                    groups.append('(0%s)' % number[x:x + areasize])
+                    remain = number[x + areasize:]
+
+        else:
+            prefix = '+'
+            for x in xrange(3, 0, -1):
+                if number[:x] in PHONE_PREFIX:
+                    groups.append(number[:x])
+                    groups.append(number[x:x + areasize])
+                    remain = number[x + areasize:]
+                    break
 
         for x in xrange(0, len(remain) + 1, groupsize):
             groups.append(remain[x:x + groupsize])
+        return u'%s%s' % (prefix, u' '.join(filter(None, groups)))
 
-        return u'+%s' % u' '.join(filter(None, groups))
+
+def e161(number, alphabet=PHONE_E161_ALPHABET):
+    '''
+    Printable a 26 Latin letters (A to Z) phone number to the 12-key telephone
+    keypad number.
+
+    :param number: string
+    :param alphabet: dict
+
+    >>> e161('0800-PIZZA123')
+    u'080074992123'
+    >>> e161('0800^PIZZA123')
+    Traceback (most recent call last):
+        ...
+    ValueError: Character "^" (0x5e) is not in the E.161 alphabet
+    '''
+
+    digits = []
+    for char in strip(number, '+-. ()').lower():
+        length = len(digits)
+        for group, digit in alphabet.iteritems():
+            if char in group:
+                digits.append(digit)
+                break
+
+        if len(digits) == length:
+            raise ValueError(
+                _('Character "%s" (0x%02x) is not in the E.161 alphabet') %
+                (char, ord(char))
+            )
+
+    return u''.join(digits)
+
+
+
+def e164(number):
+    '''
+    Printable E.164 (The international public telecommunication numbering plan
+    from ITU) numbers.
+
+    :param number: string
+
+    >>> e164(155542315678)
+    u'+155542315678'
+    >>> e164('+31 20 5423 1567')
+    u'+312054231567'
+    '''
+    if isinstance(number, (int, long)):
+        return e164('+%s' % number)
+
+    elif isinstance(number, basestring):
+        number = strip(number, '-. ()')
+        if number.startswith('+'):
+            number = number[1:]
+
+        return u'+%s' % number
+
+
+def enum(number, zone='e164.arpa'):
+    '''
+    Printable DNS ENUM (telephone number mapping) record.
+
+    :param number: string
+    :param zone: string
+
+
+    >>> enum('+31 20 5423 1567')
+    u'7.6.5.1.3.2.4.5.0.2.1.3.e164.arpa.'
+    >>> enum('+31 97 99 6642', zone='e164.spacephone.org.')
+    u'2.4.6.6.9.9.7.9.1.3.e164.spacephone.org.'
+
+    '''
+    number = e164(number).lstrip('+')
+    return u'.'.join([
+        u'.'.join(number[::-1]),
+        zone.strip(u'.'),
+        '',
+    ])
 
 
 def imei(number):
