@@ -21,11 +21,11 @@ def _termsize():
     '''
 
     try:
-        print 'plan a'
-        return struct.unpack('hh',
-            fcntl.ioctl(sys.stdout.fileno(), termios.TIOCGWINSZ, '1234'))
+        return struct.unpack(
+            'hh',
+            fcntl.ioctl(sys.stdout.fileno(), termios.TIOCGWINSZ, '1234')
+        )
     except:
-        print 'plan b'
         return (
             int(os.environ.get('LINES', 25)),
             int(os.environ.get('COLUMNS', 80)),
@@ -62,7 +62,8 @@ def hexdump(stream):
         hextets = data.encode('hex').ljust(32)
         canonical = printable(data)
 
-        print '%08x %s  %s  |%s|' % (row * 16,
+        print '%08x %s  %s  |%s|' % (
+            row * 16,
             ' '.join(hextets[x:x + 2] for x in xrange(0x00, 0x10, 2)),
             ' '.join(hextets[x:x + 2] for x in xrange(0x10, 0x20, 2)),
             canonical,

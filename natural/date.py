@@ -10,31 +10,31 @@ RFC2822_DATETIME_FORMAT = r'%a, %d %b %Y %T %z'
 # Wed, 02 Oct 02 08:00:00 EST
 # Wed, 02 Oct 02 13:00:00 GMT
 # Wed, 02 Oct 02 15:00:00 +0200
-RFC822_DATETIME_FORMAT  = r'%a, %d %b %y %T %z'
+RFC822_DATETIME_FORMAT = r'%a, %d %b %y %T %z'
 # 2012-06-13T15:24:17
 ISO8601_DATETIME_FORMAT = r'%Y-%m-%dT%H:%M:%S'
 # Wed, 02 Oct 2002
-RFC2822_DATE_FORMAT     = r'%a, %d %b %Y'
+RFC2822_DATE_FORMAT = r'%a, %d %b %Y'
 # Wed, 02 Oct 02
-RFC822_DATE_FORMAT      = r'%a, %d %b %y'
+RFC822_DATE_FORMAT = r'%a, %d %b %y'
 # 2012-06-13
-ISO8601_DATE_FORMAT     = r'%Y-%m-%d'
+ISO8601_DATE_FORMAT = r'%Y-%m-%d'
 # All date formats
-ALL_DATE_FORMATS        = (
+ALL_DATE_FORMATS = (
     RFC2822_DATE_FORMAT,
     RFC822_DATE_FORMAT,
     ISO8601_DATE_FORMAT,
 )
-ALL_DATETIME_FORMATS    = ALL_DATE_FORMATS + (
+ALL_DATETIME_FORMATS = ALL_DATE_FORMATS + (
     RFC822_DATETIME_FORMAT,
     ISO8601_DATETIME_FORMAT,
 )
 
 # Precalculated timestamps
 TIME_MINUTE = 60
-TIME_HOUR   = 3600
-TIME_DAY    = 86400
-TIME_WEEK   = 604800
+TIME_HOUR = 3600
+TIME_DAY = 86400
+TIME_WEEK = 604800
 
 
 def _total_seconds(t):
@@ -424,9 +424,9 @@ def compress(t, sign=False, pad=u''):
     if sign:
         parts.append(u'-' if t.days < 0 else u'+')
 
-    weeks, seconds   = divmod(seconds, TIME_WEEK)
-    days, seconds    = divmod(seconds, TIME_DAY)
-    hours, seconds   = divmod(seconds, TIME_HOUR)
+    weeks, seconds = divmod(seconds, TIME_WEEK)
+    days, seconds = divmod(seconds, TIME_DAY)
+    hours, seconds = divmod(seconds, TIME_HOUR)
     minutes, seconds = divmod(seconds, TIME_MINUTE)
 
     if weeks:

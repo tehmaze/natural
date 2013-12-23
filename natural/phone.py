@@ -93,7 +93,6 @@ def e161(number, alphabet=PHONE_E161_ALPHABET):
     return u''.join(digits)
 
 
-
 def e164(number):
     '''
     Printable E.164 (The international public telecommunication numbering plan
@@ -127,7 +126,7 @@ def enum(number, zone='e164.arpa'):
 
     >>> enum('+31 20 5423 1567')
     u'7.6.5.1.3.2.4.5.0.2.1.3.e164.arpa.'
-    >>> enum('+31 97 99 6642', zone='e164.spacephone.org.')
+    >>> enum('+31 97 99 6642', zone='e164.spacephone.org')
     u'2.4.6.6.9.9.7.9.1.3.e164.spacephone.org.'
 
     '''
