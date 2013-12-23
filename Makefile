@@ -17,7 +17,7 @@ test-nosetests:
 test-pep8:
 	@pep8 --ignore=E128,E221,E241 natural/
 
-translate: en_US.mo en_GB.mo nl_NL.mo
+translate: en_US.mo en_GB.mo nl_NL.mo af_ZA.mo de_DE.mo fr_FR.mo
 
 translate-all: $(ALL_PO) $(ALL_MO)
 
