@@ -53,11 +53,12 @@ We speak :doc:`your language <locales>` too!
 Download
 ========
 
-There are no official releases yet, however you can get the latest snapshots:
+Downloads:
 
- * `tarball <https://github.com/tehmaze/natural/tarball/master>`_
- 
- * `zipball <https://github.com/tehmaze/natural/zipball/master>`_
+ * `natural-0.1.4
+   <https://pypi.python.org/packages/source/n/natural/natural-0.1.4.tar.gz>`_
+
+ * `development tarball <https://github.com/tehmaze/natural/tarball/master>`_
 
  * `git repository at GitHub <https://github.com/tehmaze/natural>`_
 
