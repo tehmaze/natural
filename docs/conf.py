@@ -13,7 +13,11 @@
 
 import sys, os, locale
 sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
-locale.setlocale(locale.LC_ALL, 'en_US')
+try:
+    locale.setlocale(locale.LC_ALL, 'en_US')
+except locale.Error, e:
+    print >>sys.stderr, 'Unable to set to en_US locale, doctests may fail!'
+    print >>sys.stderr, str(e)
 
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
