@@ -144,7 +144,7 @@ def delta(t1, t2, words=True, justnow=datetime.timedelta(seconds=10)):
                considering a delta as meaning 'just now'
 
     >>> delta(_to_datetime('2012-06-13T15:24:17'), \
-              _to_datetime('2013-12-11T12:34:56'))
+_to_datetime('2013-12-11T12:34:56'))
     (u'77 weeks', -594639.0)
     '''
 

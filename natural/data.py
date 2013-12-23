@@ -76,14 +76,15 @@ def printable(sequence):
 
     :param sequence: byte or string sequence
 
-    >>> print printable('\x1b[1;34mtest\x1b[0m')
+    >>> print printable('\\x1b[1;34mtest\\x1b[0m')
     .[1;34mtest.[0m
-    >>> print printable('\x00\x01\x02\x03\x04\x05\x06\x06')
+    >>> print printable('\\x00\\x01\\x02\\x03\\x04\\x05\\x06\\x06')
     ........
     >>> print printable('12345678')
     12345678
-    >>> print printable('testing\n')
+    >>> print printable('testing\\n')
     testing.
+
     '''
     return ''.join(map(lambda c: c if c in PRINTABLE else '.', sequence))
 
@@ -96,6 +97,7 @@ def sparkline(data):
 
     >>> print sparkline([1, 2, 3, 4, 5, 6, 5, 4, 3, 1, 5, 6])  # doctest: +SKIP
     ▁▂▃▄▅▆▅▄▃▁▅▆
+
     '''
 
     min_value = float(min(data))
