@@ -68,7 +68,7 @@ Contents
 .. toctree::
    :maxdepth: 2
 
-   natural/constant
+   natural/bank
    natural/data
    natural/date
    natural/file

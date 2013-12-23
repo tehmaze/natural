@@ -1,8 +1,7 @@
-``natural.date``
+``natural.bank``
 ================
 
-.. automodule:: natural.date
+.. automodule:: natural.bank
     :members:
     :undoc-members:
     :show-inheritance:
-
