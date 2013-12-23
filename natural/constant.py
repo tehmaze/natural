@@ -1,23 +1,8 @@
 # -*- coding: utf-8 -*-
-import gettext
-import locale
-import os
-import string
+from natural.language import _
 
 
 '''
-.. py:attribute:: LOCALE_PATH
-
-   Path on the file system to the locale/ directory, used to find translations
-   for the current locale.
-
-
-.. py:attribute:: CONVENTION
-
-   Container for all the locale conventions, see
-   http://docs.python.org/library/locale.html#locale.localeconv
-
-
 .. py:attribute:: ORDINAL_SUFFIX
 
    Suffixes for the ordinal number representation.
@@ -47,34 +32,7 @@ import string
 '''
 
 
-locale.setlocale(locale.LC_ALL, '')
-
-LOCALE_PATH = os.path.join(os.path.dirname(__file__), 'locale')
-gettext.bindtextdomain('natural', LOCALE_PATH)
-gettext.textdomain('natural')
-try:
-    TRANSLATION = gettext.translation('natural', LOCALE_PATH)
-    _ = TRANSLATION.ugettext
-except IOError:
-    _ = gettext.NullTranslations().ugettext
-
-# generic
-CONVENTION = locale.localeconv()
-
 # natural.number
-# ISO/IEC 7063:2003 - Information Technology - Security Techniques
-#                   - Check character systems
-IBAN_CHARS = string.ascii_uppercase + '012345679'
-# http://www.swift.com/dsp/resources/documents/IBAN_Registry.pdf
-IBAN_COUNTRY_SIZE = dict(
-    AD=24, AE=23, AL=28, AT=20, AZ=28, BA=20, BE=16, BG=22, BH=22, BR=29,
-    CH=21, CR=21, CY=28, CZ=24, DE=22, DK=18, DO=28, EE=20, ES=24, FI=18,
-    FO=18, FR=27, GB=22, GE=22, GI=23, GL=18, GR=27, GT=28, HR=21, HU=28,
-    IE=22, IL=23, IS=26, IT=27, KW=30, KZ=20, LB=28, LI=21, LT=20, LU=20,
-    LV=21, MC=27, MD=24, ME=22, MK=19, MR=27, MT=31, MU=30, NL=18, NO=15,
-    PK=24, PL=28, PS=29, PT=25, QA=29, RO=24, RS=22, SA=24, SE=24, SI=19,
-    SK=24, SM=27, TN=24, TR=26, VG=24,
-)
 ORDINAL_SUFFIX = (
     _(u'th'),
     _(u'st'),
@@ -509,10 +467,3 @@ CODE_PRONOUNCIATION = {
     'y': _(u'ˈjænki'),
     'z': _(u'ˈzuːluː'),
 }
-
-
-def _multi(singular, plural, count):
-    if count == 1:
-        return singular
-    else:
-        return plural

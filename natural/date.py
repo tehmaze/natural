@@ -1,4 +1,4 @@
-from natural.constant import _, _multi
+from natural.language import _, _multi
 import datetime
 import math
 

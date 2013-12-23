@@ -10,7 +10,8 @@ try:
     from io import BytesIO
 except ImportError:
     from cStringIO import StringIO as BytesIO
-from natural.constant import _, PRINTABLE, SPARKCHAR
+from natural.constant import PRINTABLE, SPARKCHAR
+from natural.language import _
 from natural.file import filesize
 
 
