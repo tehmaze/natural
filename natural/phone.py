@@ -1,7 +1,50 @@
 import hashlib
 import re
+from natural.constant import PHONE_PREFIX
 from natural.language import _
-from natural.util import luhn_append, luhn_calc, to_decimal
+from natural.util import luhn_append, luhn_calc, strip, to_decimal
+
+
+def e164(number, areasize=3, groupsize=4):
+    '''
+    Printable E.164 (The international public telecommunication numbering plan
+    from ITU) numbers.
+
+    :param number: string
+
+    >>> e164(155542315678)
+    u'+1 555 4231 5678'
+    >>> e164(31654231567, areasize=1)
+    u'+31 6 5423 1567'
+    >>> e164(3114020, areasize=2)
+    u'+31 14 020'
+    '''
+
+    if isinstance(number, (int, long)):
+        return e164('+%s' % number, areasize, groupsize)
+
+    elif isinstance(number, basestring):
+        number = strip(number, '-. ()')
+        if number.startswith('+'):
+            number = number[1:]
+
+        if not number.isdigit():
+            raise ValueError(_('Invalid telephone number'))
+
+        groups = []
+        remain = number
+
+        for x in xrange(3, 0, -1):
+            if number[:x] in PHONE_PREFIX:
+                groups.append(number[:x])
+                groups.append(number[x:x + areasize])
+                remain = number[x + areasize:]
+                break
+
+        for x in xrange(0, len(remain) + 1, groupsize):
+            groups.append(remain[x:x + groupsize])
+
+        return u'+%s' % u' '.join(filter(None, groups))
 
 
 def imei(number):
