@@ -43,7 +43,6 @@ def _bban_regex(structure):
     )
 
 
-
 def bban(value, country=None, validate=False):
     '''
     Printable Basic Bank Account Number (BBAN) for the given country code. The

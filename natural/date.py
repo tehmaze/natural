@@ -270,6 +270,18 @@ def day(t, now=None, format='%B %d'):
     :param now: default ``None``, optionally a :class:`datetime.datetime`
                 object
     :param format: default ``'%B %d'``
+
+    >>> import time
+    >>> day(time.time())
+    u'today'
+    >>> day(time.time() - 86400)
+    u'yesterday'
+    >>> day(time.time() - 604800)
+    u'last week'
+    >>> day(time.time() + 86400)
+    u'tomorrow'
+    >>> day(time.time() + 604800)
+    u'next week'
     '''
     t1 = _to_date(t)
     t2 = _to_date(now or datetime.datetime.now())
@@ -312,14 +324,28 @@ def duration(t, now=None, precision=1, pad=u', ', words=None,
                     representing tolerance for considering argument ``t`` as
                     meaning 'just now'
 
-    >>> duration(123, 456)
-    u'5 minutes ago'
-
     >>> import time
-    >>> duration(time.time(), time.time()+2)
+    >>> duration(time.time() + 1)
     u'just now'
-    >>> duration(time.time(), time.time()-60)
-    u'a minute from now'
+    >>> duration(time.time() + 11)
+    u'11 seconds from now'
+    >>> duration(time.time() - 1)
+    u'just now'
+    >>> duration(time.time() - 11)
+    u'11 seconds ago'
+    >>> duration(time.time() - 3601)
+    u'an hour ago'
+    >>> duration(time.time() - 7201)
+    u'2 hours ago'
+    >>> duration(time.time() - 123456)
+    u'yesterday'
+    >>> duration(time.time() - 1234567)
+    u'2 weeks ago'
+    >>> duration(time.time() + 7200, precision=1)
+    u'2 hours from now'
+    >>> duration(time.time() - 1234567, precision=3)
+    u'2 weeks, 6 hours, 56 minutes ago'
+
     '''
 
     if words is None:
@@ -372,19 +398,25 @@ def compress(t, sign=False, pad=u''):
     :param sign: default ``False``
     :param pad: default ``u''``
 
-    >>> import time
-    >>> compress(time.time()-2)
-    u'2s'
-    >>> compress(time.time()-60)
-    u'1m'
-    >>> compress(time.time()-87123)
-    u'1d12m3s'
+    >>> compress(1)
+    u'1s'
+    >>> compress(12)
+    u'12s'
+    >>> compress(123)
+    u'2m3s'
+    >>> compress(1234)
+    u'20m34s'
+    >>> compress(12345)
+    u'3h25m45s'
+    >>> compress(123456)
+    u'1d10h17m36s'
+
     '''
 
     if isinstance(t, datetime.timedelta):
         seconds = t.seconds + (t.days * 86400)
     elif isinstance(t, (float, int, long)):
-        return compress(datetime.datetime.fromtimestamp(t), sign, pad)
+        return compress(datetime.timedelta(seconds=t), sign, pad)
     else:
         return compress(datetime.datetime.now() - _to_datetime(t), sign, pad)
 

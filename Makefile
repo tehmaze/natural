@@ -10,9 +10,6 @@ test-nosetests:
 	PYTHONPATH=$(shell pwd) \
 	NOSE_WITH_DOCTEST=1 \
 	nosetests -w natural/ -v
-	PYTHONPATH=$(shell pwd) \
-	NOSE_WITH_DOCTEST=1 \
-	nosetests -w tests/ -v
 
 test-pep8:
 	@pep8 --ignore=E128,E221,E241 natural/

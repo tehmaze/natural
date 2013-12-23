@@ -46,10 +46,18 @@ def ordinal(value):
 
     :param value: number
 
-    >>> print ordinal(1)
-    1st
-    >>> print ordinal(123)
-    123rd
+    >>> ordinal(1)
+    u'1st'
+    >>> ordinal(11)
+    u'11th'
+    >>> ordinal(101)
+    u'101st'
+    >>> ordinal(104)
+    u'104th'
+    >>> ordinal(113)
+    u'113th'
+    >>> ordinal(123)
+    u'123rd'
     '''
 
     try:
@@ -70,12 +78,14 @@ def double(value, digits=2):
     :param value: number
     :param digits: default ``2``
 
-    >>> print double(42)
-    42.00
-    >>> print double(42, digits=1)
-    42.0
-    >>> print double(12.34)
-    12.34
+    >>> double(42)
+    u'42.00'
+    >>> double(42, digits=1)
+    u'42.0'
+    >>> double(12.34)
+    u'12.34'
+    >>> double(1234.56)
+    u'1,234.56'
 
     '''
 
@@ -88,10 +98,14 @@ def number(value):
 
     :param value: number
 
-    >>> print number(42)
-    42
-    >>> print number(12.34)
-    12
+    >>> number(42)
+    u'42'
+    >>> number(12.34)
+    u'12'
+    >>> number(1234)
+    u'1,234'
+    >>> number(1234567)
+    u'1,234,567'
 
     '''
 
@@ -105,10 +119,13 @@ def percentage(value, digits=2):
     :param value: number
     :param digits: default ``2``
 
-    >>> print percentage(1)
-    100.00 %
-    >>> print percentage(0.23, digits=0)
-    23 %
+    >>> percentage(1)
+    u'100.00 %'
+    >>> percentage(0.23, digits=0)
+    u'23 %'
+    >>> percentage(23.421)
+    u'2,342.10 %'
+
     '''
 
     value = float(value) * 100.0
