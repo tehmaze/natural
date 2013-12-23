@@ -1,6 +1,7 @@
 import re
 
 
+# Default Luhn check digits (base-10)
 DIGITS = '0123456789'
 
 
@@ -10,6 +11,10 @@ def luhn_checksum(number, chars=DIGITS):
 
     :param number: string, int or long
     :param chars: string
+
+    >>> luhn_checksum(1234)
+    4
+
     '''
     length = len(chars)
     number = [chars.index(n) for n in reversed(str(number))]
@@ -20,12 +25,46 @@ def luhn_checksum(number, chars=DIGITS):
 
 
 def luhn_calc(number, chars=DIGITS):
+    '''
+    Calculate the Luhn check digit for ``number``.
+
+    :param number: string
+    :param chars: string
+
+    >>> luhn_calc('42')
+    '2'
+
+    '''
+
     checksum = luhn_checksum(str(number) + chars[0], chars)
     return chars[-checksum]
 
 
 def luhn_append(number, chars=DIGITS):
+    '''
+    Append the Luhn check digit of ``number`` to the input.
+
+    :param number: string
+    :param chars: string
+
+    >>> luhn_append('666')
+    '6668'
+
+    '''
     return str(number) + luhn_calc(number, chars)
+
+
+def strip(value, chars):
+    '''
+    Removes characters in ``chars`` from input ``value``.
+
+    :param value: string
+    :param chars: iterable
+
+    >>> strip('hello.world', '.')
+    u'helloworld'
+    '''
+    return u''.join([x for x in value if x not in chars])
 
 
 def to_decimal(number, strip='- '):
