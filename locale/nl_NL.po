@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: natural\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-06-14 22:08+0200\n"
+"POT-Creation-Date: 2013-12-23 16:33+0100\n"
 "PO-Revision-Date: 2012-06-13 14:57+0200\n"
 "Last-Translator: Wijnand Modderman-Lenstra\n"
 "Language-Team: none\n"
@@ -18,597 +18,882 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: natural/constant.py:64 natural/constant.py:68 natural/constant.py:69
-#: natural/constant.py:70 natural/constant.py:71 natural/constant.py:72
-#: natural/constant.py:73
-msgid "th"
-msgstr "de"
+#: natural/bank.py:77
+msgid "Invalid BBAN, country unknown"
+msgstr "Ongeldige BBAN, land onbekend"
 
-#: natural/constant.py:65
-msgid "st"
-msgstr "ste"
+#: natural/bank.py:82
+msgid "Invalid BBAN, number does not match specification"
+msgstr "Ongeldige BBAN, het nummer voldoet niet aan de speficatie"
+
+#: natural/bank.py:112
+msgid "Invalid IBAN, country unknown"
+msgstr "Ongeldige IBAN, land onbekend"
+
+#: natural/bank.py:117
+msgid "Invalid IBAN, digits check failed"
+msgstr "Ongeldige IBAN, nummercheck mislukt"
+
+#: natural/constant.py:62
+msgid "Andorra"
+msgstr ""
+
+#: natural/constant.py:64
+msgid "United Arab Emirates"
+msgstr "Verenigde Arabische Emiraten"
 
 #: natural/constant.py:66
-msgid "nd"
-msgstr "de"
+msgid "Albania"
+msgstr "Albanië"
 
-#: natural/constant.py:67
-msgid "rd"
-msgstr "de"
+#: natural/constant.py:68
+msgid "Austria"
+msgstr "Oostenrijk"
+
+#: natural/constant.py:70
+msgid "Republic of Azerbaijan"
+msgstr "Republiek Azerbeidzjan"
+
+#: natural/constant.py:72
+msgid "Bosnia and Herzegovina"
+msgstr "Bosnië en Herzegovina"
+
+#: natural/constant.py:74
+msgid "Belgium"
+msgstr "België"
 
 #: natural/constant.py:76
-msgid "thousand"
-msgstr "duizend"
-
-#: natural/constant.py:77
-msgid "million"
-msgstr "miljoen"
+msgid "Bulgaria"
+msgstr "Bulgarije"
 
 #: natural/constant.py:78
-msgid "billion"
-msgstr "miljard"
-
-#: natural/constant.py:79
-msgid "trillion"
-msgstr "biljoen"
+msgid "Bahrain (Kingdom of)"
+msgstr "Koninkrijk Bahrein"
 
 #: natural/constant.py:80
-msgid "quadrillion"
-msgstr "biljard"
-
-#: natural/constant.py:81
-msgid "quintillion"
-msgstr "triljoen"
+msgid "Brazil"
+msgstr "Brazilië"
 
 #: natural/constant.py:82
-msgid "sextillion"
-msgstr "triljard"
-
-#: natural/constant.py:83
-msgid "septillion"
-msgstr "quadriljoen"
+msgid "Switzerland"
+msgstr "Zwitserland"
 
 #: natural/constant.py:84
-msgid "octillion"
-msgstr "quadriljard"
-
-#: natural/constant.py:85
-msgid "nonillion"
-msgstr "quintiljoen"
+msgid "Costa Rica"
+msgstr ""
 
 #: natural/constant.py:86
-msgid "decillion"
-msgstr "quintiljard"
-
-#: natural/constant.py:87
-msgid "undecillion"
-msgstr "sextiljoen"
+msgid "Cyprus"
+msgstr ""
 
 #: natural/constant.py:88
-msgid "duodecillion"
-msgstr "sextiljard"
-
-#: natural/constant.py:89
-msgid "tredecillion"
-msgstr "septiljoen"
+msgid "Czech Republic"
+msgstr "Tjechië"
 
 #: natural/constant.py:90
-msgid "quattuordecillion"
-msgstr "septiljard"
-
-#: natural/constant.py:91
-msgid "quindecillion"
-msgstr "octiljoen"
+msgid "Germany"
+msgstr "Duitsland"
 
 #: natural/constant.py:92
-msgid "sexdecillion"
-msgstr "octiljard"
-
-#: natural/constant.py:93
-msgid "septendecillion"
-msgstr "noniljoen"
+msgid "Denmark"
+msgstr "Denemarken"
 
 #: natural/constant.py:94
-msgid "octodec"
-msgstr "noniljard"
-
-#: natural/constant.py:95
-msgid "novemdecillion"
-msgstr "deciljoen"
+msgid "Denmark (Faroe Islands"
+msgstr "Denemarken (Faroë Eilanden)"
 
 #: natural/constant.py:96
-msgid "vigintillion"
-msgstr "deciljard"
-
-#: natural/constant.py:97
-msgid "unvigintillion"
-msgstr "undeciljoen"
+msgid "Denmark (Greenland)"
+msgstr "Denemarken (Groenland)"
 
 #: natural/constant.py:98
-msgid "duovigintil"
-msgstr "undeciljard"
-
-#: natural/constant.py:99
-msgid "tresvigintillion"
-msgstr "duodeciljoen"
+msgid "Dominican Republic"
+msgstr "Dominicaanse Republiek"
 
 #: natural/constant.py:100
-msgid "quattuorvigintillion"
-msgstr "duodeciljard"
-
-#: natural/constant.py:101
-msgid "quinquavigintillion"
-msgstr "tredeciljoen"
+msgid "Estonia"
+msgstr "Estland"
 
 #: natural/constant.py:102
-msgid "sesvigintillion"
-msgstr "tredeciljard"
-
-#: natural/constant.py:103
-msgid "septemvigintillion"
-msgstr "quattuordeciljoen"
+msgid "Spain"
+msgstr "Spanje"
 
 #: natural/constant.py:104
-msgid "octovigintillion"
-msgstr "quattuordeciljard"
-
-#: natural/constant.py:105
-msgid "novemvigintillion"
-msgstr "quindeciljoen"
+msgid "Finland"
+msgstr ""
 
 #: natural/constant.py:106
-msgid "trigintillion"
-msgstr "quindeciljard"
-
-#: natural/constant.py:107
-msgid "untrigintillion"
-msgstr "sexdeciljoen"
+msgid "France"
+msgstr "Frankrijk"
 
 #: natural/constant.py:108
-msgid "duotrigintillion"
-msgstr "sexdeciljard"
-
-#: natural/constant.py:109
-msgid "trestrigintillion"
-msgstr "septendeciljoen"
+msgid "United Kingdom"
+msgstr "Verenigd Koninkrijk"
 
 #: natural/constant.py:110
-msgid "quattuortrigintillion"
-msgstr "septendeciljard"
-
-#: natural/constant.py:111
-msgid "quinquatrigintillion"
-msgstr "octodeciljoen"
+msgid "Georgia"
+msgstr "Georgië"
 
 #: natural/constant.py:112
-msgid "sestrigintillion"
-msgstr "octodeciljard"
-
-#: natural/constant.py:113
-msgid "septentrigintillion"
-msgstr "novemdeciljoen"
+msgid "Gibraltar"
+msgstr ""
 
 #: natural/constant.py:114
-msgid "octotrigintillion"
-msgstr "novemdeciljard"
-
-#: natural/constant.py:115
-msgid "novemtrigintillion"
-msgstr "vigintiljoen"
+msgid "Greece"
+msgstr "Griekenland"
 
 #: natural/constant.py:116
-msgid "quadragintillion"
-msgstr "vigintiljard"
+msgid "Guatemala"
+msgstr ""
+
+#: natural/constant.py:118
+msgid "Croatia"
+msgstr "Croatië"
+
+#: natural/constant.py:120
+msgid "Hungary"
+msgstr "Hongarije"
+
+#: natural/constant.py:122
+msgid "Ireland"
+msgstr "Ierland"
+
+#: natural/constant.py:124
+msgid "Israel"
+msgstr "Israël"
+
+#: natural/constant.py:126
+msgid "Iceland"
+msgstr "IJsland"
 
 #: natural/constant.py:128
-msgid "Amsterdam"
-msgstr "Anna"
-
-#: natural/constant.py:129
-msgid "ä"
-msgstr ""
+msgid "Italy"
+msgstr "Italië"
 
 #: natural/constant.py:130
-msgid "Baltimore"
-msgstr "Bernard"
-
-#: natural/constant.py:131
-msgid "Casablanca"
-msgstr "Cornelis"
+msgid "Kuwait"
+msgstr "Koeweit"
 
 #: natural/constant.py:132
-msgid "Danmark"
-msgstr "Dirk"
-
-#: natural/constant.py:133
-msgid "Edison"
-msgstr "Eduard"
+msgid "Kazakhstan"
+msgstr "Kazachstan"
 
 #: natural/constant.py:134
-msgid "Florida"
-msgstr "Ferdinand"
-
-#: natural/constant.py:135
-msgid "Gallipoli"
-msgstr "Gerard"
+msgid "Lebanon"
+msgstr "Libanon"
 
 #: natural/constant.py:136
-msgid "Havanna"
-msgstr "Hendrik"
-
-#: natural/constant.py:137
-msgid "Italia"
-msgstr "Izaak"
+msgid "Liechtenstein (Principality of)"
+msgstr "Liechtenstein (Vorstendom)"
 
 #: natural/constant.py:138
-msgid "Jerusalem"
-msgstr "Jan"
-
-#: natural/constant.py:139
-msgid "Kilogramme"
-msgstr "Karel"
+msgid "Lithuania"
+msgstr "Letland"
 
 #: natural/constant.py:140
-msgid "Liverpool"
-msgstr "Lodewijk"
-
-#: natural/constant.py:141
-msgid "Madagaskar"
-msgstr "Maria"
+msgid "Luxembourg"
+msgstr "Luxemburg"
 
 #: natural/constant.py:142
-msgid "New York"
-msgstr "Nico"
-
-#: natural/constant.py:143
-msgid "ñ"
-msgstr ""
+msgid "Latvia"
+msgstr "Letland"
 
 #: natural/constant.py:144
-msgid "Oslo"
-msgstr "Otto"
-
-#: natural/constant.py:145
-msgid "ö"
+msgid "Monaco"
 msgstr ""
 
 #: natural/constant.py:146
-msgid "Paris"
-msgstr "Pieter"
-
-#: natural/constant.py:147
-msgid "Québec"
-msgstr "Quotiënt"
+msgid "Republic of Moldova"
+msgstr "Republiek Moldavië"
 
 #: natural/constant.py:148
-msgid "Roma"
-msgstr "Rudolf"
-
-#: natural/constant.py:149
-msgid "Santiago"
-msgstr "Simon"
+msgid "Montenegro"
+msgstr ""
 
 #: natural/constant.py:150
-msgid "Tripoli"
-msgstr "Teunis"
-
-#: natural/constant.py:151
-msgid "Uppsala"
-msgstr "Utrecht"
+msgid "Macedonia, Former Yugoslav Republic of"
+msgstr "Republiek Macedonië"
 
 #: natural/constant.py:152
-msgid "ü"
-msgstr ""
-
-#: natural/constant.py:153
-msgid "Valencia"
-msgstr "Victor"
+msgid "Mauritania"
+msgstr "Mauritanië"
 
 #: natural/constant.py:154
-msgid "Washington"
-msgstr "Willem"
-
-#: natural/constant.py:155
-msgid "Xantippe"
-msgstr "Xantippe"
+msgid "Malta"
+msgstr ""
 
 #: natural/constant.py:156
-msgid "Yokohama"
-msgstr "Ypsilon"
+msgid "Mauritius"
+msgstr ""
 
-#: natural/constant.py:157
-msgid "Zürich"
-msgstr "Zaandam"
+#: natural/constant.py:158
+msgid "The Netherlands"
+msgstr "Nederland"
+
+#: natural/constant.py:160
+msgid "Norway"
+msgstr "Noorwegen"
+
+#: natural/constant.py:162
+msgid "Pakistan"
+msgstr ""
+
+#: natural/constant.py:164
+msgid "Poland"
+msgstr "Polen"
+
+#: natural/constant.py:166
+msgid "Palestine, State of"
+msgstr "Palestina (Staat)"
+
+#: natural/constant.py:168
+msgid "Portugal"
+msgstr ""
+
+#: natural/constant.py:170
+msgid "Qatar"
+msgstr ""
+
+#: natural/constant.py:172
+msgid "Romania"
+msgstr "Roemenië"
+
+#: natural/constant.py:174
+msgid "Serbia"
+msgstr "Servië"
+
+#: natural/constant.py:176
+msgid "Saudi Arabia"
+msgstr "Saudi Arabië"
+
+#: natural/constant.py:178
+msgid "Sweden"
+msgstr "Zweden"
+
+#: natural/constant.py:180
+msgid "Slovenia"
+msgstr "Slovenië"
+
+#: natural/constant.py:182
+msgid "Slovak Republic"
+msgstr "Slowaakse Republiek"
+
+#: natural/constant.py:184
+msgid "San Marino"
+msgstr ""
+
+#: natural/constant.py:186
+msgid "Tunisia"
+msgstr "Tunesië"
+
+#: natural/constant.py:188
+msgid "Turkey"
+msgstr "Turkije"
+
+#: natural/constant.py:190
+msgid "Virgin Islands, British"
+msgstr "Maagdeneilanden"
+
+#: natural/constant.py:204 natural/constant.py:208 natural/constant.py:209
+#: natural/constant.py:210 natural/constant.py:211 natural/constant.py:212
+#: natural/constant.py:213
+msgid "th"
+msgstr "de"
+
+#: natural/constant.py:205
+msgid "st"
+msgstr "ste"
+
+#: natural/constant.py:206
+msgid "nd"
+msgstr "de"
+
+#: natural/constant.py:207
+msgid "rd"
+msgstr "de"
+
+#: natural/constant.py:216
+msgid "thousand"
+msgstr "duizend"
+
+#: natural/constant.py:217
+msgid "million"
+msgstr "miljoen"
+
+#: natural/constant.py:218
+msgid "billion"
+msgstr "miljard"
+
+#: natural/constant.py:219
+msgid "trillion"
+msgstr "biljoen"
+
+#: natural/constant.py:220
+msgid "quadrillion"
+msgstr "biljard"
+
+#: natural/constant.py:221
+msgid "quintillion"
+msgstr "triljoen"
+
+#: natural/constant.py:222
+msgid "sextillion"
+msgstr "triljard"
+
+#: natural/constant.py:223
+msgid "septillion"
+msgstr "quadriljoen"
+
+#: natural/constant.py:224
+msgid "octillion"
+msgstr "quadriljard"
+
+#: natural/constant.py:225
+msgid "nonillion"
+msgstr "quintiljoen"
+
+#: natural/constant.py:226
+msgid "decillion"
+msgstr "quintiljard"
+
+#: natural/constant.py:227
+msgid "undecillion"
+msgstr "sextiljoen"
+
+#: natural/constant.py:228
+msgid "duodecillion"
+msgstr "sextiljard"
+
+#: natural/constant.py:229
+msgid "tredecillion"
+msgstr "septiljoen"
+
+#: natural/constant.py:230
+msgid "quattuordecillion"
+msgstr "septiljard"
+
+#: natural/constant.py:231
+msgid "quindecillion"
+msgstr "octiljoen"
+
+#: natural/constant.py:232
+msgid "sexdecillion"
+msgstr "octiljard"
+
+#: natural/constant.py:233
+msgid "septendecillion"
+msgstr "noniljoen"
+
+#: natural/constant.py:234
+msgid "octodec"
+msgstr "noniljard"
+
+#: natural/constant.py:235
+msgid "novemdecillion"
+msgstr "deciljoen"
+
+#: natural/constant.py:236
+msgid "vigintillion"
+msgstr "deciljard"
+
+#: natural/constant.py:237
+msgid "unvigintillion"
+msgstr "undeciljoen"
+
+#: natural/constant.py:238
+msgid "duovigintil"
+msgstr "undeciljard"
+
+#: natural/constant.py:239
+msgid "tresvigintillion"
+msgstr "duodeciljoen"
+
+#: natural/constant.py:240
+msgid "quattuorvigintillion"
+msgstr "duodeciljard"
+
+#: natural/constant.py:241
+msgid "quinquavigintillion"
+msgstr "tredeciljoen"
+
+#: natural/constant.py:242
+msgid "sesvigintillion"
+msgstr "tredeciljard"
+
+#: natural/constant.py:243
+msgid "septemvigintillion"
+msgstr "quattuordeciljoen"
+
+#: natural/constant.py:244
+msgid "octovigintillion"
+msgstr "quattuordeciljard"
+
+#: natural/constant.py:245
+msgid "novemvigintillion"
+msgstr "quindeciljoen"
 
 #: natural/constant.py:246
-msgid "ælfɑ"
-msgstr ""
+msgid "trigintillion"
+msgstr "quindeciljard"
 
 #: natural/constant.py:247
-msgid "ˈbrɑːˈvo"
-msgstr ""
+msgid "untrigintillion"
+msgstr "sexdeciljoen"
 
 #: natural/constant.py:248
-msgid "ˈtʃɑːli"
-msgstr ""
+msgid "duotrigintillion"
+msgstr "sexdeciljard"
 
 #: natural/constant.py:249
-msgid "ˈdeltɑ "
-msgstr ""
+msgid "trestrigintillion"
+msgstr "septendeciljoen"
 
 #: natural/constant.py:250
-msgid "ˈeko"
-msgstr ""
+msgid "quattuortrigintillion"
+msgstr "septendeciljard"
 
 #: natural/constant.py:251
-msgid "ˈfɔkstrɔt"
-msgstr ""
+msgid "quinquatrigintillion"
+msgstr "octodeciljoen"
 
 #: natural/constant.py:252
-msgid "ɡʌlf"
-msgstr ""
+msgid "sestrigintillion"
+msgstr "octodeciljard"
 
 #: natural/constant.py:253
-msgid "hoːˈtel"
-msgstr ""
+msgid "septentrigintillion"
+msgstr "novemdeciljoen"
 
 #: natural/constant.py:254
-msgid "ˈindiˑɑ"
-msgstr ""
+msgid "octotrigintillion"
+msgstr "novemdeciljard"
 
 #: natural/constant.py:255
-msgid "ˈdʒuːliˑˈet"
-msgstr ""
+msgid "novemtrigintillion"
+msgstr "vigintiljoen"
 
 #: natural/constant.py:256
-msgid "ˈkiːlo"
-msgstr ""
-
-#: natural/constant.py:257
-msgid "ˈliːmɑ"
-msgstr ""
-
-#: natural/constant.py:258
-msgid "mɑik"
-msgstr ""
-
-#: natural/constant.py:259
-msgid "noˈvembə"
-msgstr ""
-
-#: natural/constant.py:260
-msgid "ˈɔskɑ"
-msgstr ""
-
-#: natural/constant.py:261
-msgid "pəˈpɑ"
-msgstr ""
-
-#: natural/constant.py:262
-msgid "keˈbek"
-msgstr ""
-
-#: natural/constant.py:263
-msgid "ˈroːmiˑo"
-msgstr ""
-
-#: natural/constant.py:264
-msgid "siˈerɑ"
-msgstr ""
-
-#: natural/constant.py:265
-msgid "ˈtænɡo"
-msgstr ""
-
-#: natural/constant.py:266
-msgid "ˈjuːnifɔːm"
-msgstr ""
-
-#: natural/constant.py:267
-msgid "ˈviktɑ"
-msgstr ""
-
-#: natural/constant.py:268
-msgid "ˈwiski"
-msgstr ""
-
-#: natural/constant.py:269
-msgid "ˈeksˈrei"
-msgstr ""
-
-#: natural/constant.py:270
-msgid "ˈjænki"
-msgstr ""
-
-#: natural/constant.py:271
-msgid "ˈzuːluː"
-msgstr ""
+msgid "quadragintillion"
+msgstr "vigintiljard"
 
 #: natural/constant.py:272
-msgid "ˈzɛroʊ"
-msgstr ""
+msgid "Amsterdam"
+msgstr "Anna"
 
 #: natural/constant.py:273
-msgid "ˈwʌn"
+msgid "ä"
 msgstr ""
 
 #: natural/constant.py:274
+msgid "Baltimore"
+msgstr "Bernard"
+
+#: natural/constant.py:275
+msgid "Casablanca"
+msgstr "Cornelis"
+
+#: natural/constant.py:276
+msgid "Danmark"
+msgstr "Dirk"
+
+#: natural/constant.py:277
+msgid "Edison"
+msgstr "Eduard"
+
+#: natural/constant.py:278
+msgid "Florida"
+msgstr "Ferdinand"
+
+#: natural/constant.py:279
+msgid "Gallipoli"
+msgstr "Gerard"
+
+#: natural/constant.py:280
+msgid "Havanna"
+msgstr "Hendrik"
+
+#: natural/constant.py:281
+msgid "Italia"
+msgstr "Izaak"
+
+#: natural/constant.py:282
+msgid "Jerusalem"
+msgstr "Jan"
+
+#: natural/constant.py:283
+msgid "Kilogramme"
+msgstr "Karel"
+
+#: natural/constant.py:284
+msgid "Liverpool"
+msgstr "Lodewijk"
+
+#: natural/constant.py:285
+msgid "Madagaskar"
+msgstr "Maria"
+
+#: natural/constant.py:286
+msgid "New York"
+msgstr "Nico"
+
+#: natural/constant.py:287
+msgid "ñ"
+msgstr ""
+
+#: natural/constant.py:288
+msgid "Oslo"
+msgstr "Otto"
+
+#: natural/constant.py:289
+msgid "ö"
+msgstr ""
+
+#: natural/constant.py:290
+msgid "Paris"
+msgstr "Pieter"
+
+#: natural/constant.py:291
+msgid "Québec"
+msgstr "Quotiënt"
+
+#: natural/constant.py:292
+msgid "Roma"
+msgstr "Rudolf"
+
+#: natural/constant.py:293
+msgid "Santiago"
+msgstr "Simon"
+
+#: natural/constant.py:294
+msgid "Tripoli"
+msgstr "Teunis"
+
+#: natural/constant.py:295
+msgid "Uppsala"
+msgstr "Utrecht"
+
+#: natural/constant.py:296
+msgid "ü"
+msgstr ""
+
+#: natural/constant.py:297
+msgid "Valencia"
+msgstr "Victor"
+
+#: natural/constant.py:298
+msgid "Washington"
+msgstr "Willem"
+
+#: natural/constant.py:299
+msgid "Xantippe"
+msgstr "Xantippe"
+
+#: natural/constant.py:300
+msgid "Yokohama"
+msgstr "Ypsilon"
+
+#: natural/constant.py:301
+msgid "Zürich"
+msgstr "Zaandam"
+
+#: natural/constant.py:599
+msgid "ˈzɛroʊ"
+msgstr ""
+
+#: natural/constant.py:600
+msgid "ˈwʌn"
+msgstr ""
+
+#: natural/constant.py:601
 msgid "ˈtuː"
 msgstr ""
 
-#: natural/constant.py:275
+#: natural/constant.py:602
 msgid "ˈtriː"
 msgstr ""
 
-#: natural/constant.py:276
+#: natural/constant.py:603
 msgid "ˈfoʊ.ər"
 msgstr ""
 
-#: natural/constant.py:277
+#: natural/constant.py:604
 msgid "ˈfaɪf"
 msgstr ""
 
-#: natural/constant.py:278
+#: natural/constant.py:605
 msgid "ˈsɪks"
 msgstr ""
 
-#: natural/constant.py:279
+#: natural/constant.py:606
 msgid "ˈsɛvɛn"
 msgstr ""
 
-#: natural/constant.py:280
+#: natural/constant.py:607
 msgid "ˈeɪt"
 msgstr ""
 
-#: natural/constant.py:281
+#: natural/constant.py:608
 msgid "ˈnaɪnər"
 msgstr ""
 
-#: natural/constant.py:282
+#: natural/constant.py:609
+msgid "ælfɑ"
+msgstr ""
+
+#: natural/constant.py:610
+msgid "ˈbrɑːˈvo"
+msgstr ""
+
+#: natural/constant.py:611
+msgid "ˈtʃɑːli"
+msgstr ""
+
+#: natural/constant.py:612
+msgid "ˈdeltɑ "
+msgstr ""
+
+#: natural/constant.py:613
+msgid "ˈeko"
+msgstr ""
+
+#: natural/constant.py:614
+msgid "ˈfɔkstrɔt"
+msgstr ""
+
+#: natural/constant.py:615
+msgid "ɡʌlf"
+msgstr ""
+
+#: natural/constant.py:616
+msgid "hoːˈtel"
+msgstr ""
+
+#: natural/constant.py:617
+msgid "ˈindiˑɑ"
+msgstr ""
+
+#: natural/constant.py:618
+msgid "ˈdʒuːliˑˈet"
+msgstr ""
+
+#: natural/constant.py:619
+msgid "ˈkiːlo"
+msgstr ""
+
+#: natural/constant.py:620
+msgid "ˈliːmɑ"
+msgstr ""
+
+#: natural/constant.py:621
+msgid "mɑik"
+msgstr ""
+
+#: natural/constant.py:622
+msgid "noˈvembə"
+msgstr ""
+
+#: natural/constant.py:623
+msgid "ˈɔskɑ"
+msgstr ""
+
+#: natural/constant.py:624
+msgid "pəˈpɑ"
+msgstr ""
+
+#: natural/constant.py:625
+msgid "keˈbek"
+msgstr ""
+
+#: natural/constant.py:626
+msgid "ˈroːmiˑo"
+msgstr ""
+
+#: natural/constant.py:627
+msgid "siˈerɑ"
+msgstr ""
+
+#: natural/constant.py:628
+msgid "ˈtænɡo"
+msgstr ""
+
+#: natural/constant.py:629
 msgid "ˈstɒp"
 msgstr ""
 
-#: natural/data.py:73
+#: natural/constant.py:630
+msgid "ˈjuːnifɔːm"
+msgstr ""
+
+#: natural/constant.py:631
+msgid "ˈviktɑ"
+msgstr ""
+
+#: natural/constant.py:632
+msgid "ˈwiski"
+msgstr ""
+
+#: natural/constant.py:633
+msgid "ˈeksˈrei"
+msgstr ""
+
+#: natural/constant.py:634
+msgid "ˈjænki"
+msgstr ""
+
+#: natural/constant.py:635
+msgid "ˈzuːluː"
+msgstr ""
+
+#: natural/data.py:123
 #, python-format
 msgid "%s/s"
 msgstr ""
 
-#: natural/date.py:108 natural/date.py:215
+#: natural/date.py:83
+#, python-format
+msgid "Format \"%s\" not supported"
+msgstr ""
+
+#: natural/date.py:163 natural/date.py:338
 msgid "just now"
 msgstr "zojuist"
 
-#: natural/date.py:111
+#: natural/date.py:171
 #, python-format
 msgid "%d second"
 msgstr "%d seconde"
 
-#: natural/date.py:112
+#: natural/date.py:172
 #, python-format
 msgid "%d seconds"
 msgstr "%d seconden"
 
-#: natural/date.py:115
+#: natural/date.py:179
 msgid "a minute"
 msgstr "een minuut"
 
-#: natural/date.py:119
+#: natural/date.py:189
 #, python-format
 msgid "%d minute"
 msgstr "%d minuut"
 
-#: natural/date.py:120
+#: natural/date.py:190
 #, python-format
 msgid "%d minutes"
 msgstr "%d minuten"
 
-#: natural/date.py:123
+#: natural/date.py:198
 msgid "an hour"
 msgstr "een uur"
 
-#: natural/date.py:127
+#: natural/date.py:209
 #, python-format
 msgid "%d hour"
 msgstr "%d uur"
 
-#: natural/date.py:128
+#: natural/date.py:210
 #, python-format
 msgid "%d hours"
 msgstr "%d uur"
 
-#: natural/date.py:132 natural/date.py:183
+#: natural/date.py:218 natural/date.py:286 natural/date.py:340
+msgid "tomorrow"
+msgstr "morgen"
+
+#: natural/date.py:220 natural/date.py:284 natural/date.py:339
 msgid "yesterday"
 msgstr "gisteren"
 
-#: natural/date.py:136
+#: natural/date.py:228
 #, python-format
 msgid "%d day"
 msgstr "%d dag"
 
-#: natural/date.py:137
+#: natural/date.py:229
 #, python-format
 msgid "%d days"
 msgstr "%d dagen"
 
-#: natural/date.py:143
+#: natural/date.py:237 natural/date.py:291 natural/date.py:342
+msgid "next week"
+msgstr "volgende week"
+
+#: natural/date.py:239 natural/date.py:289 natural/date.py:341
+msgid "last week"
+msgstr "vorige week"
+
+#: natural/date.py:253
 #, python-format
 msgid "%d week"
 msgstr "%d week"
 
-#: natural/date.py:144
+#: natural/date.py:254
 #, python-format
 msgid "%d weeks"
 msgstr "%d weken"
 
-#: natural/date.py:150
-#, python-format
-msgid "%d month"
-msgstr "%d maand"
-
-#: natural/date.py:151
-#, python-format
-msgid "%d months"
-msgstr "%d maanden"
-
-#: natural/date.py:157
-#, python-format
-msgid "%d year"
-msgstr "%d jaar"
-
-#: natural/date.py:158
-#, python-format
-msgid "%d years"
-msgstr "%d jaar"
-
-#: natural/date.py:180
+#: natural/date.py:281
 msgid "today"
 msgstr "vandaag"
 
-#: natural/date.py:185
-msgid "tomorrow"
-msgstr "morgen"
-
-#: natural/date.py:188
-msgid "last week"
-msgstr "vorige week"
-
-#: natural/date.py:190
-msgid "next week"
-msgstr "volgende week"
-
-#: natural/date.py:210
+#: natural/date.py:332
 #, python-format
 msgid "%s ago"
 msgstr "%s geleden"
 
-#: natural/date.py:212
+#: natural/date.py:334
 #, python-format
 msgid "%s from now"
 msgstr "%s vanaf nu"
 
-#: natural/date.py:257
+#: natural/date.py:401
 #, python-format
 msgid "%dw"
 msgstr "%dw"
 
-#: natural/date.py:259
+#: natural/date.py:403
 #, python-format
 msgid "%dd"
 msgstr "%dd"
 
-#: natural/date.py:261
+#: natural/date.py:405
 #, python-format
 msgid "%dh"
 msgstr "%du"
 
-#: natural/date.py:263
+#: natural/date.py:407
 #, python-format
 msgid "%dm"
 msgstr "%dm"
 
-#: natural/date.py:265
+#: natural/date.py:409
 #, python-format
 msgid "%ds"
 msgstr "%ds"
+
+#: natural/phone.py:22
+msgid "Invaid International Mobile Station Equipment Identity"
+msgstr "Ongeldige International Mobile Station Equipment Identity"
+
+#: natural/phone.py:70 natural/phone.py:73 natural/phone.py:77
+msgid "Invalid MEID, size mismatch"
+msgstr "Ongeldige MEID, lengte incorrect"
+
+#: natural/phone.py:81
+msgid "Invalid MEID, input type invalid"
+msgstr "Ongeldige MEID, invoertype incorrect"
+
+#~ msgid "%d month"
+#~ msgstr "%d maand"
+
+#~ msgid "%d months"
+#~ msgstr "%d maanden"
+
+#~ msgid "%d year"
+#~ msgstr "%d jaar"
+
+#~ msgid "%d years"
+#~ msgstr "%d jaar"
 
 #~ msgid "ago"
 #~ msgstr "geleden"
