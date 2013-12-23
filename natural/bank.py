@@ -1,203 +1,123 @@
-from natural.constant import _
+from natural.constant import _, IBAN_ALPHABET
+from natural.constant import BBAN_RULES, BBAN_PATTERN, BBAN_MAP
 import re
 
 
-class BBAN(object):
-    _alphabet = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-    _rules = dict(
-        AD=dict(bban='4!n4!n12!c',
-                name=_('Andorra')),
-        AE=dict(bban='3!n16!n',
-                name=_('United Arab Emirates')),
-        AL=dict(bban='8!n16!c',
-                name=_('Albania')),
-        AT=dict(bban='5!n11!n',
-                name=_('Austria')),
-        AZ=dict(bban='4!a20!c',
-                name=_('Republic of Azerbaijan')),
-        BA=dict(bban='3!n3!n8!n2!n',
-                name=_('Bosnia and Herzegovina')),
-        BE=dict(bban='3!n7!n2!n',
-                name=_('Belgium')),
-        BG=dict(bban='4!a4!n2!n8!c',
-                name=_('Bulgaria')),
-        BH=dict(bban='4!a14!c',
-                name=_('Bahrain (Kingdom of)')),
-        BR=dict(bban='8!n5!n10!n1!a1!c',
-                name=_('Brazil')),
-        CH=dict(bban='5!n12!c',
-                name=_('Switzerland')),
-        CR=dict(bban='3!n14!n',
-                name=_('Costa Rica')),
-        CY=dict(bban='3!n5!n16!c',
-                name=_('Cyprus')),
-        CZ=dict(bban='4!n6!n10!n',
-                name=_('Czech Republic')),
-        DE=dict(bban='8!n10!n',
-                name=_('Germany')),
-        DK=dict(bban='4!n9!n1!n',
-                name=_('Denmark')),
-        FO=dict(bban='4!n9!n1!n',
-                name=_('Denmark (Faroe Islands')),
-        GL=dict(bban='4!n9!n1!n',
-                name=_('Denmark (Greenland)')),
-        DO=dict(bban='4!c20!n',
-                name=_('Dominican Republic')),
-        EE=dict(bban='2!n2!n11!n1!n',
-                name=_('Estonia')),
-        ES=dict(bban='4!n4!n1!n1!n10!n',
-                name=_('Spain')),
-        FI=dict(bban='Not in use',
-                name=_('Finland')),
-        FR=dict(bban='5!n5!n11!c2!n',
-                name=_('France')),
-        GB=dict(bban='4!a6!n8!n',
-                name=_('United Kingdom')),
-        GE=dict(bban='2!a16!n',
-                name=_('Georgia')),
-        GI=dict(bban='4!a15!c',
-                name=_('Gibraltar')),
-        GR=dict(bban='3!n4!n16!c',
-                name=_('Greece')),
-        GT=dict(bban='4!c20!c',
-                name=_('Guatemala')),
-        HR=dict(bban='7!n10!n',
-                name=_('Croatia')),
-        HU=dict(bban='3!n4!n1!n15!n1!n',
-                name=_('Hungary')),
-        IE=dict(bban='4!a6!n8!n',
-                name=_('Ireland')),
-        IL=dict(bban='3!n3!n13!n',
-                name=_('Israel')),
-        IS=dict(bban='4!n2!n6!n10!n',
-                name=_('Iceland')),
-        IT=dict(bban='1!a5!n5!n12!c',
-                name=_('Italy')),
-        KW=dict(bban='4!a22!c',
-                name=_('Kuwait')),
-        KZ=dict(bban='3!n13!c',
-                name=_('Kazakhstan')),
-        LB=dict(bban='4!n20!c',
-                name=_('Lebanon')),
-        LI=dict(bban='5!n12!c',
-                name=_('Liechtenstein (Principality of)')),
-        LT=dict(bban='5!n11!n',
-                name=_('Lithuania')),
-        LU=dict(bban='3!n13!c',
-                name=_('Luxembourg')),
-        LV=dict(bban='4!a13!c',
-                name=_('Latvia')),
-        MC=dict(bban='5!n5!n11!c2!n',
-                name=_('Monaco')),
-        MD=dict(bban='2!c18!c',
-                name=_('Republic of Moldova')),
-        ME=dict(bban='3!n13!n2!n',
-                name=_('Montenegro')),
-        MK=dict(bban='3!n10!c2!n',
-                name=_('Macedonia, Former Yugoslav Republic of')),
-        MR=dict(bban='5!n5!n11!n2!n',
-                name=_('Mauritania')),
-        MT=dict(bban='4!a5!n18!c',
-                name=_('Malta')),
-        MU=dict(bban='4!a2!n2!n12!n3!n3!a',
-                name=_('Mauritius')),
-        NL=dict(bban='4!a10!n',
-                name=_('The Netherlands')),
-        NO=dict(bban='4!n6!n1!n ',
-                name=_('Norway')),
-        PK=dict(bban='4!a16!c',
-                name=_('Pakistan')),
-        PL=dict(bban='8!n16!n',
-                name=_('Poland')),
-        PS=dict(bban='4!a21!c',
-                name=_('Palestine, State of')),
-        PT=dict(bban='4!n4!n11!n2!n',
-                name=_('Portugal')),
-        QA=dict(bban='2!n4!a21!c',
-                name=_('Qatar')),
-        RO=dict(bban='4!a16!c',
-                name=_('Romania')),
-        RS=dict(bban='3!n13!n2!n',
-                name=_('Serbia')),
-        SA=dict(bban='2!n18!c',
-                name=_('Saudi Arabia')),
-        SE=dict(bban='3!n16!n1!n',
-                name=_('Sweden')),
-        SI=dict(bban='5!n8!n2!n',
-                name=_('Slovenia')),
-        SK=dict(bban='4!n6!n10!n',
-                name=_('Slovak Republic')),
-        SM=dict(bban='1!a5!n5!n12!c',
-                name=_('San Marino')),
-        TN=dict(bban='2!n3!n13!n2!n',
-                name=_('Tunisia')),
-        TR=dict(bban='5!n1!c16!c',
-                name=_('Turkey')),
-        VG=dict(bban='4!a16!n',
-                name=_('Virgin Islands, British')),
-    )
-    _bban_sre = re.compile(r'([1-9][0-9]*)!([acen])')
-    _bban_map = dict(
-        a=r'[A-Z]',
-        c=r'[a-zA-Z0-9]',
-        e=r' ',
-        n=r'[0-9]',
-    )
+def bban_compact(number):
+    '''
+    Printable compacted Basic Bank Account Number. Removes all the padding
+    characters.
 
-    @staticmethod
-    def _regex(structure):
-        return re.compile(
-            r'^%s$' % IBAN._bban_sre.sub(
-                lambda m: '%s{%s}' % (BBAN._bban_map[m.group(2)], m.group(1)),
-                structure,
-            )
+    :param number: string
+
+    >>> bban_compact('1234.56.78.90')
+    u'1234567890'
+    >>> bban_compact('068-9999995-01')
+    u'068999999501'
+    '''
+    return unicode(re.sub(r'[-. ]', '', str(number)))
+
+
+def bban_base10(number):
+    '''
+    Printable Basic Bank Account Number in base-10.
+
+    :param number: string
+
+    >>> bban_base10('01234567')
+    u'45670123'
+    >>> bban_base10('ABCD')
+    u'10111213'
+    '''
+    number = bban_compact(number)
+    number = number[4:] + number[:4]
+    return u''.join([str(IBAN_ALPHABET.index(char)) for char in number])
+
+
+def _bban_regex(structure):
+    return re.compile(
+        r'^%s$' % BBAN_PATTERN.sub(
+            lambda m: '%s{%s}' % (BBAN_MAP[m.group(2)], m.group(1)),
+            structure,
         )
-
-    @staticmethod
-    def base10(number):
-        number = IBAN.compact(number)
-        number = number[4:] + number[:4]
-        return ''.join([str(IBAN._alphabet.index(char)) for char in number])
-
-    @staticmethod
-    def validate(bban, country):
-        rules = BBAN._rules[country]
-        regex = BBAN._regex(rules['bban'])
-        if regex.match(bban):
-            return True
-        else:
-            country = rules['country']
-            raise ValueError(_('Invalid BBAN for %s') % country)
+    )
 
 
-class IBAN(BBAN):
-    @staticmethod
-    def compact(number):
-        return re.sub(r'[ -]', '', number)
 
-    @staticmethod
-    def format(number):
-        number = IBAN.compact(number)
-        return ' '.join([
-            number[x:x + 4]
-            for x in xrange(0, len(number), 4)
-        ])
+def bban(value, country=None, validate=False):
+    '''
+    Printable Basic Bank Account Number (BBAN) for the given country code. The
+    ``country`` must be a valid ISO 3166-2 country code.
 
-    @staticmethod
-    def validate(number):
-        # First two digits must be a valid ISO 3166-2 country code
-        country = number[:2]
+    :param value: string, int or long
+    :param country: string
+
+    >>> bban('068-9999995-01', 'BE')
+    u'068999999501'
+    >>> bban('555', 'NL')
+    u'555'
+    >>> bban('555', 'NL', validate=True)
+    Traceback (most recent call last):
+        ...
+    ValueError: Invalid BBAN, number does not match specification
+    >>> bban('123', 'XY', validate=True)
+    Traceback (most recent call last):
+        ...
+    ValueError: Invalid BBAN, country unknown
+    '''
+
+    value = bban_compact(value)
+
+    if validate:
+        country = country.upper()
+
         try:
-            BBAN._rules[country]
+            rules = BBAN_RULES[country]
         except KeyError:
+            raise ValueError(_('Invalid BBAN, country unknown'))
+
+        regex = _bban_regex(rules['bban'])
+        if not regex.match(value):
+            raise ValueError(
+                _('Invalid BBAN, number does not match specification')
+            )
+
+    return value
+
+
+def iban(number, validate=False):
+    '''
+    Printable International Bank Account Number (IBAN) as specified in ISO
+    13616.
+
+    :param number: string
+
+    >>> iban('BE43068999999501')
+    u'BE43 0689 9999 9501'
+    >>> iban('XY32012341234123', validate=True)
+    Traceback (most recent call last):
+        ...
+    ValueError: Invalid IBAN, country unknown
+    >>> iban('BE43068999999502', validate=True)
+    Traceback (most recent call last):
+        ...
+    ValueError: Invalid IBAN, digits check failed
+
+    '''
+
+    number = bban_compact(number)
+    if validate:
+        country = number[:2]
+        if country not in BBAN_RULES:
             raise ValueError(_('Invalid IBAN, country unknown'))
 
-        digits = IBAN.base10(number)
+        # Do the 10-mod-97 check
+        digits = bban_base10(number)
         if long(digits) % 97 != 1:
             raise ValueError(_('Invalid IBAN, digits check failed'))
 
-        bban = number[4:]
-        return BBAN.validate(bban, country)
+        # Check BBAN for country
+        bban(number[4:], country, validate=True)
 
-
-# vim:fdm=indent
+    groups = [number[x:x + 4] for x in xrange(0, len(number), 4)]
+    return u' '.join(groups)
