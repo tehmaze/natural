@@ -1,0 +1,63 @@
+import re
+
+
+DIGITS = '0123456789'
+
+
+def luhn_checksum(number, chars=DIGITS):
+    '''
+    Calculates the Luhn checksum for `number`
+
+    :param number: string, int or long
+    :param chars: string
+    '''
+    length = len(chars)
+    number = [chars.index(n) for n in reversed(str(number))]
+    return (
+        sum(number[::2]) +
+        sum(sum(divmod(i * 2, length)) for i in number[1::2])
+    ) % length
+
+
+def luhn_calc(number, chars=DIGITS):
+    checksum = luhn_checksum(str(number) + chars[0], chars)
+    return chars[-checksum]
+
+
+def luhn_append(number, chars=DIGITS):
+    return str(number) + luhn_calc(number, chars)
+
+
+def to_decimal(number, strip='- '):
+    '''
+    Converts a number to a string of decimals in base 10.
+
+    >>> to_decimal(123)
+    '123'
+    >>> to_decimal('o123')
+    '83'
+    >>> to_decimal('b101010')
+    '42'
+    >>> to_decimal('0x2a')
+    '42'
+    '''
+    if isinstance(number, (int, long)):
+        return str(number)
+
+    number = str(number)
+    number = re.sub(r'[%s]' % re.escape(strip), '', number)
+
+    # hexadecimal
+    if number.startswith('0x'):
+        return to_decimal(long(number[2:], 16))
+
+    # octal
+    elif number.startswith('o'):
+        return to_decimal(long(number[1:], 8))
+
+    # binary
+    elif number.startswith('b'):
+        return to_decimal(long(number[1:], 2))
+
+    else:
+        return str(long(number))

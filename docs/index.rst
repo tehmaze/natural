@@ -73,6 +73,7 @@ Contents
    natural/date
    natural/file
    natural/number
+   natural/phone
    natural/size
    natural/text
    locales
