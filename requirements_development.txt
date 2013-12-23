@@ -1,2 +1,4 @@
+Django
+Sphinx
 nose
 pep8
