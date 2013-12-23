@@ -36,6 +36,11 @@ TIME_WEEK   = 604800
 def _total_seconds(t):
     '''
     Takes a `datetime.timedelta` object and returns the delta in seconds.
+
+    >>> _total_seconds(datetime.timedelta(23, 42, 123456))
+    1987242
+    >>> _total_seconds(datetime.timedelta(23, 42, 654321))
+    1987243
     '''
     return sum([
         int(t.days * 86400 + t.seconds),
@@ -47,6 +52,17 @@ def _to_datetime(t):
     '''
     Internal function that tries whatever to convert ``t`` into a
     :class:`datetime.datetime` object.
+
+
+    >>> _to_datetime('2013-12-11')
+    datetime.datetime(2013, 12, 11, 0, 0)
+    >>> _to_datetime('Wed, 11 Dec 2013')
+    datetime.datetime(2013, 12, 11, 0, 0)
+    >>> _to_datetime('Wed, 11 Dec 13')
+    datetime.datetime(2013, 12, 11, 0, 0)
+    >>> _to_datetime('2012-06-13T15:24:17')
+    datetime.datetime(2012, 6, 13, 15, 24, 17)
+
     '''
 
     if isinstance(t, (float, int, long)):
@@ -77,6 +93,13 @@ def _to_date(t):
     '''
     Internal function that tries whatever to convert ``t`` into a
     :class:`datetime.date` object.
+
+    >>> _to_date('2013-12-11')
+    datetime.date(2013, 12, 11)
+    >>> _to_date('Wed, 11 Dec 2013')
+    datetime.date(2013, 12, 11)
+    >>> _to_date('Wed, 11 Dec 13')
+    datetime.date(2013, 12, 11)
     '''
 
     if isinstance(t, (float, int, long)):
@@ -115,6 +138,10 @@ def delta(t1, t2, words=True, justnow=datetime.timedelta(seconds=10)):
     :param justnow: default ``datetime.timedelta(seconds=10)``,
                :class:`datetime.timedelta` object representing tolerance for
                considering a delta as meaning 'just now'
+
+    >>> delta(_to_datetime('2012-06-13T15:24:17'), \
+              _to_datetime('2013-12-11T12:34:56'))
+    (u'77 weeks', -594639.0)
     '''
 
     t1 = _to_datetime(t1)
@@ -280,6 +307,15 @@ def duration(t, now=None, precision=1, pad=u', ', words=None,
                     :class:`datetime.timedelta` object passed to :func:`delta`
                     representing tolerance for considering argument ``t`` as
                     meaning 'just now'
+
+    >>> duration(123, 456)
+    u'5 minutes ago'
+
+    >>> import time
+    >>> duration(time.time(), time.time()+2)
+    u'just now'
+    >>> duration(time.time(), time.time()-60)
+    u'a minute from now'
     '''
 
     if words is None:
@@ -331,6 +367,14 @@ def compress(t, sign=False, pad=u''):
     :param t: seconds or :class:`datetime.timedelta` object
     :param sign: default ``False``
     :param pad: default ``u''``
+
+    >>> import time
+    >>> compress(time.time()-2)
+    u'2s'
+    >>> compress(time.time()-60)
+    u'1m'
+    >>> compress(time.time()-87123)
+    u'1d12m3s'
     '''
 
     if isinstance(t, datetime.timedelta):

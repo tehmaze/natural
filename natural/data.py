@@ -1,3 +1,5 @@
+# -*- coding: utf8 -*-
+
 import datetime
 import fcntl
 import os
@@ -37,12 +39,12 @@ def hexdump(stream):
 
     To dump a file::
 
-        >>> hexdump(file(filename))
+        >>> hexdump(file(filename))     # doctest: +SKIP
 
     Or to dump stdin::
 
         >>> import sys
-        >>> hexdump(sys.stdin)
+        >>> hexdump(sys.stdin)          # doctest: +SKIP
 
     :param stream: stream input
     '''
@@ -72,6 +74,9 @@ def printable(sequence):
     Return a printable string from the input ``sequence``
 
     :param sequence: byte or string sequence
+
+    >>> print printable('\x1b[1;34mtest\x1b[0m')
+    .[1;34mtest.[0m
     '''
     return ''.join(map(lambda c: c if c in PRINTABLE else '.', sequence))
 
@@ -81,6 +86,9 @@ def sparkline(data):
     Return a spark line for the given data set.
 
     :value data: sequence of numeric values
+
+    >>> print sparkline([1, 2, 3, 4, 5, 6, 5, 4, 3, 1, 5, 6])  # doctest: +SKIP
+    ▁▂▃▄▅▆▅▄▃▁▅▆
     '''
 
     min_value = float(min(data))
@@ -100,6 +108,9 @@ def throughput(sample, window=1, format='decimal'):
     :param window: default 1, sample window in seconds or
                    :class:`datetime.timedelta` object
     :param format: default 'decimal', see :func:`natural.size.filesize`
+
+    >>> print throughput(123456, 42)
+    2.87 kB/s
     '''
 
     if isinstance(window, datetime.timedelta):

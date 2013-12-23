@@ -87,6 +87,19 @@ def code(sentence, pad=u'  ', format='army'):
     :param sentence: input sentence
     :param pad: default ``None`` (reside to per-alphabet defaults)
     :param format: default ``army``
+
+    >>> print code('Python')
+    PAH pah  YANG kee  TANG go  HO tell  OSS car  NOH vem ber
+    >>> print code('Python', format='faa')
+    PAHPAH  YANGKEY  TANGGO  HOHTELL  OSSCAH  NOVEMBER
+    >>> print code('Python', format='icao')
+    PAH PAH  YANG KEY  TANG GO  HOH TELL  OSS CAH  NO VEM BER
+    >>> print code('Python', format='itu')
+    PAH PAH  YANG KEY  TANG GO  HOH TELL  OSS CAH  NO VEM BER
+    >>> print code('Python', format='morse')
+    .--.  -.--  -  ....  ---  -.
+    >>> print code('Python', format='word')
+    papa  yankee  tango  hotel  oscar  november
     '''
     try:
         return ALPHABET['code'][format](sentence, pad or CODE_PADDING[format])
@@ -97,6 +110,10 @@ def code(sentence, pad=u'  ', format='army'):
 def morse(sentence, pad=CODE_PADDING['morse']):
     '''
     Wrapper for :func:`code`.
+
+    >>> print morse('Python')
+    .--. -.-- - .... --- -.
+
     '''
     return code(sentence, pad, 'morse')
 
@@ -108,6 +125,11 @@ def nato(sentence, pad=u' ', format='telephony'):
     :param sentence: input sentence
     :param pad: default ``u' '``
     :param format: default ``telephony``, options ``telephony`` or ``phonetic``
+
+    >>> print nato('Python')
+    papa yankee tango hotel oscar november
+    >>> print nato('Python', format='phonetic')
+    pah-pah yang-key tang-go hoh-tel oss-cah no-vem-ber
     '''
     try:
         return ALPHABET['nato'][format](sentence, pad)
@@ -121,6 +143,9 @@ def spell(sentence, pad=u'  '):
 
     :param sentence: input sentence
     :param pad: default ``u'  '``
+
+    >>> print spell('Python')
+    Paris  Yokohama  Tripoli  Havanna  Oslo  New York
     '''
     return ALPHABET['spell'](sentence, pad)
 
@@ -133,5 +158,9 @@ def pronounce(sentence, pad=u' '):
 
     :param sentence: input sentence
     :param pad: default ``u'  '``
+
+    >>> print pronounce('abc')      # doctest: +SKIP
+    ælfɑ ˈbrɑːˈvo ˈtʃɑːli
+
     '''
     return ALPHABET['pronounce'](sentence, pad)

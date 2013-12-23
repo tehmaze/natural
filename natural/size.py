@@ -18,6 +18,13 @@ def filesize(value, format='decimal', digits=2):
     :param format: default ``decimal``, choices ``binary``, ``decimal`` or
                    ``gnu``
     :param digits: default ``2``
+
+    >>> print filesize(123)
+    123.00 B
+    >>> print filesize(123456)
+    120.56 kB
+    >>> print filesize(1234567890L)
+    1.15 GB
     '''
 
     if not format in FILESIZE_SUFFIX:
@@ -47,6 +54,13 @@ def filesize(value, format='decimal', digits=2):
 def decimalsize(value):
     '''
     Wrapper for :py:func:`filesize`.
+
+    >>> print decimalsize(123)
+    123.00 B
+    >>> print decimalsize(123456)
+    120.56 kB
+    >>> print decimalsize(1234567890L)
+    1.15 GB
     '''
     return filesize(value, format='decimal')
 
@@ -54,6 +68,13 @@ def decimalsize(value):
 def binarysize(value):
     '''
     Wrapper for :py:func:`filesize`.
+
+    >>> print binarysize(123)
+    123.00 iB
+    >>> print binarysize(123456)
+    123.46 KiB
+    >>> print binarysize(1234567890L)
+    1.23 GiB
     '''
     return filesize(value, format='binary')
 
@@ -61,5 +82,12 @@ def binarysize(value):
 def gnusize(value, digits=1):
     '''
     Wrapper for :py:func:`filesize`.
+
+    >>> print gnusize(123)
+    123.0B
+    >>> print gnusize(123456)
+    120.6K
+    >>> print gnusize(1234567890L)
+    1.1G
     '''
     return filesize(value, format='gnu', digits=digits)

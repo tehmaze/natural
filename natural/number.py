@@ -52,6 +52,11 @@ def ordinal(value):
     Converts a number to its ordinal representation.
 
     :param value: number
+
+    >>> print ordinal(1)
+    1st
+    >>> print ordinal(123)
+    123rd
     '''
 
     try:
@@ -71,6 +76,14 @@ def double(value, digits=2):
 
     :param value: number
     :param digits: default ``2``
+
+    >>> print double(42)
+    42.00
+    >>> print double(42, digits=1)
+    42.0
+    >>> print double(12.34)
+    12.34
+
     '''
 
     return unicode(_format(value, digits))
@@ -167,6 +180,11 @@ def percentage(value, digits=2):
 
     :param value: number
     :param digits: default ``2``
+
+    >>> print percentage(1)
+    100.00 %
+    >>> print percentage(0.23, digits=0)
+    23 %
     '''
 
     value = float(value) * 100.0
@@ -179,6 +197,12 @@ def word(value, digits=2):
     for that number.
 
     :param value: number
+
+    >>> print word(1)
+    1
+    >>> print word(123456789)
+    123.46 million
+
     '''
 
     convention = locale.localeconv()
