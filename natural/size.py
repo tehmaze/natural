@@ -27,7 +27,7 @@ def filesize(value, format='decimal', digits=2):
     1.15 GB
     '''
 
-    if not format in FILESIZE_SUFFIX:
+    if format not in FILESIZE_SUFFIX:
         raise TypeError
 
     base = FILESIZE_BASE[format]
