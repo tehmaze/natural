@@ -151,6 +151,7 @@ _to_datetime('2013-12-11T12:34:56'))
     t1 = _to_datetime(t1)
     t2 = _to_datetime(t2)
     diff = t1 - t2
+    date_diff = t1.date() - t2.date()
 
     # The datetime module includes milliseconds with float precision. Floats
     # will give unexpected results here, so we round the value here
@@ -213,11 +214,11 @@ _to_datetime('2013-12-11T12:34:56'))
                 seconds,
             )
 
-    elif total_abs < TIME_DAY * 2 and words:
-        if total > 0:
-            return (_(u'tomorrow'), 0)
-        else:
-            return (_(u'yesterday'), 0)
+    elif date_diff.days == 1 and words:
+        return (_(u'tomorrow'), 0)
+
+    elif date_diff.days == -1 and words:
+        return (_(u'yesterday'), 0)
 
     elif total_abs < TIME_WEEK:
         days, seconds = divmod(total_abs, TIME_DAY)
@@ -325,6 +326,7 @@ def duration(t, now=None, precision=1, pad=u', ', words=None,
                     meaning 'just now'
 
     >>> import time
+    >>> from datetime import datetime
     >>> duration(time.time() + 1)
     u'just now'
     >>> duration(time.time() + 11)
@@ -337,15 +339,20 @@ def duration(t, now=None, precision=1, pad=u', ', words=None,
     u'an hour ago'
     >>> duration(time.time() - 7201)
     u'2 hours ago'
-    >>> duration(time.time() - 123456)
-    u'yesterday'
     >>> duration(time.time() - 1234567)
     u'2 weeks ago'
     >>> duration(time.time() + 7200, precision=1)
     u'2 hours from now'
     >>> duration(time.time() - 1234567, precision=3)
     u'2 weeks, 6 hours, 56 minutes ago'
-
+    >>> duration(datetime(2014, 9, 8), now=datetime(2014, 9, 9))
+    u'yesterday'
+    >>> duration(datetime(2014, 9, 7, 23), now=datetime(2014, 9, 9))
+    u'1 day ago'
+    >>> duration(datetime(2014, 9, 10), now=datetime(2014, 9, 9))
+    u'tomorrow'
+    >>> duration(datetime(2014, 9, 11, 1), now=datetime(2014, 9, 9, 23))
+    u'1 day from now'
     '''
 
     if words is None:
