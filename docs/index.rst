@@ -55,8 +55,8 @@ Download
 
 Downloads:
 
- * `natural-0.1.4
-   <https://pypi.python.org/packages/source/n/natural/natural-0.1.4.tar.gz>`_
+ * `natural-0.1.5
+   <https://pypi.python.org/packages/source/n/natural/natural-0.1.5.tar.gz>`_
 
  * `development tarball <https://github.com/tehmaze/natural/tarball/master>`_
 
