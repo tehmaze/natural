@@ -1,4 +1,4 @@
-Django==1.6.8
+Django<1.7
 Sphinx
 nose
 pep8
