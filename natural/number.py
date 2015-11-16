@@ -67,9 +67,9 @@ def ordinal(value):
         raise ValueError
 
     if value % 100 in (11, 12, 13):
-        return six.u('%d%s' % (value, ORDINAL_SUFFIX[0]))
+        return u'%d%s' % (value, ORDINAL_SUFFIX[0])
     else:
-        return six.u('%d%s' % (value, ORDINAL_SUFFIX[value % 10]))
+        return u'%d%s' % (value, ORDINAL_SUFFIX[value % 10])
 
 
 def double(value, digits=2):
@@ -130,7 +130,7 @@ def percentage(value, digits=2):
     '''
 
     value = float(value) * 100.0
-    return six.u('%s %%' % (_format(value, digits),))
+    return u'%s %%' % (_format(value, digits),)
 
 
 def word(value, digits=2):
@@ -149,24 +149,24 @@ def word(value, digits=2):
 
     convention = locale.localeconv()
     decimal_point = convention['decimal_point']
-    prefix = value < 0 and six.u('-') or six.u('')
+    prefix = value < 0 and u'-' or u''
     value = abs(long(value))
     if value < 1000:
-        return six.u(''.join([
+        return u''.join([
             prefix,
             _format(value, digits).rstrip('%s0' % (decimal_point,)),
-        ]))
+        ])
 
     for base, suffix in enumerate(LARGE_NUMBER_SUFFIX):
         exp = (base + 2) * 3
         power = 10 ** exp
         if value < power:
             value = value / float(10 ** (exp - 3))
-            return six.u(''.join([
+            return u''.join([
                 prefix,
                 _format(value, digits).rstrip('%s0' % (decimal_point,)),
-                six.u(' '),
+                u' ',
                 suffix,
-            ]))
+            ])
 
     raise OverflowError

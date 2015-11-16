@@ -58,7 +58,7 @@ def e123(number, areasize=3, groupsize=4, national=False):
 
         for x in six.moves.xrange(0, len(remain) + 1, groupsize):
             groups.append(remain[x:x + groupsize])
-        return six.u('%s%s' % (prefix, six.u(' '.join(list(filter(None, groups))))))
+        return u'%s%s' % (prefix, u' '.join(list(filter(None, groups))))
 
 
 def e161(number, alphabet=PHONE_E161_ALPHABET):
@@ -91,7 +91,7 @@ def e161(number, alphabet=PHONE_E161_ALPHABET):
                 (char, ord(char))
             )
 
-    return six.u(''.join(digits))
+    return u''.join(digits)
 
 
 def e164(number):
@@ -114,7 +114,7 @@ def e164(number):
         if number.startswith('+'):
             number = number[1:]
 
-        return six.u('+%s' % number)
+        return u'+%s' % number
 
 
 def enum(number, zone='e164.arpa'):
@@ -132,11 +132,11 @@ def enum(number, zone='e164.arpa'):
 
     '''
     number = e164(number).lstrip('+')
-    return six.u('.'.join([
-        six.u('.'.join(number[::-1])),
-        zone.strip(six.u('.')),
+    return u'.'.join([
+        u'.'.join(number[::-1]),
+        zone.strip(u'.'),
         '',
-    ]))
+    ])
 
 
 def imei(number):
@@ -180,7 +180,7 @@ def imsi(number):
     '''
     number = to_decimal(number)
     groups = (number[:3], number[3:5], number[5:])
-    return six.u('-'.join(list(filter(None, groups))))
+    return u'-'.join(list(filter(None, groups)))
 
 
 def meid(number, separator=u' '):
