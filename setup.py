@@ -41,4 +41,5 @@ The project documentation can be found at http://natural.rtfd.org/
     url='https://github.com/tehmaze/natural',
     packages=['natural'],
     package_data={'natural': ['locale/*/LC_MESSAGES/*.mo']},
+    install_requires=['six'],
 )
