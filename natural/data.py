@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+from __future__ import print_function
+
 import datetime
 import fcntl
 import os
@@ -10,6 +12,7 @@ try:
     from io import BytesIO
 except ImportError:
     from cStringIO import StringIO as BytesIO
+import six
 from natural.constant import PRINTABLE, SPARKCHAR
 from natural.language import _
 from natural.file import filesize
@@ -50,7 +53,7 @@ def hexdump(stream):
     :param stream: stream input
     '''
 
-    if isinstance(stream, basestring):
+    if isinstance(stream, six.string_types):
         stream = BytesIO(stream)
 
     row = 0
@@ -62,12 +65,12 @@ def hexdump(stream):
         hextets = data.encode('hex').ljust(32)
         canonical = printable(data)
 
-        print '%08x %s  %s  |%s|' % (
+        print('%08x %s  %s  |%s|' % (
             row * 16,
             ' '.join(hextets[x:x + 2] for x in xrange(0x00, 0x10, 2)),
             ' '.join(hextets[x:x + 2] for x in xrange(0x10, 0x20, 2)),
             canonical,
-        )
+        ))
         row += 1
 
 
@@ -87,7 +90,7 @@ def printable(sequence):
     u'testing.'
 
     '''
-    return u''.join(map(lambda c: c if c in PRINTABLE else '.', sequence))
+    return six.u(''.join(list(map(lambda c: c if c in PRINTABLE else '.', sequence))))
 
 
 def sparkline(data):
@@ -104,10 +107,10 @@ def sparkline(data):
     min_value = float(min(data))
     max_value = float(max(data))
     steps = (max_value - min_value) / float(len(SPARKCHAR) - 1)
-    return u''.join([
+    return six.u(''.join([
         SPARKCHAR[int((float(value) - min_value) / steps)]
         for value in data
-    ])
+    ]))
 
 
 def throughput(sample, window=1, format='decimal'):
@@ -125,7 +128,7 @@ def throughput(sample, window=1, format='decimal'):
 
     if isinstance(window, datetime.timedelta):
         window = float(window.days * 86400 + window.seconds)
-    elif isinstance(window, basestring):
+    elif isinstance(window, six.string_types):
         window = float(window)
 
     per_second = sample / float(window)
