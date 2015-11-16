@@ -17,7 +17,7 @@ def _format(value, digits=None):
     if digits == 0:
         number = int(round(value, 0))
     else:
-        fraction = six.b(round((value - number) * 10 ** digits)).split('.')[0]
+        fraction = str(round((value - number) * 10 ** digits)).split('.')[0]
         fraction = fraction[:digits]
 
         if len(fraction) < digits:
