@@ -90,7 +90,9 @@ def printable(sequence):
     u'testing.'
 
     '''
-    return six.u(''.join(list(map(lambda c: c if c in PRINTABLE else '.', sequence))))
+    return six.u(''.join(list(
+        map(lambda c: c if c in PRINTABLE else '.', sequence)
+    )))
 
 
 def sparkline(data):
@@ -107,10 +109,10 @@ def sparkline(data):
     min_value = float(min(data))
     max_value = float(max(data))
     steps = (max_value - min_value) / float(len(SPARKCHAR) - 1)
-    return six.u(''.join([
+    return u''.join([
         SPARKCHAR[int((float(value) - min_value) / steps)]
         for value in data
-    ]))
+    ])
 
 
 def throughput(sample, window=1, format='decimal'):
