@@ -6,7 +6,7 @@ except:
     from distutils.core import setup
 
 setup(name='natural',
-    version='0.1.5',
+    version='0.1.6',
     description='Convert data to their natural (human-readable) format',
     long_description='''
 Example Usage
