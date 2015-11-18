@@ -1,9 +1,12 @@
 #!/usr/bin/env python
 
-from distutils.core import setup
+try:
+    from setuptools import setup
+except:
+    from distutils.core import setup
 
 setup(name='natural',
-    version='0.1.5',
+    version='0.1.6',
     description='Convert data to their natural (human-readable) format',
     long_description='''
 Example Usage
@@ -41,5 +44,5 @@ The project documentation can be found at http://natural.rtfd.org/
     url='https://github.com/tehmaze/natural',
     packages=['natural'],
     package_data={'natural': ['locale/*/LC_MESSAGES/*.mo']},
-    use_2to3=True,
+    install_requires=['six'],
 )

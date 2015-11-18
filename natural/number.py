@@ -1,12 +1,13 @@
 import locale
+import six
 from natural.constant import ORDINAL_SUFFIX, LARGE_NUMBER_SUFFIX
 
 
 def _format(value, digits=None):
-    if isinstance(value, basestring):
+    if isinstance(value, six.string_types):
         value = locale.atof(value)
 
-    number = long(value)
+    number = int(value)
     convention = locale.localeconv()
 
     if digits is None:
@@ -14,7 +15,7 @@ def _format(value, digits=None):
 
     partials = []
     if digits == 0:
-        number = long(round(value, 0))
+        number = int(round(value, 0))
     else:
         fraction = str(round((value - number) * 10 ** digits)).split('.')[0]
         fraction = fraction[:digits]
@@ -27,7 +28,7 @@ def _format(value, digits=None):
             partials.append(convention['decimal_point'])
 
     number = str(number)
-    for x in xrange(len(number) + 3, 0, -3):
+    for x in six.moves.xrange(len(number) + 3, 0, -3):
         partial = number[max(0, x - 3):x]
         if partial:
             partials.append(number[max(0, x - 3):x])
@@ -89,7 +90,7 @@ def double(value, digits=2):
 
     '''
 
-    return unicode(_format(value, digits))
+    return six.u(_format(value, digits))
 
 
 def number(value):
@@ -109,7 +110,7 @@ def number(value):
 
     '''
 
-    return unicode(_format(value, 0))
+    return six.u(_format(value, 0))
 
 
 def percentage(value, digits=2):
@@ -150,7 +151,7 @@ def word(value, digits=2):
     decimal_point = convention['decimal_point']
     prefix = value < 0 and u'-' or u''
     value = abs(long(value))
-    if value < 1000L:
+    if value < 1000:
         return u''.join([
             prefix,
             _format(value, digits).rstrip('%s0' % (decimal_point,)),

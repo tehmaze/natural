@@ -1,5 +1,6 @@
 import hashlib
 import re
+import six
 from natural.constant import PHONE_PREFIX, PHONE_E161_ALPHABET
 from natural.language import _
 from natural.util import luhn_append, luhn_calc, strip, to_decimal
@@ -25,10 +26,10 @@ def e123(number, areasize=3, groupsize=4, national=False):
     u'(020) 5423 1567'
     '''
 
-    if isinstance(number, (int, long)):
+    if isinstance(number, six.integer_types):
         return e123('+%s' % number, areasize, groupsize)
 
-    elif isinstance(number, basestring):
+    elif isinstance(number, six.string_types):
         number = strip(number, '-. ()')
         if number.startswith('+'):
             number = number[1:]
@@ -41,23 +42,23 @@ def e123(number, areasize=3, groupsize=4, national=False):
         remain = number
 
         if national:
-            for x in xrange(3, 0, -1):
+            for x in six.moves.xrange(3, 0, -1):
                 if number[:x] in PHONE_PREFIX:
                     groups.append('(0%s)' % number[x:x + areasize])
                     remain = number[x + areasize:]
 
         else:
             prefix = '+'
-            for x in xrange(3, 0, -1):
+            for x in six.moves.xrange(3, 0, -1):
                 if number[:x] in PHONE_PREFIX:
                     groups.append(number[:x])
                     groups.append(number[x:x + areasize])
                     remain = number[x + areasize:]
                     break
 
-        for x in xrange(0, len(remain) + 1, groupsize):
+        for x in six.moves.xrange(0, len(remain) + 1, groupsize):
             groups.append(remain[x:x + groupsize])
-        return u'%s%s' % (prefix, u' '.join(filter(None, groups)))
+        return u'%s%s' % (prefix, u' '.join(list(filter(None, groups))))
 
 
 def e161(number, alphabet=PHONE_E161_ALPHABET):
@@ -105,10 +106,10 @@ def e164(number):
     >>> e164('+31 20 5423 1567')
     u'+312054231567'
     '''
-    if isinstance(number, (int, long)):
+    if isinstance(number, six.integer_types):
         return e164('+%s' % number)
 
-    elif isinstance(number, basestring):
+    elif isinstance(number, six.string_types):
         number = strip(number, '-. ()')
         if number.startswith('+'):
             number = number[1:]
@@ -161,7 +162,7 @@ def imei(number):
         number = luhn_append(number)
 
     groups = (number[:2], number[2:8], number[8:14], number[14:])
-    return u'-'.join(filter(None, groups))
+    return u'-'.join(list(filter(None, groups)))
 
 
 def imsi(number):
@@ -179,7 +180,7 @@ def imsi(number):
     '''
     number = to_decimal(number)
     groups = (number[:3], number[3:5], number[5:])
-    return u'-'.join(filter(None, groups))
+    return u'-'.join(list(filter(None, groups)))
 
 
 def meid(number, separator=u' '):
@@ -192,22 +193,22 @@ def meid(number, separator=u' '):
     u'1B 69B4BA 630F34 6'
     '''
 
-    if isinstance(number, basestring):
+    if isinstance(number, six.string_types):
         number = re.sub(r'[\s-]', '', number)
 
         try:
-            number = '%014X' % long(number, 16)
+            number = '%014X' % int(number, 16)
         except ValueError:
             if len(number) < 18 and number.isdigit():
-                return meid('%014X' % long(number), separator)
+                return meid('%014X' % int(number), separator)
             else:
                 raise ValueError(_('Invalid MEID, size mismatch'))
         else:
             if len(number) not in (14, 15):
                 raise ValueError(_('Invalid MEID, size mismatch'))
 
-    elif isinstance(number, (int, long)):
-        if number > 0xfffffffffffffffL:
+    elif isinstance(number, six.integer_types):
+        if number > 0xfffffffffffffff:
                 raise ValueError(_('Invalid MEID, size mismatch'))
         return meid(('%014X' % number)[:14], separator)
 
@@ -224,7 +225,7 @@ def meid(number, separator=u' '):
         check_digit = luhn_calc(number, chars='0123456789ABCDEF')
 
     groups = (region, manufacturer, serial_number, check_digit)
-    return separator.join(filter(None, groups))
+    return separator.join(list(filter(None, groups)))
 
 
 def pesn(number, separator=u''):

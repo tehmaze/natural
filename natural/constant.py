@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import re
+import six
 from natural.language import _
 
 
@@ -264,7 +265,7 @@ FILESIZE_SUFFIX = dict(
 )
 
 # natural.data
-PRINTABLE = map(lambda c: chr(c), xrange(0x20, 0x7f))
+PRINTABLE = list(map(lambda c: chr(c), six.moves.xrange(0x20, 0x7f)))
 SPARKCHAR = u'\u2581\u2582\u2583\u2584\u2585\u2586\u2587\u2588'
 
 # natural.phone

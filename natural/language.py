@@ -2,6 +2,7 @@
 import gettext
 import locale
 import os
+import six
 
 
 '''
@@ -25,9 +26,15 @@ gettext.bindtextdomain('natural', LOCALE_PATH)
 gettext.textdomain('natural')
 try:
     TRANSLATION = gettext.translation('natural', LOCALE_PATH)
-    _ = TRANSLATION.ugettext
+    if six.PY2:
+        _ = TRANSLATION.ugettext
+    else:
+        _ = TRANSLATION.gettext
 except IOError:
-    _ = gettext.NullTranslations().ugettext
+    if six.PY2:
+        _ = gettext.NullTranslations().ugettext
+    else:
+        _ = gettext.NullTranslations().gettext
 
 # generic
 CONVENTION = locale.localeconv()
