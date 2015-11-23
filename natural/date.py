@@ -1,6 +1,7 @@
 from natural.language import _, _multi
 import datetime
 import math
+import six
 
 
 # Wed, 02 Oct 2002 08:00:00 EST
@@ -69,10 +70,10 @@ def _to_datetime(t):
 
     '''
 
-    if isinstance(t, (float, int, long)):
+    if isinstance(t, six.integer_types + (float, )):
         return datetime.datetime.fromtimestamp(t).replace(microsecond=0)
 
-    elif isinstance(t, basestring):
+    elif isinstance(t, six.string_types):
         for date_format in ALL_DATETIME_FORMATS:
             try:
                 d = datetime.datetime.strptime(t, date_format)
@@ -106,10 +107,10 @@ def _to_date(t):
     datetime.date(2013, 12, 11)
     '''
 
-    if isinstance(t, (float, int, long)):
+    if isinstance(t, six.integer_types + (float, )):
         return datetime.date.fromtimestamp(t)
 
-    elif isinstance(t, basestring):
+    elif isinstance(t, six.string_types):
         for date_format in ALL_DATE_FORMATS:
             try:
                 return datetime.datetime.strptime(t, date_format).date()
@@ -422,7 +423,7 @@ def compress(t, sign=False, pad=u''):
 
     if isinstance(t, datetime.timedelta):
         seconds = t.seconds + (t.days * 86400)
-    elif isinstance(t, (float, int, long)):
+    elif isinstance(t, six.integer_types + (float, )):
         return compress(datetime.timedelta(seconds=t), sign, pad)
     else:
         return compress(datetime.datetime.now() - _to_datetime(t), sign, pad)

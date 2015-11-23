@@ -143,7 +143,7 @@ def imei(number):
     '''
     Printable International Mobile Station Equipment Identity (IMEI) numbers.
 
-    :param number: string, int or long
+    :param number: string or int
 
     >>> print imei(12345678901234)
     12-345678-901234-7
@@ -171,7 +171,7 @@ def imsi(number):
     that there is no validation done on the actual correctness of the MCC/MNC.
     If you wish to validate IMSI numbers, take a look at `python-stdnum`_.
 
-    :param number: string, int or long
+    :param number: string or int
 
     >>> print imsi(2042312345)
     204-23-12345

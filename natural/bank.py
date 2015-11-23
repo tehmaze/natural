@@ -48,7 +48,7 @@ def bban(value, country=None, validate=False):
     Printable Basic Bank Account Number (BBAN) for the given country code. The
     ``country`` must be a valid ISO 3166-2 country code.
 
-    :param value: string, int or long
+    :param value: string or int
     :param country: string
 
     >>> bban('068-9999995-01', 'BE')
@@ -112,7 +112,7 @@ def iban(number, validate=False):
 
         # Do the 10-mod-97 check
         digits = bban_base10(number)
-        if long(digits) % 97 != 1:
+        if int(digits) % 97 != 1:
             raise ValueError(_('Invalid IBAN, digits check failed'))
 
         # Check BBAN for country

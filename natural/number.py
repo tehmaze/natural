@@ -62,7 +62,7 @@ def ordinal(value):
     '''
 
     try:
-        value = long(value)
+        value = int(value)
     except (TypeError, ValueError):
         raise ValueError
 
@@ -150,7 +150,7 @@ def word(value, digits=2):
     convention = locale.localeconv()
     decimal_point = convention['decimal_point']
     prefix = value < 0 and u'-' or u''
-    value = abs(long(value))
+    value = abs(int(value))
     if value < 1000:
         return u''.join([
             prefix,

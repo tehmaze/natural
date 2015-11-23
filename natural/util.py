@@ -1,4 +1,5 @@
 import re
+import six
 
 
 # Default Luhn check digits (base-10)
@@ -9,7 +10,7 @@ def luhn_checksum(number, chars=DIGITS):
     '''
     Calculates the Luhn checksum for `number`
 
-    :param number: string, int or long
+    :param number: string or int
     :param chars: string
 
     >>> luhn_checksum(1234)
@@ -80,7 +81,7 @@ def to_decimal(number, strip='- '):
     >>> to_decimal('0x2a')
     '42'
     '''
-    if isinstance(number, (int, long)):
+    if isinstance(number, six.integer_types):
         return str(number)
 
     number = str(number)
@@ -88,15 +89,15 @@ def to_decimal(number, strip='- '):
 
     # hexadecimal
     if number.startswith('0x'):
-        return to_decimal(long(number[2:], 16))
+        return to_decimal(int(number[2:], 16))
 
     # octal
     elif number.startswith('o'):
-        return to_decimal(long(number[1:], 8))
+        return to_decimal(int(number[1:], 8))
 
     # binary
     elif number.startswith('b'):
-        return to_decimal(long(number[1:], 2))
+        return to_decimal(int(number[1:], 2))
 
     else:
-        return str(long(number))
+        return str(int(number))
