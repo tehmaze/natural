@@ -1,4 +1,5 @@
 import locale
+import re
 import six
 from natural.constant import ORDINAL_SUFFIX, LARGE_NUMBER_SUFFIX
 
@@ -149,12 +150,13 @@ def word(value, digits=2):
 
     convention = locale.localeconv()
     decimal_point = convention['decimal_point']
+    decimal_zero = re.compile(r'%s0+' % re.escape(decimal_point))
     prefix = value < 0 and u'-' or u''
     value = abs(long(value))
     if value < 1000:
         return u''.join([
             prefix,
-            _format(value, digits).rstrip('%s0' % (decimal_point,)),
+            decimal_zero.sub(u'', _format(value, digits)),
         ])
 
     for base, suffix in enumerate(LARGE_NUMBER_SUFFIX):
@@ -164,7 +166,7 @@ def word(value, digits=2):
             value = value / float(10 ** (exp - 3))
             return u''.join([
                 prefix,
-                _format(value, digits).rstrip('%s0' % (decimal_point,)),
+                decimal_zero.sub(u'', _format(value, digits)),
                 u' ',
                 suffix,
             ])
