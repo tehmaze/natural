@@ -11,11 +11,11 @@ def bban_compact(number):
     :param number: string
 
     >>> bban_compact('1234.56.78.90')
-    u'1234567890'
+    '1234567890'
     >>> bban_compact('068-9999995-01')
-    u'068999999501'
+    '068999999501'
     '''
-    return unicode(re.sub(r'[-. ]', '', str(number)))
+    return re.sub(r'[-. ]', '', str(number))
 
 
 def bban_base10(number):
@@ -25,13 +25,13 @@ def bban_base10(number):
     :param number: string
 
     >>> bban_base10('01234567')
-    u'45670123'
+    '45670123'
     >>> bban_base10('ABCD')
-    u'10111213'
+    '10111213'
     '''
     number = bban_compact(number)
     number = number[4:] + number[:4]
-    return u''.join([str(IBAN_ALPHABET.index(char)) for char in number])
+    return ''.join([str(IBAN_ALPHABET.index(char)) for char in number])
 
 
 def _bban_regex(structure):
@@ -52,9 +52,9 @@ def bban(value, country=None, validate=False):
     :param country: string
 
     >>> bban('068-9999995-01', 'BE')
-    u'068999999501'
+    '068999999501'
     >>> bban('555', 'NL')
-    u'555'
+    '555'
     >>> bban('555', 'NL', validate=True)
     Traceback (most recent call last):
         ...
@@ -92,7 +92,7 @@ def iban(number, validate=False):
     :param number: string
 
     >>> iban('BE43068999999501')
-    u'BE43 0689 9999 9501'
+    'BE43 0689 9999 9501'
     >>> iban('XY32012341234123', validate=True)
     Traceback (most recent call last):
         ...
@@ -118,5 +118,5 @@ def iban(number, validate=False):
         # Check BBAN for country
         bban(number[4:], country, validate=True)
 
-    groups = [number[x:x + 4] for x in xrange(0, len(number), 4)]
-    return u' '.join(groups)
+    groups = [number[x:x + 4] for x in range(0, len(number), 4)]
+    return ' '.join(groups)

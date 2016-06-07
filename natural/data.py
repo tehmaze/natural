@@ -81,13 +81,13 @@ def printable(sequence):
     :param sequence: byte or string sequence
 
     >>> printable('\\x1b[1;34mtest\\x1b[0m')
-    u'.[1;34mtest.[0m'
+    '.[1;34mtest.[0m'
     >>> printable('\\x00\\x01\\x02\\x03\\x04\\x05\\x06\\x06')
-    u'........'
+    '........'
     >>> printable('12345678')
-    u'12345678'
+    '12345678'
     >>> printable('testing\\n')
-    u'testing.'
+    'testing.'
 
     '''
     return six.u(''.join(list(
@@ -109,7 +109,7 @@ def sparkline(data):
     min_value = float(min(data))
     max_value = float(max(data))
     steps = (max_value - min_value) / float(len(SPARKCHAR) - 1)
-    return u''.join([
+    return ''.join([
         SPARKCHAR[int((float(value) - min_value) / steps)]
         for value in data
     ])
@@ -125,7 +125,7 @@ def throughput(sample, window=1, format='decimal'):
     :param format: default 'decimal', see :func:`natural.size.filesize`
 
     >>> throughput(123456, 42)
-    u'2.87 kB/s'
+    '2.87 kB/s'
     '''
 
     if isinstance(window, datetime.timedelta):

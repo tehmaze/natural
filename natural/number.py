@@ -49,17 +49,17 @@ def ordinal(value):
     :param value: number
 
     >>> ordinal(1)
-    u'1st'
+    '1st'
     >>> ordinal(11)
-    u'11th'
+    '11th'
     >>> ordinal(101)
-    u'101st'
+    '101st'
     >>> ordinal(104)
-    u'104th'
+    '104th'
     >>> ordinal(113)
-    u'113th'
+    '113th'
     >>> ordinal(123)
-    u'123rd'
+    '123rd'
     '''
 
     try:
@@ -68,9 +68,9 @@ def ordinal(value):
         raise ValueError
 
     if value % 100 in (11, 12, 13):
-        return u'%d%s' % (value, ORDINAL_SUFFIX[0])
+        return '%d%s' % (value, ORDINAL_SUFFIX[0])
     else:
-        return u'%d%s' % (value, ORDINAL_SUFFIX[value % 10])
+        return '%d%s' % (value, ORDINAL_SUFFIX[value % 10])
 
 
 def double(value, digits=2):
@@ -81,13 +81,13 @@ def double(value, digits=2):
     :param digits: default ``2``
 
     >>> double(42)
-    u'42.00'
+    '42.00'
     >>> double(42, digits=1)
-    u'42.0'
+    '42.0'
     >>> double(12.34)
-    u'12.34'
+    '12.34'
     >>> double(1234.56)
-    u'1,234.56'
+    '1,234.56'
 
     '''
 
@@ -101,13 +101,13 @@ def number(value):
     :param value: number
 
     >>> number(42)
-    u'42'
+    '42'
     >>> number(12.34)
-    u'12'
+    '12'
     >>> number(1234)
-    u'1,234'
+    '1,234'
     >>> number(1234567)
-    u'1,234,567'
+    '1,234,567'
 
     '''
 
@@ -122,16 +122,16 @@ def percentage(value, digits=2):
     :param digits: default ``2``
 
     >>> percentage(1)
-    u'100.00 %'
+    '100.00 %'
     >>> percentage(0.23, digits=0)
-    u'23 %'
+    '23 %'
     >>> percentage(23.421)
-    u'2,342.10 %'
+    '2,342.10 %'
 
     '''
 
     value = float(value) * 100.0
-    return u'%s %%' % (_format(value, digits),)
+    return '%s %%' % (_format(value, digits),)
 
 
 def word(value, digits=2):
@@ -141,22 +141,22 @@ def word(value, digits=2):
 
     :param value: number
 
-    >>> print word(1)
-    1
-    >>> print word(123456789)
-    123.46 million
+    >>> word(1)
+    '1'
+    >>> word(123456789)
+    '123.46 million'
 
     '''
 
     convention = locale.localeconv()
     decimal_point = convention['decimal_point']
     decimal_zero = re.compile(r'%s0+' % re.escape(decimal_point))
-    prefix = value < 0 and u'-' or u''
+    prefix = value < 0 and '-' or ''
     value = abs(int(value))
     if value < 1000:
-        return u''.join([
+        return ''.join([
             prefix,
-            decimal_zero.sub(u'', _format(value, digits)),
+            decimal_zero.sub('', _format(value, digits)),
         ])
 
     for base, suffix in enumerate(LARGE_NUMBER_SUFFIX):
@@ -164,10 +164,10 @@ def word(value, digits=2):
         power = 10 ** exp
         if value < power:
             value = value / float(10 ** (exp - 3))
-            return u''.join([
+            return ''.join([
                 prefix,
-                decimal_zero.sub(u'', _format(value, digits)),
-                u' ',
+                decimal_zero.sub('', _format(value, digits)),
+                ' ',
                 suffix,
             ])
 

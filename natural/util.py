@@ -63,7 +63,7 @@ def strip(value, chars):
     :param chars: iterable
 
     >>> strip('hello.world', '.')
-    u'helloworld'
+    'helloworld'
     '''
     return u''.join([x for x in value if x not in chars])
 

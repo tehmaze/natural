@@ -146,7 +146,7 @@ def delta(t1, t2, words=True, justnow=datetime.timedelta(seconds=10)):
 
     >>> delta(_to_datetime('2012-06-13T15:24:17'), \
 _to_datetime('2013-12-11T12:34:56'))
-    (u'77 weeks', -594639.0)
+    ('77 weeks', -594639)
     '''
 
     t1 = _to_datetime(t1)
@@ -162,7 +162,7 @@ _to_datetime('2013-12-11T12:34:56'))
     if total_abs < TIME_DAY:
         if abs(diff) < justnow and words:
             return (
-                _(u'just now'),
+                _('just now'),
                 0,
             )
 
@@ -170,15 +170,15 @@ _to_datetime('2013-12-11T12:34:56'))
             seconds = total_abs
             return (
                 _multi(
-                    _(u'%d second'),
-                    _(u'%d seconds'),
+                    _('%d second'),
+                    _('%d seconds'),
                     seconds
                 ) % (seconds,),
                 0,
             )
         elif total_abs < TIME_MINUTE * 2 and words:
             return (
-                _(u'a minute'),
+                _('a minute'),
                 0,
             )
 
@@ -188,8 +188,8 @@ _to_datetime('2013-12-11T12:34:56'))
                 seconds *= -1
             return (
                 _multi(
-                    _(u'%d minute'),
-                    _(u'%d minutes'),
+                    _('%d minute'),
+                    _('%d minutes'),
                     minutes
                 ) % (minutes,),
                 seconds,
@@ -197,7 +197,7 @@ _to_datetime('2013-12-11T12:34:56'))
 
         elif total_abs < TIME_HOUR * 2 and words:
             return (
-                _(u'an hour'),
+                _('an hour'),
                 0,
             )
 
@@ -208,18 +208,18 @@ _to_datetime('2013-12-11T12:34:56'))
 
             return (
                 _multi(
-                    _(u'%d hour'),
-                    _(u'%d hours'),
+                    _('%d hour'),
+                    _('%d hours'),
                     hours
                 ) % (hours,),
                 seconds,
             )
 
     elif date_diff.days == 1 and words:
-        return (_(u'tomorrow'), 0)
+        return (_('tomorrow'), 0)
 
     elif date_diff.days == -1 and words:
-        return (_(u'yesterday'), 0)
+        return (_('yesterday'), 0)
 
     elif total_abs < TIME_WEEK:
         days, seconds = divmod(total_abs, TIME_DAY)
@@ -227,8 +227,8 @@ _to_datetime('2013-12-11T12:34:56'))
             seconds *= -1
         return (
             _multi(
-                _(u'%d day'),
-                _(u'%d days'),
+                _('%d day'),
+                _('%d days'),
                 days
             ) % (days,),
             seconds,
@@ -236,9 +236,9 @@ _to_datetime('2013-12-11T12:34:56'))
 
     elif abs(diff.days) == TIME_WEEK and words:
         if total > 0:
-            return (_(u'next week'), diff.seconds)
+            return (_('next week'), diff.seconds)
         else:
-            return (_(u'last week'), diff.seconds)
+            return (_('last week'), diff.seconds)
 
 # FIXME
 #
@@ -252,8 +252,8 @@ _to_datetime('2013-12-11T12:34:56'))
             seconds *= -1
         return (
             _multi(
-                _(u'%d week'),
-                _(u'%d weeks'),
+                _('%d week'),
+                _('%d weeks'),
                 weeks
             ) % (weeks,),
             seconds,
@@ -275,15 +275,15 @@ def day(t, now=None, format='%B %d'):
 
     >>> import time
     >>> day(time.time())
-    u'today'
+    'today'
     >>> day(time.time() - 86400)
-    u'yesterday'
+    'yesterday'
     >>> day(time.time() - 604800)
-    u'last week'
+    'last week'
     >>> day(time.time() + 86400)
-    u'tomorrow'
+    'tomorrow'
     >>> day(time.time() + 604800)
-    u'next week'
+    'next week'
     '''
     t1 = _to_date(t)
     t2 = _to_date(now or datetime.datetime.now())
@@ -292,22 +292,22 @@ def day(t, now=None, format='%B %d'):
     days = abs(diff.days)
 
     if days == 0:
-        return _(u'today')
+        return _('today')
     elif days == 1:
         if secs < 0:
-            return _(u'yesterday')
+            return _('yesterday')
         else:
-            return _(u'tomorrow')
+            return _('tomorrow')
     elif days == 7:
         if secs < 0:
-            return _(u'last week')
+            return _('last week')
         else:
-            return _(u'next week')
+            return _('next week')
     else:
         return t1.strftime(format)
 
 
-def duration(t, now=None, precision=1, pad=u', ', words=None,
+def duration(t, now=None, precision=1, pad=', ', words=None,
              justnow=datetime.timedelta(seconds=10)):
     '''
     Time delta compared to ``t``. You can override ``now`` to specify what time
@@ -329,31 +329,31 @@ def duration(t, now=None, precision=1, pad=u', ', words=None,
     >>> import time
     >>> from datetime import datetime
     >>> duration(time.time() + 1)
-    u'just now'
+    'just now'
     >>> duration(time.time() + 11)
-    u'11 seconds from now'
+    '11 seconds from now'
     >>> duration(time.time() - 1)
-    u'just now'
+    'just now'
     >>> duration(time.time() - 11)
-    u'11 seconds ago'
+    '11 seconds ago'
     >>> duration(time.time() - 3601)
-    u'an hour ago'
+    'an hour ago'
     >>> duration(time.time() - 7201)
-    u'2 hours ago'
+    '2 hours ago'
     >>> duration(time.time() - 1234567)
-    u'2 weeks ago'
+    '2 weeks ago'
     >>> duration(time.time() + 7200, precision=1)
-    u'2 hours from now'
+    '2 hours from now'
     >>> duration(time.time() - 1234567, precision=3)
-    u'2 weeks, 6 hours, 56 minutes ago'
+    '2 weeks, 6 hours, 56 minutes ago'
     >>> duration(datetime(2014, 9, 8), now=datetime(2014, 9, 9))
-    u'yesterday'
+    'yesterday'
     >>> duration(datetime(2014, 9, 7, 23), now=datetime(2014, 9, 9))
-    u'1 day ago'
+    '1 day ago'
     >>> duration(datetime(2014, 9, 10), now=datetime(2014, 9, 9))
-    u'tomorrow'
+    'tomorrow'
     >>> duration(datetime(2014, 9, 11, 1), now=datetime(2014, 9, 9, 23))
-    u'1 day from now'
+    '1 day from now'
     '''
 
     if words is None:
@@ -363,17 +363,17 @@ def duration(t, now=None, precision=1, pad=u', ', words=None,
     t2 = _to_datetime(now or datetime.datetime.now())
 
     if t1 < t2:
-        format = _(u'%s ago')
+        format = _('%s ago')
     else:
-        format = _(u'%s from now')
+        format = _('%s from now')
 
     result, remains = delta(t1, t2, words=words, justnow=justnow)
     if result in (
-            _(u'just now'),
-            _(u'yesterday'),
-            _(u'tomorrow'),
-            _(u'last week'),
-            _(u'next week'),
+            _('just now'),
+            _('yesterday'),
+            _('tomorrow'),
+            _('last week'),
+            _('next week'),
     ):
         return result
 
@@ -388,7 +388,7 @@ def duration(t, now=None, precision=1, pad=u', ', words=None,
         return format % (result,)
 
 
-def compress(t, sign=False, pad=u''):
+def compress(t, sign=False, pad=''):
     '''
     Convert the input to compressed format, works with a
     :class:`datetime.timedelta` object or a number that represents the number
@@ -404,20 +404,20 @@ def compress(t, sign=False, pad=u''):
 
     :param t: seconds or :class:`datetime.timedelta` object
     :param sign: default ``False``
-    :param pad: default ``u''``
+    :param pad: default ``''``
 
     >>> compress(1)
-    u'1s'
+    '1s'
     >>> compress(12)
-    u'12s'
+    '12s'
     >>> compress(123)
-    u'2m3s'
+    '2m3s'
     >>> compress(1234)
-    u'20m34s'
+    '20m34s'
     >>> compress(12345)
-    u'3h25m45s'
+    '3h25m45s'
     >>> compress(123456)
-    u'1d10h17m36s'
+    '1d10h17m36s'
 
     '''
 
@@ -430,7 +430,7 @@ def compress(t, sign=False, pad=u''):
 
     parts = []
     if sign:
-        parts.append(u'-' if t.days < 0 else u'+')
+        parts.append('-' if t.days < 0 else '+')
 
     weeks, seconds = divmod(seconds, TIME_WEEK)
     days, seconds = divmod(seconds, TIME_DAY)
@@ -438,14 +438,14 @@ def compress(t, sign=False, pad=u''):
     minutes, seconds = divmod(seconds, TIME_MINUTE)
 
     if weeks:
-        parts.append(_(u'%dw') % (weeks,))
+        parts.append(_('%dw') % (weeks,))
     if days:
-        parts.append(_(u'%dd') % (days,))
+        parts.append(_('%dd') % (days,))
     if hours:
-        parts.append(_(u'%dh') % (hours,))
+        parts.append(_('%dh') % (hours,))
     if minutes:
-        parts.append(_(u'%dm') % (minutes,))
+        parts.append(_('%dm') % (minutes,))
     if seconds:
-        parts.append(_(u'%ds') % (seconds,))
+        parts.append(_('%ds') % (seconds,))
 
     return pad.join(parts)
