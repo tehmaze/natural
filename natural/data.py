@@ -67,8 +67,8 @@ def hexdump(stream):
 
         print('%08x %s  %s  |%s|' % (
             row * 16,
-            ' '.join(hextets[x:x + 2] for x in xrange(0x00, 0x10, 2)),
-            ' '.join(hextets[x:x + 2] for x in xrange(0x10, 0x20, 2)),
+            ' '.join(hextets[x:x + 2] for x in range(0x00, 0x10, 2)),
+            ' '.join(hextets[x:x + 2] for x in range(0x10, 0x20, 2)),
             canonical,
         ))
         row += 1

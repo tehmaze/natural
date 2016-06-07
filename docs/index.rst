@@ -32,11 +32,11 @@ Demo:
     >>> from natural import date, number, size
     >>> import datetime
     >>> date.compress(datetime.datetime(2012, 01, 01, 23, 42))
-    u'23w2d17h52m59s'
+    '23w2d17h52m59s'
     >>> number.word(2300000)
-    u'2.3 million'
+    '2.3 million'
     >>> size.filesize(102410241024)
-    u'95.377 GB'
+    '95.377 GB'
 
 
 We speak :doc:`your language <locales>` too!
@@ -47,7 +47,7 @@ We speak :doc:`your language <locales>` too!
     >>> locale.setlocale(locale.LC_ALL, 'de_DE')
     >>> from natural import date
     >>> date.duration(1337000000)   # doctest: +SKIP
-    u'vor 4 Wochen'
+    'vor 4 Wochen'
 
 
 Download
@@ -55,8 +55,8 @@ Download
 
 Downloads:
 
- * `natural-0.1.5
-   <https://pypi.python.org/packages/source/n/natural/natural-0.1.5.tar.gz>`_
+ * `natural-0.2.0
+   <https://pypi.python.org/packages/source/n/natural/natural-0.2.0.tar.gz>`_
 
  * `development tarball <https://github.com/tehmaze/natural/tarball/master>`_
 
