@@ -31,7 +31,7 @@ def filesize(value, format='decimal', digits=2):
         raise TypeError
 
     base = FILESIZE_BASE[format]
-    size = long(value)
+    size = int(value)
     sign = size < 0 and u'-' or ''
     size = abs(size)
 
