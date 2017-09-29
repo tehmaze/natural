@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+
 from natural.constant import NATO_ALPHABET, NATO_ALPHABET_PHONETIC
 from natural.constant import SPELL_ALPHABET, CODE_PRONOUNCIATION
 from natural.constant import CODE_ALPHABET_ARMY, CODE_ALPHABET_FAA
@@ -96,17 +97,22 @@ def code(sentence, pad=u'  ', format='army'):
     :param format: default ``army``
 
     >>> code('Python')
-    'PAH pah  YANG kee  TANG go  HO tell  OSS car  NOH vem ber'
+    u'PAH pah  YANG kee  TANG go  HO tell  OSS car  NOH vem ber'
     >>> code('Python', format='faa')
-    'PAHPAH  YANGKEY  TANGGO  HOHTELL  OSSCAH  NOVEMBER'
+    u'PAHPAH  YANGKEY  TANGGO  HOHTELL  OSSCAH  NOVEMBER'
+
     >>> code('Python', format='icao')
-    'PAH PAH  YANG KEY  TANG GO  HOH TELL  OSS CAH  NO VEM BER'
+    u'PAH PAH  YANG KEY  TANG GO  HOH TELL  OSS CAH  NO VEM BER'
+
     >>> code('Python', format='itu')
-    'PAH PAH  YANG KEY  TANG GO  HOH TELL  OSS CAH  NO VEM BER'
+    u'PAH PAH  YANG KEY  TANG GO  HOH TELL  OSS CAH  NO VEM BER'
+
     >>> code('Python', format='morse')
-    '.--.  -.--  -  ....  ---  -.'
+    u'.--.  -.--  -  ....  ---  -.'
+
     >>> code('Python', format='word')
-    'papa  yankee  tango  hotel  oscar  november'
+    u'papa  yankee  tango  hotel  oscar  november'
+
     '''
     try:
         return ALPHABET['code'][format](sentence, pad or CODE_PADDING[format])
@@ -119,7 +125,8 @@ def morse(sentence, pad=CODE_PADDING['morse']):
     Wrapper for :func:`code`.
 
     >>> morse('Python')
-    '.--. -.-- - .... --- -.'
+    u'.--. -.-- - .... --- -.'
+
     '''
     return code(sentence, pad, 'morse')
 
@@ -133,12 +140,14 @@ def nato(sentence, pad=' ', format='telephony'):
     :param format: default ``telephony``, options ``telephony`` or ``phonetic``
 
     >>> nato('Python')
-    'papa yankee tango hotel oscar november'
+    u'papa yankee tango hotel oscar november'
+
     >>> nato('Python', format='phonetic')
-    'pah-pah yang-key tang-go hoh-tel oss-cah no-vem-ber'
+    u'pah-pah yang-key tang-go hoh-tel oss-cah no-vem-ber'
+
     '''
     try:
-        return ALPHABET['nato'][format](sentence, pad)
+        return u'' + ALPHABET['nato'][format](sentence, pad)
     except KeyError:
         raise TypeError('Unsupported NATO alphabet "%s"' % (format,))
 
@@ -151,13 +160,13 @@ def spell(sentence, pad='  '):
     :param pad: default ``u'  '``
 
     >>> spell('Python')
-    'Paris  Yokohama  Tripoli  Havanna  Oslo  New York'
+    u'Paris  Yokohama  Tripoli  Havanna  Oslo  New York'
+
     '''
     return ALPHABET['spell'](sentence, pad)
 
-
 def pronounce(sentence, pad=u' '):
-    '''
+    u'''
     Transform a sentence using the pronounciations of the international code
     spelling alphabet. This function is subject to change its behaviour to
     support internationalised pronounciations of letters.
@@ -165,8 +174,9 @@ def pronounce(sentence, pad=u' '):
     :param sentence: input sentence
     :param pad: default ``u'  '``
 
-    >>> pronounce('abc')
-    'ælfɑ ˈbrɑːˈvo ˈtʃɑːli'
+
+    >>> print(pronounce('abc'))
+    ælfɑ ˈbrɑːˈvo ˈtʃɑːli
 
     '''
     return ALPHABET['pronounce'](sentence, pad)

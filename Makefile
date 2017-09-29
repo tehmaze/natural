@@ -7,9 +7,7 @@ ALL_MO := $(shell ls -1 locale/*.po | while read po; do basename "$$po" | sed -e
 test: test-nosetests test-pep8
 
 test-nosetests:
-	PYTHONPATH=$(shell pwd) \
-	NOSE_WITH_DOCTEST=1 \
-	nosetests -w natural/ -v
+	@nosetests -w natural/ -v --with-doctest
 
 test-pep8:
 	@pep8 --ignore=E128,E221,E241 natural/

@@ -65,7 +65,7 @@ def strip(value, chars):
     >>> strip('hello.world', '.')
     'helloworld'
     '''
-    return u''.join([x for x in value if x not in chars])
+    return ''.join([x for x in value if x not in chars])
 
 
 def to_decimal(number, strip='- '):
