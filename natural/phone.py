@@ -17,14 +17,14 @@ def e123(number, areasize=3, groupsize=4, national=False):
     :param groupsize: int
     :param national: bool
 
-    >>> e123(155542315678)
-    '+1 555 4231 5678'
-    >>> e123('+31654231567', areasize=1)
-    '+31 6 5423 1567'
-    >>> e123('+3114020', areasize=2)
-    '+31 14 020'
-    >>> e123('+312054231567', areasize=2, national=True)
-    '(020) 5423 1567'
+    >>> print(e123(155542315678))
+    +1 555 4231 5678
+    >>> print(e123('+31654231567', areasize=1))
+    +31 6 5423 1567
+    >>> print(e123('+3114020', areasize=2))
+    +31 14 020
+    >>> print(e123('+312054231567', areasize=2, national=True))
+    (020) 5423 1567
     '''
 
     if isinstance(number, six.integer_types):
@@ -72,8 +72,8 @@ def e161(number, alphabet=PHONE_E161_ALPHABET):
     :param number: string
     :param alphabet: dict
 
-    >>> e161('0800-PIZZA123')
-    u'080074992123'
+    >>> print(e161('0800-PIZZA123'))
+    080074992123
     >>> e161('0800^PIZZA123')
     Traceback (most recent call last):
         ...
@@ -104,10 +104,10 @@ def e164(number):
 
     :param number: string
 
-    >>> e164(155542315678)
-    u'+155542315678'
-    >>> e164('+31 20 5423 1567')
-    u'+312054231567'
+    >>> print(e164(155542315678))
+    +155542315678
+    >>> print(e164('+31 20 5423 1567'))
+    +312054231567
     '''
     if isinstance(number, six.integer_types):
         return e164('+%s' % number)
@@ -128,10 +128,10 @@ def enum(number, zone='e164.arpa'):
     :param zone: string
 
 
-    >>> enum('+31 20 5423 1567')
-    u'7.6.5.1.3.2.4.5.0.2.1.3.e164.arpa.'
-    >>> enum('+31 97 99 6642', zone='e164.spacephone.org')
-    u'2.4.6.6.9.9.7.9.1.3.e164.spacephone.org.'
+    >>> print(enum('+31 20 5423 1567'))
+    7.6.5.1.3.2.4.5.0.2.1.3.e164.arpa.
+    >>> print(enum('+31 97 99 6642', zone='e164.spacephone.org'))
+    2.4.6.6.9.9.7.9.1.3.e164.spacephone.org.
 
     '''
     number = e164(number).lstrip('+')
@@ -148,10 +148,10 @@ def imei(number):
 
     :param number: string or int
 
-    >>> imei(12345678901234)
-    u'12-345678-901234-7'
-    >>> imei(1234567890123456)
-    u'12-345678-901234-56'
+    >>> print(imei(12345678901234))
+    12-345678-901234-7
+    >>> print(imei(1234567890123456))
+    12-345678-901234-56
     '''
     number = to_decimal(number)
     length = len(number)
@@ -176,8 +176,8 @@ def imsi(number):
 
     :param number: string or int
 
-    >>> imsi(2042312345)
-    u'204-23-12345'
+    >>> print(imsi(2042312345))
+    204-23-12345
 
     .. _python-stdnum: https://pypi.python.org/pypi/python-stdnum/
     '''
@@ -190,10 +190,10 @@ def meid(number, separator=u' '):
     '''
     Printable Mobile Equipment Identifier (MEID) number.
 
-    >>> meid(123456789012345678)
-    u'1B 69B4BA 630F34 6'
-    >>> meid('1B69B4BA630F34')
-    u'1B 69B4BA 630F34 6'
+    >>> print(meid(123456789012345678))
+    1B 69B4BA 630F34 6
+    >>> print(meid('1B69B4BA630F34'))
+    1B 69B4BA 630F34 6
     '''
 
     if isinstance(number, six.string_types):
@@ -237,8 +237,8 @@ def pesn(number, separator=u''):
 
     :param number: hexadecimal string
 
-    >>> pesn('1B69B4BA630F34E')
-    u'805F9EF7'
+    >>> print(pesn('1B69B4BA630F34E'))
+    805F9EF7
     '''
 
     number = re.sub(r'[\s-]', '', meid(number))

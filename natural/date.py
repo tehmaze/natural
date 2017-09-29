@@ -144,9 +144,12 @@ def delta(t1, t2, words=True, justnow=datetime.timedelta(seconds=10)):
                :class:`datetime.timedelta` object representing tolerance for
                considering a delta as meaning 'just now'
 
-    >>> delta(_to_datetime('2012-06-13T15:24:17'), \
-_to_datetime('2013-12-11T12:34:56'))
-    (u'77 weeks', -594639.0)
+    >>> (x,y) = delta(_to_datetime('2012-06-13T15:24:17'), \
+    _to_datetime('2013-12-11T12:34:56'))
+    >>> print(x)
+    77 weeks
+    >>> int(y)
+    -594639
     '''
 
     t1 = _to_datetime(t1)
@@ -274,16 +277,16 @@ def day(t, now=None, format='%B %d'):
     :param format: default ``'%B %d'``
 
     >>> import time
-    >>> day(time.time())
-    u'today'
-    >>> day(time.time() - 86400)
-    u'yesterday'
-    >>> day(time.time() - 604800)
-    u'last week'
-    >>> day(time.time() + 86400)
-    u'tomorrow'
-    >>> day(time.time() + 604800)
-    u'next week'
+    >>> print(day(time.time()))
+    today
+    >>> print(day(time.time() - 86400))
+    yesterday
+    >>> print(day(time.time() - 604800))
+    last week
+    >>> print(day(time.time() + 86400))
+    tomorrow
+    >>> print(day(time.time() + 604800))
+    next week
     '''
     t1 = _to_date(t)
     t2 = _to_date(now or datetime.datetime.now())
@@ -328,32 +331,32 @@ def duration(t, now=None, precision=1, pad=', ', words=None,
 
     >>> import time
     >>> from datetime import datetime
-    >>> duration(time.time() + 1)
-    u'just now'
-    >>> duration(time.time() + 11)
-    u'11 seconds from now'
-    >>> duration(time.time() - 1)
-    u'just now'
-    >>> duration(time.time() - 11)
-    u'11 seconds ago'
-    >>> duration(time.time() - 3601)
-    u'an hour ago'
-    >>> duration(time.time() - 7201)
-    u'2 hours ago'
-    >>> duration(time.time() - 1234567)
-    u'2 weeks ago'
-    >>> duration(time.time() + 7200, precision=1)
-    u'2 hours from now'
-    >>> duration(time.time() - 1234567, precision=3)
-    u'2 weeks, 6 hours, 56 minutes ago'
-    >>> duration(datetime(2014, 9, 8), now=datetime(2014, 9, 9))
-    u'yesterday'
-    >>> duration(datetime(2014, 9, 7, 23), now=datetime(2014, 9, 9))
-    u'1 day ago'
-    >>> duration(datetime(2014, 9, 10), now=datetime(2014, 9, 9))
-    u'tomorrow'
-    >>> duration(datetime(2014, 9, 11, 1), now=datetime(2014, 9, 9, 23))
-    u'1 day from now'
+    >>> print(duration(time.time() + 1))
+    just now
+    >>> print(duration(time.time() + 11))
+    11 seconds from now
+    >>> print(duration(time.time() - 1))
+    just now
+    >>> print(duration(time.time() - 11))
+    11 seconds ago
+    >>> print(duration(time.time() - 3601))
+    an hour ago
+    >>> print(duration(time.time() - 7201))
+    2 hours ago
+    >>> print(duration(time.time() - 1234567))
+    2 weeks ago
+    >>> print(duration(time.time() + 7200, precision=1))
+    2 hours from now
+    >>> print(duration(time.time() - 1234567, precision=3))
+    2 weeks, 6 hours, 56 minutes ago
+    >>> print(duration(datetime(2014, 9, 8), now=datetime(2014, 9, 9)))
+    yesterday
+    >>> print(duration(datetime(2014, 9, 7, 23), now=datetime(2014, 9, 9)))
+    1 day ago
+    >>> print(duration(datetime(2014, 9, 10), now=datetime(2014, 9, 9)))
+    tomorrow
+    >>> print(duration(datetime(2014, 9, 11, 1), now=datetime(2014, 9, 9, 23)))
+    1 day from now
     '''
 
     if words is None:
@@ -406,18 +409,18 @@ def compress(t, sign=False, pad=''):
     :param sign: default ``False``
     :param pad: default ``''``
 
-    >>> compress(1)
-    u'1s'
-    >>> compress(12)
-    u'12s'
-    >>> compress(123)
-    u'2m3s'
-    >>> compress(1234)
-    u'20m34s'
-    >>> compress(12345)
-    u'3h25m45s'
-    >>> compress(123456)
-    u'1d10h17m36s'
+    >>> print(compress(1))
+    1s
+    >>> print(compress(12))
+    12s
+    >>> print(compress(123))
+    2m3s
+    >>> print(compress(1234))
+    20m34s
+    >>> print(compress(12345))
+    3h25m45s
+    >>> print(compress(123456))
+    1d10h17m36s
 
     '''
 
