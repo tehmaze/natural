@@ -43,6 +43,6 @@ The project documentation can be found at http://natural.rtfd.org/
     keywords='natural data date file number size',
     url='https://github.com/tehmaze/natural',
     packages=['natural'],
-    package_data={'natural': ['locale/*/LC_MESSAGES/*.mo']},
+    package_data={'natural': ['locales/*/LC_MESSAGES/*.mo']},
     install_requires=['six'],
 )

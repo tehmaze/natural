@@ -46,7 +46,7 @@ from natural.language import _
 .. py:function:: _(message)
 
    Return the localised translation of ``message``, based on the current global
-   domain, language, and locale directory.
+   domain, language, and locales directory.
 
 
 .. py:function:: _multi(singular, plural, count)
