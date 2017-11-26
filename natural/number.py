@@ -48,18 +48,18 @@ def ordinal(value):
 
     :param value: number
 
-    >>> ordinal(1)
-    '1st'
-    >>> ordinal(11)
-    '11th'
-    >>> ordinal(101)
-    '101st'
-    >>> ordinal(104)
-    '104th'
-    >>> ordinal(113)
-    '113th'
-    >>> ordinal(123)
-    '123rd'
+    >>> print(ordinal(1))
+    1st
+    >>> print(ordinal(11))
+    11th
+    >>> print(ordinal(101))
+    101st
+    >>> print(ordinal(104))
+    104th
+    >>> print(ordinal(113))
+    113th
+    >>> print(ordinal(123))
+    123rd
     '''
 
     try:
@@ -80,14 +80,14 @@ def double(value, digits=2):
     :param value: number
     :param digits: default ``2``
 
-    >>> double(42)
-    '42.00'
-    >>> double(42, digits=1)
-    '42.0'
-    >>> double(12.34)
-    '12.34'
-    >>> double(1234.56)
-    '1,234.56'
+    >>> print(double(42))
+    42.00
+    >>> print(double(42, digits=1))
+    42.0
+    >>> print(double(12.34))
+    12.34
+    >>> print(double(1234.56))
+    1,234.56
 
     '''
 
@@ -100,14 +100,14 @@ def number(value):
 
     :param value: number
 
-    >>> number(42)
-    '42'
-    >>> number(12.34)
-    '12'
-    >>> number(1234)
-    '1,234'
-    >>> number(1234567)
-    '1,234,567'
+    >>> print(number(42))
+    42
+    >>> print(number(12.34))
+    12
+    >>> print(number(1234))
+    1,234
+    >>> print(number(1234567))
+    1,234,567
 
     '''
 
@@ -121,17 +121,17 @@ def percentage(value, digits=2):
     :param value: number
     :param digits: default ``2``
 
-    >>> percentage(1)
-    '100.00 %'
-    >>> percentage(0.23, digits=0)
-    '23 %'
-    >>> percentage(23.421)
-    '2,342.10 %'
+    >>> print(percentage(1))
+    100.00 %
+    >>> print(percentage(0.23, digits=0))
+    23 %
+    >>> print(percentage(23.421))
+    2,342.10 %
 
     '''
 
     value = float(value) * 100.0
-    return '%s %%' % (_format(value, digits),)
+    return u'' + '%s %%' % (_format(value, digits),)
 
 
 def word(value, digits=2):
@@ -141,10 +141,10 @@ def word(value, digits=2):
 
     :param value: number
 
-    >>> word(1)
-    '1'
-    >>> word(123456789)
-    '123.46 million'
+    >>> print(word(1))
+    1
+    >>> print(word(123456789))
+    123.46 million
 
     '''
 
@@ -154,7 +154,7 @@ def word(value, digits=2):
     prefix = value < 0 and '-' or ''
     value = abs(int(value))
     if value < 1000:
-        return ''.join([
+        return u''.join([
             prefix,
             decimal_zero.sub('', _format(value, digits)),
         ])

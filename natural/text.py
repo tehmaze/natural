@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+from __future__ import unicode_literals, print_function
+
 from natural.constant import NATO_ALPHABET, NATO_ALPHABET_PHONETIC
 from natural.constant import SPELL_ALPHABET, CODE_PRONOUNCIATION
 from natural.constant import CODE_ALPHABET_ARMY, CODE_ALPHABET_FAA
@@ -10,7 +12,7 @@ NATO_ALPHABET_KEYS = sorted(NATO_ALPHABET.keys())
 
 
 class Spelling(object):
-    def __call__(self, sentence, pad=u' '):
+    def __call__(self, sentence, pad=' '):
         parts = []
         for letter in sentence.lower():
             letter = self.transform(letter)
@@ -68,7 +70,7 @@ CODE_PADDING = dict(
 )
 
 
-def code(sentence, pad=u'  ', format='army'):
+def code(sentence, pad='  ', format='army'):
     '''
     Transform a sentence using the code spelling alphabet, multiple
     international code alphabets are supported.
@@ -95,18 +97,23 @@ def code(sentence, pad=u'  ', format='army'):
     :param pad: default ``None`` (reside to per-alphabet defaults)
     :param format: default ``army``
 
-    >>> code('Python')
-    'PAH pah  YANG kee  TANG go  HO tell  OSS car  NOH vem ber'
-    >>> code('Python', format='faa')
-    'PAHPAH  YANGKEY  TANGGO  HOHTELL  OSSCAH  NOVEMBER'
-    >>> code('Python', format='icao')
-    'PAH PAH  YANG KEY  TANG GO  HOH TELL  OSS CAH  NO VEM BER'
-    >>> code('Python', format='itu')
-    'PAH PAH  YANG KEY  TANG GO  HOH TELL  OSS CAH  NO VEM BER'
-    >>> code('Python', format='morse')
-    '.--.  -.--  -  ....  ---  -.'
-    >>> code('Python', format='word')
-    'papa  yankee  tango  hotel  oscar  november'
+    >>> print(code('Python'))
+    PAH pah  YANG kee  TANG go  HO tell  OSS car  NOH vem ber
+    >>> print(code('Python', format='faa'))
+    PAHPAH  YANGKEY  TANGGO  HOHTELL  OSSCAH  NOVEMBER
+
+    >>> print(code('Python', format='icao'))
+    PAH PAH  YANG KEY  TANG GO  HOH TELL  OSS CAH  NO VEM BER
+
+    >>> print(code('Python', format='itu'))
+    PAH PAH  YANG KEY  TANG GO  HOH TELL  OSS CAH  NO VEM BER
+
+    >>> print(code('Python', format='morse'))
+    .--.  -.--  -  ....  ---  -.
+
+    >>> print(code('Python', format='word'))
+    papa  yankee  tango  hotel  oscar  november
+
     '''
     try:
         return ALPHABET['code'][format](sentence, pad or CODE_PADDING[format])
@@ -118,8 +125,9 @@ def morse(sentence, pad=CODE_PADDING['morse']):
     '''
     Wrapper for :func:`code`.
 
-    >>> morse('Python')
-    '.--. -.-- - .... --- -.'
+    >>> print(morse('Python'))
+    .--. -.-- - .... --- -.
+
     '''
     return code(sentence, pad, 'morse')
 
@@ -129,16 +137,18 @@ def nato(sentence, pad=' ', format='telephony'):
     Transform a sentence using the NATO spelling alphabet.
 
     :param sentence: input sentence
-    :param pad: default ``u' '``
+    :param pad: default ``' '``
     :param format: default ``telephony``, options ``telephony`` or ``phonetic``
 
-    >>> nato('Python')
-    'papa yankee tango hotel oscar november'
-    >>> nato('Python', format='phonetic')
-    'pah-pah yang-key tang-go hoh-tel oss-cah no-vem-ber'
+    >>> print(nato('Python'))
+    papa yankee tango hotel oscar november
+
+    >>> print(nato('Python', format='phonetic'))
+    pah-pah yang-key tang-go hoh-tel oss-cah no-vem-ber
+
     '''
     try:
-        return ALPHABET['nato'][format](sentence, pad)
+        return '' + ALPHABET['nato'][format](sentence, pad)
     except KeyError:
         raise TypeError('Unsupported NATO alphabet "%s"' % (format,))
 
@@ -148,25 +158,27 @@ def spell(sentence, pad='  '):
     Transform a sentence using the localised spelling alphabet.
 
     :param sentence: input sentence
-    :param pad: default ``u'  '``
+    :param pad: default ``'  '``
 
-    >>> spell('Python')
-    'Paris  Yokohama  Tripoli  Havanna  Oslo  New York'
+    >>> print(spell('Python'))
+    Paris  Yokohama  Tripoli  Havanna  Oslo  New York
+
     '''
     return ALPHABET['spell'](sentence, pad)
 
 
-def pronounce(sentence, pad=u' '):
+def pronounce(sentence, pad=' '):
     '''
     Transform a sentence using the pronounciations of the international code
     spelling alphabet. This function is subject to change its behaviour to
     support internationalised pronounciations of letters.
 
     :param sentence: input sentence
-    :param pad: default ``u'  '``
+    :param pad: default ``'  '``
 
-    >>> pronounce('abc')
-    'ælfɑ ˈbrɑːˈvo ˈtʃɑːli'
+
+    >>> print(pronounce('abc'))
+    ælfɑ ˈbrɑːˈvo ˈtʃɑːli
 
     '''
     return ALPHABET['pronounce'](sentence, pad)
