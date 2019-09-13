@@ -1,5 +1,5 @@
 from django.template import Library
-from natural import data, date, number, text, size
+from natural import data, date, number, text, size, file
 
 register = Library()
 
