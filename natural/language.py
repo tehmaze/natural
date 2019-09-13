@@ -21,7 +21,7 @@ import six
 
 locale.setlocale(locale.LC_ALL, '')
 
-LOCALE_PATH = os.path.join(os.path.dirname(__file__), 'locale')
+LOCALE_PATH = os.path.join(os.path.dirname(__file__), 'locales')
 gettext.bindtextdomain('natural', LOCALE_PATH)
 gettext.textdomain('natural')
 try:

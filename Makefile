@@ -1,8 +1,8 @@
 PYTHON := python
 DOMAIN := natural
-LOCALE := natural/locale/en_US/LC_MESSAGES
-ALL_PO := $(shell ls -1 locale/*.po | while read po; do basename "$$po"; done)
-ALL_MO := $(shell ls -1 locale/*.po | while read po; do basename "$$po" | sed -e 's/po$$/mo/'; done)
+LOCALE := natural/locales/en_US/LC_MESSAGES
+ALL_PO := $(shell ls -1 locales/*.po | while read po; do basename "$$po"; done)
+ALL_MO := $(shell ls -1 locales/*.po | while read po; do basename "$$po" | sed -e 's/po$$/mo/'; done)
 
 test: test-nosetests test-pep8
 
@@ -17,31 +17,31 @@ translate: en_US.mo en_GB.mo nl_NL.mo af_ZA.mo de_DE.mo fr_FR.mo
 translate-all: $(ALL_PO) $(ALL_MO)
 
 translate-extract:
-	@mkdir -p locale
-	@echo "Extracting gettext to locale/natural.pot"
+	@mkdir -p locales
+	@echo "Extracting gettext to locales/natural.pot"
 	@xgettext \
         --language=Python \
         --keyword=_ --keyword=__  \
         --package-name natural \
         --copyright-holder "Wijnand Modderman-Lenstra" \
-        -d $(DOMAIN) -o locale/natural.pot natural/*.py
-	@sed -e 's/charset=CHARSET/charset=UTF-8/' -i locale/natural.pot
+        -d $(DOMAIN) -o locales/natural.pot natural/*.py
+	@sed -e 's/charset=CHARSET/charset=UTF-8/' -i locales/natural.pot
 
 %.po:
-	@if [ -e locale/$@ ]; then \
-        echo -n "Merging locale/$@: "; \
-        msgmerge -U locale/$@ locale/natural.pot; \
+	@if [ -e locales/$@ ]; then \
+        echo -n "Merging locales/$@: "; \
+        msgmerge -U locales/$@ locales/natural.pot; \
     else \
 	    msginit \
-        --input=locale/natural.pot \
+        --input=locales/natural.pot \
         --locale=$(@:.po=) \
         --no-translator \
-        --output-file=locale/$@; \
+        --output-file=locales/$@; \
 	fi
 
 %.mo:
-	@mkdir -p natural/locale/$(@:.mo=)/LC_MESSAGES
-	@echo "Compiling natural/locale/$(@:.mo=)/LC_MESSAGES/natural.mo"
+	@mkdir -p natural/locales/$(@:.mo=)/LC_MESSAGES
+	@echo "Compiling natural/locales/$(@:.mo=)/LC_MESSAGES/natural.mo"
 	@msgfmt \
-        --output-file=natural/locale/$(@:.mo=)/LC_MESSAGES/natural.mo \
-        locale/$(@:.mo=.po)
+        --output-file=natural/locales/$(@:.mo=)/LC_MESSAGES/natural.mo \
+        locales/$(@:.mo=.po)
