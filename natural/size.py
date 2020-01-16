@@ -3,13 +3,13 @@ from natural.constant import FILESIZE_SUFFIX
 from natural.number import _format
 
 FILESIZE_BASE = dict(
-    decimal=1024,
-    binary=1000,
+    decimal=1000,
+    binary=1024,
     gnu=1024,
 )
 
 
-def filesize(value, format='decimal', digits=2):
+def filesize(value, format='binary', digits=2):
     '''
     Convert a file size into natural readable format. Multiple formats are
     supported.
@@ -22,9 +22,9 @@ def filesize(value, format='decimal', digits=2):
     >>> print(filesize(123))
     123.00 B
     >>> print(filesize(123456))
-    120.56 kB
+    120.56 KiB
     >>> print(filesize(1234567890))
-    1.15 GB
+    1.15 GiB
     '''
 
     if format not in FILESIZE_SUFFIX:
@@ -58,9 +58,9 @@ def decimalsize(value):
     >>> print(decimalsize(123))
     123.00 B
     >>> print(decimalsize(123456))
-    120.56 kB
+    123.46 kB
     >>> print(decimalsize(1234567890))
-    1.15 GB
+    1.23 GB
     '''
     return filesize(value, format='decimal')
 
@@ -70,11 +70,11 @@ def binarysize(value):
     Wrapper for :py:func:`filesize`.
 
     >>> print(binarysize(123))
-    123.00 iB
+    123.00 B
     >>> print(binarysize(123456))
-    123.46 KiB
+    120.56 KiB
     >>> print(binarysize(1234567890))
-    1.23 GiB
+    1.15 GiB
     '''
     return filesize(value, format='binary')
 

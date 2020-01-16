@@ -260,7 +260,7 @@ LARGE_NUMBER_SUFFIX = (
 # natural.file
 FILESIZE_SUFFIX = dict(
     decimal=('B', 'kB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'),
-    binary=('iB', 'KiB', 'MiB', 'GiB', 'TiB', 'PiB', 'EiB', 'ZiB', 'YiB'),
+    binary=('B', 'KiB', 'MiB', 'GiB', 'TiB', 'PiB', 'EiB', 'ZiB', 'YiB'),
     gnu='BKMGTPEZY',
 )
 
