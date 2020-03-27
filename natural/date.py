@@ -409,6 +409,8 @@ def compress(t, sign=False, pad=''):
     :param sign: default ``False``
     :param pad: default ``''``
 
+    >>> print(compress(0))
+    0s
     >>> print(compress(1))
     1s
     >>> print(compress(12))
@@ -448,7 +450,7 @@ def compress(t, sign=False, pad=''):
         parts.append(_('%dh') % (hours,))
     if minutes:
         parts.append(_('%dm') % (minutes,))
-    if seconds:
+    if seconds or len(parts) == 0:
         parts.append(_('%ds') % (seconds,))
 
     return pad.join(parts)
