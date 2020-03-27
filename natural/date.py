@@ -143,9 +143,9 @@ def delta(t1, t2, words=True, justnow=datetime.timedelta(seconds=10)):
     :param justnow: default ``datetime.timedelta(seconds=10)``,
                :class:`datetime.timedelta` object representing tolerance for
                considering a delta as meaning 'just now'
+    :returns: tuple of (human readable string, delta in seconds)
 
-    >>> (x,y) = delta(_to_datetime('2012-06-13T15:24:17'), \
-    _to_datetime('2013-12-11T12:34:56'))
+    >>> (x,y) = delta('2012-06-13T15:24:17', '2013-12-11T12:34:56')
     >>> print(x)
     77 weeks
     >>> int(y)
