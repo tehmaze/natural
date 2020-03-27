@@ -117,7 +117,7 @@ def sparkline(data):
     ])
 
 
-def throughput(sample, window=1, format='decimal'):
+def throughput(sample, window=1, format='binary'):
     '''
     Return the throughput in (intelli)bytes per second.
 
@@ -127,7 +127,7 @@ def throughput(sample, window=1, format='decimal'):
     :param format: default 'decimal', see :func:`natural.size.filesize`
 
     >>> print(throughput(123456, 42))
-    2.87 kB/s
+    2.87 KiB/s
     '''
 
     if isinstance(window, datetime.timedelta):
