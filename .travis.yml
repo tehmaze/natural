@@ -1,8 +1,8 @@
 language: python
 python:
  - "2.7"
- - "3.6"
- - "nightly"
+ - "3.7"
+ - "3.8"
 # command to install build dependencies
 before_install:
  - pip install -r requirements_development.txt
